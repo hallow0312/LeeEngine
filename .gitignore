@@ -1,0 +1,54 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Unity generated folders
+[Ll]ibrary/
+[Tt]emp/
+[Bb]uild/
+[Bb]uilds/
+[Oo]bj/
+[Mm]emoryCaptures/
+*.unityproj
+*.pidb
+*.booproj
+*.svd
+*.pdb
+
+# Auto-generated VS/JetBrains files
+*.csproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb.meta
+
+# Unity cache
+*.bak
+*.old
+*.tmp
+
+# Unity cloud
+*.cloud
+
+# Crash reports
+sysinfo.txt
+
+# Logs
+*.log
+
+# Serialized data (optional, if not using version control for them)
+*.json
+*.yaml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Rider
+.idea/
+*.sln.iml
