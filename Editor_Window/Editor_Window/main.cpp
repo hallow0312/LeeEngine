@@ -43,6 +43,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     MSG msg;
 
     // 기본 메시지 루프입니다:
+    //유저가 끝낼때까지는 멈추면 안될거다 
+    //message라는것을 이용해서 프로그램이돌아감 
     while (GetMessage(&msg, nullptr, 0, 0))
     {
         if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
@@ -62,19 +64,19 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 //
 //  용도: 창 클래스를 등록합니다.
 //
-ATOM MyRegisterClass(HINSTANCE hInstance)
+ATOM MyRegisterClass(HINSTANCE hInstance)  //윈도우 정보 등록 
 {
     WNDCLASSEXW wcex;
 
     wcex.cbSize = sizeof(WNDCLASSEX);
-
+    
     wcex.style          = CS_HREDRAW | CS_VREDRAW;
     wcex.lpfnWndProc    = WndProc;
     wcex.cbClsExtra     = 0;
     wcex.cbWndExtra     = 0;
     wcex.hInstance      = hInstance;
     wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_EDITORWINDOW));
-    wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
+    wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW); //커서 (기본적으로 들어있는)
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
     wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_EDITORWINDOW);
     wcex.lpszClassName  = szWindowClass;
@@ -123,7 +125,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-    switch (message)
+    switch (message)//매 프레임마다 호출 
     {
     case WM_COMMAND:
         {
@@ -150,9 +152,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             EndPaint(hWnd, &ps);
         }
         break;
-    case WM_DESTROY:
+    case WM_DESTROY: //윈도우 종료시 호출 x버튼 누를때 겠지 ㅇㅇ
         PostQuitMessage(0);
         break;
+   //WM_MOVE : 윈도우 창을 움직이는 경우 
     default:
         return DefWindowProc(hWnd, message, wParam, lParam);
     }
