@@ -3,7 +3,10 @@
 
 #include "framework.h"
 #include "Editor_Window.h"
+#include"../Sichun_SOURCE/S_Application.h"
 
+//#pragma comment (lib,"..//x64//Debug//SichunEngine.lib")
+Application app;
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
@@ -42,17 +45,35 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     MSG msg;
 
-    // 기본 메시지 루프입니다:
-    //유저가 끝낼때까지는 멈추면 안될거다 
-    //message라는것을 이용해서 프로그램이돌아감 
-    while (GetMessage(&msg, nullptr, 0, 0))
+    //GetMessage(&msg, nullptr, 0, 0)
+    // 프로세스에서 발생한 메세지를 메세지 queue 에서 가져오는 함수 
+    // 메세지 queue에 아무것도 없다면 ?? : 아무메세지도 가져오지 않게 된다 .
+    // 
+    // PeekMessage : 메세지 queue에 메세지 유무에 상관없이 함수가 return 된다.
+    // return 값이 true인경우 메세지가 있고 false 인경우 메세지가 없다고 가르켜준다.
+    // 
+    
+    while (true)
     {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+        //게임은 왠만하면 무조건 peekmessage  
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
         {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
+            if (msg.message == WM_QUIT)break;
+
+            if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+            {
+                TranslateMessage(&msg);
+                DispatchMessage(&msg);
+            }
+        }
+        else
+        {
+            int a = 0;
+            //메세지가 없을경우 여기서 처리 
+            //게임 로직이 들어가면 됨  
         }
     }
+
 
     return (int) msg.wParam;
 }
