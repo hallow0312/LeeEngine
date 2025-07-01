@@ -10,7 +10,7 @@
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
-
+ 
 // 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
 BOOL                InitInstance(HINSTANCE, int);
@@ -82,7 +82,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)  //윈도우 정보 등록
     wcex.lpszClassName  = szWindowClass;
     wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
-    return RegisterClassExW(&wcex);
+    return RegisterClassExW(&wcex); //이함수를 이용해서 RAM 에다가 등록을 함
 }
 
 //
@@ -101,15 +101,15 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
-
+ 
    if (!hWnd)
    {
       return FALSE;
    }
 
    ShowWindow(hWnd, nCmdShow);
+ 
    UpdateWindow(hWnd);
-
    return TRUE;
 }
 
@@ -147,7 +147,27 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_PAINT:
         {
             PAINTSTRUCT ps;
-            HDC hdc = BeginPaint(hWnd, &ps);
+           HDC hdc = BeginPaint(hWnd, &ps);
+
+           HBRUSH  brush = CreateSolidBrush(RGB(0, 0, 255));
+           
+           HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, brush);
+
+           Rectangle(hdc, 100, 100, 200, 200);
+           SelectObject(hdc,  oldBrush);
+           DeleteObject(brush);
+          
+           HPEN redPen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
+           HPEN  oldPen = (HPEN)SelectObject(hdc, redPen);
+           Ellipse(hdc, 200, 200, 300, 300);
+           SelectObject(hdc, oldPen);
+           DeleteObject(redPen);
+
+           HBRUSH grayBrush = (HBRUSH)GetStockObject(GRAY_BRUSH);
+           oldBrush = (HBRUSH)SelectObject(hdc, grayBrush);
+           Rectangle(hdc, 400, 400, 500, 500);
+           SelectObject(hdc, oldBrush);
+           //DEVICE CONTEXT 
             // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
             EndPaint(hWnd, &ps);
         }
