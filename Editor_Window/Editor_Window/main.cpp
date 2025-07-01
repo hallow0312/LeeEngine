@@ -6,7 +6,8 @@
 #include"../Sichun_SOURCE/S_Application.h"
 
 //#pragma comment (lib,"..//x64//Debug//SichunEngine.lib")
-Application app;
+Sichun::Application _application;
+
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
@@ -68,9 +69,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         }
         else
         {
-            int a = 0;
-            //메세지가 없을경우 여기서 처리 
-            //게임 로직이 들어가면 됨  
+            _application.Run();
         }
     }
 
@@ -120,9 +119,10 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
+   HWND hWnd = CreateWindowW(szWindowClass, L"Sichun", WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
  
+   _application.Initialize(hWnd);
    if (!hWnd)
    {
       return FALSE;
@@ -170,26 +170,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             PAINTSTRUCT ps;
            HDC hdc = BeginPaint(hWnd, &ps);
 
-           HBRUSH  brush = CreateSolidBrush(RGB(0, 0, 255));
-           
-           HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, brush);
-
-           Rectangle(hdc, 100, 100, 200, 200);
-           SelectObject(hdc,  oldBrush);
-           DeleteObject(brush);
           
-           HPEN redPen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
-           HPEN  oldPen = (HPEN)SelectObject(hdc, redPen);
-           Ellipse(hdc, 200, 200, 300, 300);
-           SelectObject(hdc, oldPen);
-           DeleteObject(redPen);
-
-           HBRUSH grayBrush = (HBRUSH)GetStockObject(GRAY_BRUSH);
-           oldBrush = (HBRUSH)SelectObject(hdc, grayBrush);
-           Rectangle(hdc, 400, 400, 500, 500);
-           SelectObject(hdc, oldBrush);
-           //DEVICE CONTEXT 
-            // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
             EndPaint(hWnd, &ps);
         }
         break;
