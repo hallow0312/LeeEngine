@@ -1,5 +1,6 @@
 #pragma once
 #include"CommonInclude.h"
+#include"GameObject.h"
 
 namespace Sichun {
 	class Application
@@ -22,9 +23,8 @@ namespace Sichun {
 		HWND _hwnd;
 		HDC _hdc;
 		
-		float _speed;
-		float _x;
-		float _y;
+		
+		GameObject _obj;
 
 	};
 }
