@@ -1,5 +1,6 @@
 #include "S_Application.h"
 #include"InputManager.h"
+#include"STime.h"
 namespace Sichun {
 
 	Application::Application():_hwnd(nullptr),_hdc(nullptr)
@@ -15,11 +16,13 @@ namespace Sichun {
 		_hwnd = hwnd;
 		_hdc = GetDC(_hwnd);
 		InputManager::Initialize();
+		Time::Initialize();
 	
 	}
 	void Application::Update()
 	{
 		InputManager::Update();
+		Time::Update();
 		_obj.Update();
 	
 	}
@@ -38,8 +41,8 @@ namespace Sichun {
 
 	void Application::Render()
 	{
+		Time::Render(_hdc);
 		_obj.Render(_hdc);
-
 	}
 
 }

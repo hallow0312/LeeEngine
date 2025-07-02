@@ -1,5 +1,6 @@
 #include "GameObject.h"
 #include "InputManager.h"
+#include"STime.h"
 namespace Sichun {
 	GameObject::GameObject()
 	{
@@ -14,13 +15,13 @@ namespace Sichun {
 		float x = GetPositionX();
 		float y = GetPositionY();
 
-		float moveSpeed = 0.01f;
+		float speed = 100.0f;
 
 		int horizontal = InputManager::GetAxis(AxisName::HORIZONTAL);
 		int vertical = InputManager::GetAxis(AxisName::VERTICAL);
 
-		_x += horizontal * moveSpeed;
-		_y += vertical * moveSpeed;
+		_x += horizontal * speed*Time::DeltaTime() ;
+		_y += vertical * speed*Time::DeltaTime();
 		
 	}
 	void GameObject::LateUpdate()

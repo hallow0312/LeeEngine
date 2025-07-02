@@ -3,7 +3,7 @@
 
 namespace Sichun
 {
-	vector<InputManager::Key> InputManager::_keys = {};
+	vector<InputManager::Key> InputManager::Keys = {};
 
 	static const int VKMap[] =
 	{
@@ -17,19 +17,24 @@ namespace Sichun
 
 	void InputManager::Initialize()
 	{
+		CreateKeys();
+	}
+
+	void InputManager::Update()
+	{
+		CheckKeyInput();
+	}
+
+	void InputManager::CreateKeys()
+	{
 		for (size_t i = 0; i < static_cast<size_t>(KeyCode::End); i++)
 		{
 			Key key = {};
 			key._isPressed = false;
 			key._state = KeyState::NONE;
 			key._keyCode = static_cast<KeyCode>(i);
-			_keys.push_back(key);
+			Keys.push_back(key);
 		}
-	}
-
-	void InputManager::Update()
-	{
-		CheckKeyInput();
 	}
 
 	void InputManager::CheckKeyInput()
@@ -40,44 +45,45 @@ namespace Sichun
 
 			if (isPressed)
 			{
-				if (_keys[i]._isPressed)
+				if (Keys[i]._isPressed)
 				{
-					_keys[i]._state = KeyState::PRESSED;
+					Keys[i]._state = KeyState::PRESSED;
 				}
 				else
 				{
-					_keys[i]._state = KeyState::DOWN;
-					_keys[i]._isPressed = true;
+					Keys[i]._state = KeyState::DOWN;
+					Keys[i]._isPressed = true;
 				}
 			}
 			else
 			{
-				if (_keys[i]._isPressed)
+				if (Keys[i]._isPressed)
 				{
-					_keys[i]._state = KeyState::UP;
-					_keys[i]._isPressed = false;
+					Keys[i]._state = KeyState::UP;
+					Keys[i]._isPressed = false;
 				}
 				else
 				{
-					_keys[i]._state = KeyState::NONE;
+					Keys[i]._state = KeyState::NONE;
 				}
 			}
 		}
 	}
 
+#pragma region InputKey
 	bool InputManager::GetKeyDown(KeyCode code)
 	{
-		return _keys[static_cast<size_t>(code)]._state == KeyState::DOWN;
+		return Keys[static_cast<size_t>(code)]._state == KeyState::DOWN;
 	}
 
 	bool InputManager::GetKeyUp(KeyCode code)
 	{
-		return _keys[static_cast<size_t>(code)]._state == KeyState::UP;
+		return Keys[static_cast<size_t>(code)]._state == KeyState::UP;
 	}
 
 	bool InputManager::GetKey(KeyCode code)
 	{
-		return _keys[static_cast<size_t>(code)]._state == KeyState::PRESSED;
+		return Keys[static_cast<size_t>(code)]._state == KeyState::PRESSED;
 	}
 
 	int InputManager::GetAxis(AxisName axis)
@@ -114,4 +120,7 @@ namespace Sichun
 		else
 			return 0;
 	}
+#pragma endregion
+
+	
 }
