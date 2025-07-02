@@ -1,5 +1,5 @@
 #include "GameObject.h"
-
+#include "InputManager.h"
 namespace Sichun {
 	GameObject::GameObject()
 	{
@@ -14,23 +14,13 @@ namespace Sichun {
 		float x = GetPositionX();
 		float y = GetPositionY();
 
-		if (GetAsyncKeyState(VK_LEFT) & 0x8000)
-		{
-			_x -= 0.01f;
-		}
-		if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
-		{
-			_x += 0.01f;
+		float moveSpeed = 0.01f;
 
-		}
-		if (GetAsyncKeyState(VK_UP) & 0x8000)
-		{
-			_y -= 0.01f;
-		}
-		if (GetAsyncKeyState(VK_DOWN) & 0x8000)
-		{
-			_y += 0.01f;
-		}
+		int horizontal = InputManager::GetAxis(AxisName::HORIZONTAL);
+		int vertical = InputManager::GetAxis(AxisName::VERTICAL);
+
+		_x += horizontal * moveSpeed;
+		_y += vertical * moveSpeed;
 		
 	}
 	void GameObject::LateUpdate()

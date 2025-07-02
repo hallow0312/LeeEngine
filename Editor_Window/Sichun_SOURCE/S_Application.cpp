@@ -1,5 +1,5 @@
 #include "S_Application.h"
-
+#include"InputManager.h"
 namespace Sichun {
 
 	Application::Application():_hwnd(nullptr),_hdc(nullptr)
@@ -14,11 +14,12 @@ namespace Sichun {
 	{
 		_hwnd = hwnd;
 		_hdc = GetDC(_hwnd);
-		
+		InputManager::Initialize();
 	
 	}
 	void Application::Update()
 	{
+		InputManager::Update();
 		_obj.Update();
 	
 	}
