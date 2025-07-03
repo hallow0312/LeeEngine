@@ -1,6 +1,7 @@
 #include "S_Application.h"
 #include"InputManager.h"
 #include"STime.h"
+#include"SSceneManager.h"
 namespace Sichun {
 
 	Application::Application():
@@ -21,16 +22,15 @@ namespace Sichun {
 		
 		SettingWindow(_hwnd, width, height);
 		CreateBackBuffer(_hwnd, width, height);
-
 		InputManager::Initialize();
-		Time::Initialize();
+		SceneManager::Initialize();
 	
 	}
 	void Application::Update()
 	{
 		InputManager::Update();
 		Time::Update();
-		_obj.Update();
+		SceneManager::Update();
 	}
 	
 	void  Application::Run()
@@ -42,18 +42,25 @@ namespace Sichun {
 
 	void Application::LateUpdate()
 	{
-		_obj.LateUpdate();
+		SceneManager::LateUpdate();
 	}
 
 	void Application::Render()
 	{
-		Rectangle(_backhdc, 0, 0, 1600, 900);
+		ClearRenderTarget();
 		Time::Render(_backhdc);
-		_obj.Render(_backhdc);
-
-		BitBlt(_hdc,0,0,_width,_height,_backhdc,0,0,SRCCOPY);
+		SceneManager::Render(_backhdc);
+		CopyRenderTarget(_backhdc,_hdc);
+		
 	}
-
+	void Application::CopyRenderTarget(HDC sourceHdc, HDC destHdc)
+	{
+		BitBlt(destHdc, 0, 0, _width, _height, sourceHdc, 0, 0, SRCCOPY);
+	}
+	void Application::ClearRenderTarget()
+	{
+		Rectangle(_backhdc, -1, -1, 1601, 901);
+	}
 	void Application::SettingWindow(HWND hwnd, UINT width, UINT height)
 	{
 		RECT rect = { 0,0,width,height };
@@ -62,9 +69,11 @@ namespace Sichun {
 		_height = rect.bottom - rect.top;
 
 		AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
+
 		SetWindowPos(_hwnd, nullptr, 100, 0,
 			rect.right - rect.left, rect.bottom - rect.top,
 			0);
+
 		ShowWindow(_hwnd, false);
 	}
 	void Application::CreateBackBuffer(HWND hwnd, UINT width, UINT height)

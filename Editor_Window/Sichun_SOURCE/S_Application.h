@@ -12,12 +12,9 @@ namespace Sichun {
 		void Initialize(HWND hwnd, UINT width, UINT height);
 
 		void Run();
-		
 		void Update();
 		void LateUpdate(); 
-
 		void Render();
-
 	private :
 		HWND _hwnd;
 
@@ -28,11 +25,13 @@ namespace Sichun {
 		UINT _width;
 		UINT _height;
 		
-		GameObject _obj;
-
+		
 	private:
+	
 		void SettingWindow(HWND hwnd ,UINT width, UINT height);
 		void CreateBackBuffer(HWND hwnd, UINT width, UINT height);
+		void ClearRenderTarget();
+		void CopyRenderTarget(HDC sourceHdc, HDC destHdc);
 	};
 }
 
