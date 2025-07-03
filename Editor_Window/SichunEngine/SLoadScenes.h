@@ -6,5 +6,9 @@ namespace Sichun
 	void LoadScenes()
 	{
 		SceneManager::CreateScene<PlayScene>(L"PlayScene");
+
+
+
+		SceneManager::LoadScene(L"PlayScene");
 	}
 }

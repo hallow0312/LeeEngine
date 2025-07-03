@@ -2,29 +2,25 @@
 #include"InputManager.h"
 #include"STime.h"
 #include"SSceneManager.h"
+
 namespace Sichun {
 
-	Application::Application():
-		_hwnd(nullptr),_hdc(nullptr),
-		_width(0),_height(0),
-		_backhdc(NULL),_backBuffer(NULL)
+	Application::Application() :
+		_hwnd(nullptr), _hdc(nullptr),
+		_width(0), _height(0),
+		_backhdc(NULL), _backBuffer(NULL)
 	{
-
 	}
 	Application::~Application()
 	{
-
 	}
-	void Application::Initialize(HWND hwnd,UINT width, UINT height) //copy X ADDRESS 0
+	void Application::Initialize(HWND hwnd, UINT width, UINT height)
 	{
-		_hwnd = hwnd;
-		_hdc = GetDC(_hwnd);
-		
-		SettingWindow(_hwnd, width, height);
-		CreateBackBuffer(_hwnd, width, height);
+		SettingWindow(hwnd, width, height);
+		CreateBackBuffer(hwnd, width, height);
+		Time::Initialize();
 		InputManager::Initialize();
 		SceneManager::Initialize();
-	
 	}
 	void Application::Update()
 	{
@@ -32,26 +28,22 @@ namespace Sichun {
 		Time::Update();
 		SceneManager::Update();
 	}
-	
 	void  Application::Run()
 	{
 		Update();
 		LateUpdate();
 		Render();
 	}
-
 	void Application::LateUpdate()
 	{
 		SceneManager::LateUpdate();
 	}
-
 	void Application::Render()
 	{
 		ClearRenderTarget();
 		Time::Render(_backhdc);
 		SceneManager::Render(_backhdc);
-		CopyRenderTarget(_backhdc,_hdc);
-		
+		CopyRenderTarget(_backhdc, _hdc);
 	}
 	void Application::CopyRenderTarget(HDC sourceHdc, HDC destHdc)
 	{
@@ -63,24 +55,29 @@ namespace Sichun {
 	}
 	void Application::SettingWindow(HWND hwnd, UINT width, UINT height)
 	{
-		RECT rect = { 0,0,width,height };
+		_hwnd = hwnd;
+		_hdc = GetDC(_hwnd);
 
+		RECT rect = { 0, 0, (LONG)width, (LONG)height };
 		_width = rect.right - rect.left;
 		_height = rect.bottom - rect.top;
 
-		AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
+		AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, FALSE);
+		int windowWidth = rect.right - rect.left;
+		int windowHeight = rect.bottom - rect.top;
 
-		SetWindowPos(_hwnd, nullptr, 100, 0,
-			rect.right - rect.left, rect.bottom - rect.top,
-			0);
+		int screenWidth = GetSystemMetrics(SM_CXSCREEN);
+		int screenHeight = GetSystemMetrics(SM_CYSCREEN);
 
-		ShowWindow(_hwnd, false);
+		int posX = (screenWidth - windowWidth) / 2;
+		int posY = (screenHeight - windowHeight) / 2;
+
+		SetWindowPos(_hwnd, nullptr, posX, posY, windowWidth, windowHeight, 0);
+		ShowWindow(_hwnd, SW_SHOW);
 	}
 	void Application::CreateBackBuffer(HWND hwnd, UINT width, UINT height)
 	{
-		//윈도우 해상도에 맞는 backbuffer 생성 
 		_backBuffer = CreateCompatibleBitmap(_hdc, width, height);
-		//backbuffer 를 가르킬 DC생성
 		_backhdc = CreateCompatibleDC(_hdc);
 		HBITMAP oldBitmap = static_cast<HBITMAP>(SelectObject(_backhdc, _backBuffer));
 		DeleteObject(oldBitmap);

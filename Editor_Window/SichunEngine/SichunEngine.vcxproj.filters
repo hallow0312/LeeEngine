@@ -15,6 +15,5 @@
     <ClCompile Include="SPlayScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="SLoadScenes.cpp" />
   </ItemGroup>
 </Project>

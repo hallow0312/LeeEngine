@@ -2,7 +2,7 @@
 
 namespace Sichun
 {
-	Scene::Scene()
+	Scene::Scene():_objs{}
 	{
 	}
 	Scene::~Scene()
@@ -32,5 +32,9 @@ namespace Sichun
 		{
 			element->Render(hdc);
 		}
+	}
+	void Scene::AddGameObject(shared_ptr<GameObject> obj)
+	{
+		_objs.push_back(obj);
 	}
 }

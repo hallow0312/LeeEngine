@@ -43,7 +43,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     {
         return FALSE;
     }
-
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_EDITORWINDOW));
 
     MSG msg;
@@ -136,6 +135,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    ShowWindow(hWnd, nCmdShow);
  
    UpdateWindow(hWnd);
+
    Sichun::LoadScenes();
 
    return TRUE;
