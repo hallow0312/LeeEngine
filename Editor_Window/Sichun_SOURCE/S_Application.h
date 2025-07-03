@@ -9,7 +9,7 @@ namespace Sichun {
 		Application();
 		~Application();
 
-		void Initialize(HWND _hwnd);
+		void Initialize(HWND hwnd, UINT width, UINT height);
 
 		void Run();
 		
@@ -18,14 +18,21 @@ namespace Sichun {
 
 		void Render();
 
-		
 	private :
 		HWND _hwnd;
+
 		HDC _hdc;
-		
+		HDC  _backhdc;
+		HBITMAP _backBuffer;
+
+		UINT _width;
+		UINT _height;
 		
 		GameObject _obj;
 
+	private:
+		void SettingWindow(HWND hwnd ,UINT width, UINT height);
+		void CreateBackBuffer(HWND hwnd, UINT width, UINT height);
 	};
 }
 
