@@ -24,7 +24,7 @@ namespace Sichun
 		L, Z, X, C, V, B,
 		N, M,
 
-		LEFT, UP, RIGHT, DOWN,
+		LEFT, UP, RIGHT, DOWN,SPACE,
 
 		End
 	};

@@ -12,7 +12,7 @@ namespace Sichun
 		'D','F','G','H','J','K',
 		'L','Z','X','C','V','B',
 		'N','M',
-		VK_LEFT, VK_UP, VK_RIGHT, VK_DOWN
+		VK_LEFT, VK_UP, VK_RIGHT, VK_DOWN,VK_SPACE
 	};
 
 	void InputManager::Initialize()
