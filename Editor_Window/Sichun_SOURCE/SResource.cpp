@@ -1,0 +1,1 @@
+#include "SResource.h"

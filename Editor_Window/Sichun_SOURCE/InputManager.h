@@ -56,7 +56,7 @@ namespace Sichun
 		static int GetAxis(const string& axisName);
 
 	private:
-		static vector<Key> Keys;
+		static std::vector<Key> Keys;
 		static void CreateKeys();
 		static void CheckKeyInput();
 	};

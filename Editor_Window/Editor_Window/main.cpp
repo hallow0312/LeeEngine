@@ -9,7 +9,8 @@
 
 //#pragma comment (lib,"..//x64//Debug//SichunEngine.lib")
 Sichun::Application _application;
-
+ULONG_PTR gpToken;
+Gdiplus::GdiplusStartupInput gpsi;
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
@@ -73,7 +74,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             _application.Run();
         }
     }
-
+    Gdiplus::GdiplusShutdown(gpToken);
 
     return (int) msg.wParam;
 }
@@ -120,12 +121,13 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   HWND hWnd = CreateWindowW(szWindowClass, L"Sichun", WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
-  
    const UINT width = 1600;
    const UINT height = 900;
 
+   HWND hWnd = CreateWindowW(szWindowClass, L"Sichun", WS_OVERLAPPEDWINDOW,
+      CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr);
+  
+   Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
    _application.Initialize(hWnd,width,height);
    if (!hWnd)
    {
@@ -135,7 +137,6 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    ShowWindow(hWnd, nCmdShow);
  
    UpdateWindow(hWnd);
-
    Sichun::LoadScenes();
 
    return TRUE;

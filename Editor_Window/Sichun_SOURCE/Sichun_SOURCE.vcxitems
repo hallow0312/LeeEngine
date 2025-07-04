@@ -19,6 +19,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)InputManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SEntity.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)SSpriteRenderer.h" />
@@ -31,6 +33,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)InputManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SEntity.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SMath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)SResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)SSpriteRenderer.cpp" />

@@ -15,11 +15,11 @@ namespace Sichun
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
 
-		void SetOwner(shared_ptr<GameObject>owner) { _owner = owner; }
-		shared_ptr<GameObject>GetOwner() { return _owner; }
+		void SetOwner(std::shared_ptr<GameObject>owner) { _owner = owner; }
+		std::shared_ptr<GameObject>GetOwner() { return _owner; }
 
 	private:
-		shared_ptr<GameObject>_owner;
+		std::shared_ptr<GameObject>_owner;
 	};
 
 }

@@ -3,7 +3,7 @@
 
 namespace Sichun
 {
-	vector<InputManager::Key> InputManager::Keys = {};
+	std::vector<InputManager::Key> InputManager::Keys = {};
 
 	static const int VKMap[] =
 	{

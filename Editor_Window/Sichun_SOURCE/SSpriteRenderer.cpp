@@ -2,7 +2,7 @@
 #include"GameObject.h"
 #include"STransform.h"
 namespace Sichun {
-	SpriteRenderer::SpriteRenderer()
+	SpriteRenderer::SpriteRenderer():_image(nullptr),_width(0),_height(0)
 	{
 	}
 
@@ -20,24 +20,34 @@ namespace Sichun {
 	}
 	void SpriteRenderer::Render(HDC hdc)
 	{
-		//파랑 브러쉬 생성
-		HBRUSH blueBrush
-			= CreateSolidBrush(RGB(255, 0, 255));
+		std::shared_ptr<Transform> tr = GetOwner()->GetComponent<Transform>();
+		Vector2 pos = tr->GetPos();
 
-		// 파랑 브러쉬 DC에 선택 그리고 흰색 브러쉬 반환값 반환
-		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, blueBrush);
-
-		HPEN redPen = CreatePen(PS_SOLID, 2, RGB(rand() % 255, rand() % 255, rand() % 255));
-		HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
-		SelectObject(hdc, oldPen);
-
-		shared_ptr<Transform> transform = GetOwner()->GetComponent<Transform>();
-		Rectangle(hdc, transform->GetX(), transform->GetY()
-			, 100 + transform->GetX(), 100 + transform->GetY());
-
-		SelectObject(hdc, oldBrush);
-		DeleteObject(blueBrush);
-		DeleteObject(redPen);
+		Gdiplus::Graphics graphics(hdc);
+		if (_image)
+		{
+			graphics.DrawImage(_image.get(), Gdiplus::Rect(pos.x, pos.y, _width, _height));
+		}
 	}
+
+	void SpriteRenderer::ImageLoad(const std::wstring& path)
+	{
+		
+
+		 _image = std::shared_ptr<Gdiplus::Image>(Gdiplus::Image::FromFile(path.c_str()));
+
+		 if (_image && _image->GetLastStatus() == Gdiplus::Ok)
+		 {
+			 _width = _image->GetWidth();
+			 _height = _image->GetHeight();
+			 OutputDebugString(L"[ImageLoad] 로딩 성공\n");
+		 }
+		 else
+		 {
+			 OutputDebugString(L"[ImageLoad] 로딩 실패!\n");
+			 _image = nullptr;
+		 }
+	}
+
 	
 }

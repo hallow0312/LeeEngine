@@ -3,12 +3,8 @@
 
 namespace Sichun 
 {
-	struct Pos
-	{
-		int _x;
-		int _y;
-	};
-
+	using namespace math;
+	
 	class Transform : public Component
 	{
 	public:
@@ -20,12 +16,10 @@ namespace Sichun
 		void LateUpdate()  override;
 		void Render(HDC hdc)  override;
 
-		void SetPos(int x, int y) { _x = x; _y = y; }
-		int GetX() { return _x; }
-		int GetY() { return _y; }
+		void SetPos(Vector2 pos) { _pos = pos; }
+		Vector2 GetPos() { return _pos; }
 
 	private:
-		int _x;
-		int _y;
+		Vector2 _pos;
 	};
 }

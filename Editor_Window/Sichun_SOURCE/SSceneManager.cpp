@@ -2,8 +2,8 @@
 
 namespace Sichun 
 {
-	shared_ptr<Scene> SceneManager::_activeScene = nullptr;
-	map<wstring, shared_ptr<Scene>> SceneManager::_scenes;
+	std::shared_ptr<Scene> SceneManager::_activeScene = nullptr;
+	std::map<std::wstring, std::shared_ptr<Scene>> SceneManager::_scenes;
 	void SceneManager::Initialize()
 	{
 		

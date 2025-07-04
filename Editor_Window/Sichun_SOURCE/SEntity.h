@@ -7,10 +7,10 @@ namespace Sichun {
 	public:
 		Entity();
 		virtual ~Entity();
-		void SetName(const wstring& name) { _name = name; }
-		wstring& GetName() { return _name; }
+		void SetName(const std::wstring& name) { _name = name; }
+		std::wstring& GetName() { return _name; }
 	private:
-		wstring _name;
+		std::wstring _name;
 
 	};
 

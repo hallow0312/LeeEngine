@@ -16,48 +16,16 @@ namespace Sichun
 
 	void PlayScene::Initialize()
 	{
-		{
-			shared_ptr<Player>p1 = make_shared<Player>();
-			shared_ptr<Transform>transform = p1->AddComponent<Transform>();
-			
-			transform->SetPos(800, 450);
-
-			transform->SetName(L"Transform");
-
-			shared_ptr<SpriteRenderer>sprite = p1->AddComponent<SpriteRenderer>();
-			sprite->SetName(L"sprite");
+		std::shared_ptr<Player>bg = std::make_shared<Player>();
+		std::shared_ptr<Transform>transform = bg->AddComponent<Transform>();
+		std::shared_ptr<SpriteRenderer>sprite = bg->AddComponent<SpriteRenderer>();
 		
-			AddGameObject(p1);
+		transform->SetPos(Vector2(0, 0));
+		transform->SetName(L"Transform");
 
-		}
-
-		{
-			shared_ptr<Player>p1 = make_shared<Player>();
-			shared_ptr<Transform>transform = p1->AddComponent<Transform>();
-
-			transform->SetPos(300, 450);
-
-			transform->SetName(L"Transform");
-
-			shared_ptr<SpriteRenderer>sprite = p1->AddComponent<SpriteRenderer>();
-			sprite->SetName(L"sprite");
-
-			AddGameObject(p1);
-		}
-
-		{
-			shared_ptr<Player>p1 = make_shared<Player>();
-			shared_ptr<Transform>transform = p1->AddComponent<Transform>();
-
-			transform->SetPos(100, 650);
-
-			transform->SetName(L"Transform");
-
-			shared_ptr<SpriteRenderer>sprite = p1->AddComponent<SpriteRenderer>();
-			sprite->SetName(L"sprite");
-
-			AddGameObject(p1);
-		}
+		sprite->SetName(L"Sprite");
+		sprite->ImageLoad(L"C:\\Users\\user\\Desktop\\2DGame\\LeeEngine\\Editor_Window\\Resources\\Sichun.png");
+		AddGameObject(bg);
 		 
 	}
 

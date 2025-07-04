@@ -1,8 +1,10 @@
 #pragma once
 #include"SEntity.h"
 #include"SComponent.h"
+
 namespace Sichun 
 {
+	
 	class SpriteRenderer:public Component
 	{
 	public:
@@ -12,8 +14,11 @@ namespace Sichun
 		void Update()override;
 		void LateUpdate()override;
 		void Render(HDC hdc)override;
-		
+		void ImageLoad(const std::wstring& path);
 	private:
+		std::shared_ptr<Gdiplus::Image> _image;
+		UINT _width;
+		UINT _height;
 	};
 
 }

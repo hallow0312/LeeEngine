@@ -13,10 +13,10 @@ namespace Sichun
 		void virtual LateUpdate();
 		void virtual Render(HDC hdc);
 
-		void AddGameObject(shared_ptr<GameObject>obj);
+		void AddGameObject(std::shared_ptr<GameObject>obj);
 	private:
-		vector<shared_ptr<GameObject>>_objs;
-	
+		
+		std::vector<std::shared_ptr<GameObject>>_objs;
 	};
 
 }
