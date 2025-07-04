@@ -10,35 +10,33 @@ namespace Sichun {
 	GameObject::~GameObject()
 	{
 	}
+	void GameObject::Initialize()
+	{
+		for (shared_ptr<Component>comp : _components)
+		{
+			comp->Initialize();
+		}
+	}
 	void GameObject::Update()
 	{
-		float x = GetPositionX();
-		float y = GetPositionY();
-
-		float speed = 100.0f;
-
-		int horizontal = InputManager::GetAxis(AxisName::HORIZONTAL);
-		int vertical = InputManager::GetAxis(AxisName::VERTICAL);
-
-		_x += horizontal * speed*Time::DeltaTime() ;
-		_y += vertical * speed*Time::DeltaTime();
+		for (shared_ptr<Component>comp : _components)
+		{
+			comp->Update();
+		}
 		
 	}
 	void GameObject::LateUpdate()
 	{
-
+		for (shared_ptr<Component>comp : _components)
+		{
+			comp->LateUpdate();
+		}
 	}
 	void GameObject::Render(HDC hdc)
 	{
-		HBRUSH  brush = CreateSolidBrush(RGB(0, 0, 255));
-
-		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, brush);
-
-		float x =GetPositionX();
-		float y =GetPositionY();
-
-		Rectangle(hdc, 100 + x, 100 + y, 200 + x, 200 + y);
-		SelectObject(hdc, oldBrush);
-		DeleteObject(brush);
+		for (shared_ptr<Component>comp : _components)
+		{
+			comp->Render(hdc);
+		}
 	}
 }

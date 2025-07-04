@@ -10,10 +10,12 @@
       <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="SLoadScenes.h" />
+    <ClInclude Include="SPlayer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SPlayScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="SPlayer.cpp" />
   </ItemGroup>
 </Project>
