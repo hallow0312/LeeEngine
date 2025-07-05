@@ -7,6 +7,7 @@
 #include"Component/SSpriteRenderer.h"
 #include"Component/STexture.h"
 #include"Scene/SSceneManager.h"
+#include"Resource/SResources.h"
 namespace Sichun
 {
 
@@ -24,8 +25,10 @@ namespace Sichun
 
 		std::shared_ptr<SpriteRenderer> sprite = _player->AddComponent<SpriteRenderer>();
 		sprite->SetName(L"Sprite");
-		std::shared_ptr<Graphics::Texture>texture = std::make_shared<Graphics::Texture>();
-		texture->Load(L"C:\\Users\\user\\Desktop\\2DGame\\LeeEngine\\Editor_Window\\Resources\\Sichun.png");
+		std::shared_ptr<Graphics::Texture>texture = Resources::Find<Graphics::Texture>(L"Sichun");
+		sprite->SetTexture(texture);
+		sprite->SetSize(math::Vector2(0.5f,0.5f));
+		
 	
 	}
 		

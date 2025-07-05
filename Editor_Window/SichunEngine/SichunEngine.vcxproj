@@ -132,6 +132,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="SLoadResources.h" />
     <ClInclude Include="SPlayer.h" />
     <ClInclude Include="SLoadScenes.h" />
     <ClInclude Include="SPlayScene.h" />

@@ -7,6 +7,7 @@
 #include<memory>
 #include<map>
 #include <algorithm>
+#include<assert.h>
 
 
 #include "SMath.h"

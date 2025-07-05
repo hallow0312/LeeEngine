@@ -1,5 +1,5 @@
 #pragma once
-#include"Resource/SResource.h"
+#include"../Resource/SResource.h"
 
 namespace Sichun::Graphics
 {
@@ -24,6 +24,7 @@ namespace Sichun::Graphics
 		HDC GetHdc() { return _hdc; }
 		TextureType GetTextureType() { return _type; }
 		std::shared_ptr<Gdiplus::Image>GetImage() { return _image; }
+	
 	private:
 		TextureType _type;
 		std::shared_ptr<Gdiplus::Image> _image;

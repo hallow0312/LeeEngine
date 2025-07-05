@@ -5,7 +5,7 @@
 #include "Editor_Window.h"
 #include"../Sichun_SOURCE/S_Application.h"
 #include"../SichunEngine/SLoadScenes.h"
-
+#include"../SichunEngine/SLoadResources.h"
 
 //#pragma comment (lib,"..//x64//Debug//SichunEngine.lib")
 Sichun::Application _application;
@@ -137,6 +137,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    ShowWindow(hWnd, nCmdShow);
  
    UpdateWindow(hWnd);
+   Sichun::LoadResources();
    Sichun::LoadScenes();
 
    return TRUE;
