@@ -1,5 +1,5 @@
 #include "SSpriteRenderer.h"
-#include"GameObject.h"
+#include"GameObject/GameObject.h"
 #include"STransform.h"
 namespace Sichun {
 	SpriteRenderer::SpriteRenderer()

@@ -1,7 +1,6 @@
 #pragma once
-#include "CommonInclude.h"
-#include <vector>
-#include <string>
+#include "Common/CommonInclude.h"
+
 
 using std::vector;
 using std::string;

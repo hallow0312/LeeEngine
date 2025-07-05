@@ -1,7 +1,7 @@
 #include "S_Application.h"
-#include"InputManager.h"
-#include"STime.h"
-#include"SSceneManager.h"
+#include"Common/STime.h"
+#include"GameObject/InputManager.h"
+#include"Scene/SSceneManager.h"
 
 namespace Sichun {
 

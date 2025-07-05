@@ -1,6 +1,6 @@
 #pragma once
 
-#include"../Sichun_SOURCE/SScene.h"
+#include"../Sichun_SOURCE/Scene/SScene.h"
 
 
 namespace Sichun

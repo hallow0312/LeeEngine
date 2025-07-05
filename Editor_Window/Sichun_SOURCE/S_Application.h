@@ -1,6 +1,6 @@
 #pragma once
-#include"CommonInclude.h"
-#include"GameObject.h"
+#include"Common/CommonInclude.h"
+#include"GameObject/GameObject.h"
 
 namespace Sichun {
 	class Application

@@ -1,122 +1,122 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)STransform.cpp">
-      <Filter>Component</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)SSpriteRenderer.cpp">
-      <Filter>Component</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)SComponent.cpp">
-      <Filter>Component</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)SSceneManager.cpp">
+    <ClInclude Include="$(MSBuildThisFileDirectory)Common\CommonInclude.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Common\SDefine.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Common\SEntity.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Common\SMath.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Common\STime.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SLayer.h">
       <Filter>Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)SScene.cpp">
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SScene.h">
       <Filter>Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)GameObject.cpp">
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SSceneManager.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Resource\SResource.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Resource\SResources.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\GameObject.h">
       <Filter>GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)InputManager.cpp">
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\InputManager.h">
       <Filter>GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)SLayer.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)STime.cpp">
-      <Filter>Common</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)SMath.cpp">
-      <Filter>Common</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)S_Application.cpp">
-      <Filter>Common</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)SEntity.cpp">
-      <Filter>Common</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)SObject.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)SResources.cpp">
-      <Filter>Resources</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)SResource.cpp">
-      <Filter>Resources</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)STexture.cpp">
-      <Filter>Resources</Filter>
-    </ClCompile>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\SObject.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\SComponent.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\SSpriteRenderer.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\STexture.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\STransform.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)S_Application.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)STransform.h">
-      <Filter>Component</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)SSpriteRenderer.h">
-      <Filter>Component</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)SComponent.h">
-      <Filter>Component</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)SSceneManager.h">
+    <ClCompile Include="$(MSBuildThisFileDirectory)Common\SEntity.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Common\SMath.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Common\STime.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SLayer.cpp">
       <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)SScene.h">
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SScene.cpp">
       <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameObject.h">
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SSceneManager.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Resource\SResource.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Resource\SResources.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\GameObject.cpp">
       <Filter>GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)InputManager.h">
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\InputManager.cpp">
       <Filter>GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)SLayer.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)STime.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)SMath.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)SDefine.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)S_Application.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)SEntity.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)SObject.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)SResources.h">
-      <Filter>Resources</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)SResource.h">
-      <Filter>Resources</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)STexture.h">
-      <Filter>Resources</Filter>
-    </ClInclude>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\SObject.cpp">
+      <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\SComponent.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\SSpriteRenderer.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\STexture.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\STransform.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)S_Application.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
-      <UniqueIdentifier>{2eccf1cc-3536-4179-84b8-0a52f95e725c}</UniqueIdentifier>
+      <UniqueIdentifier>{9ec55c88-e235-43ec-9a6b-9e71add44a3a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Component">
-      <UniqueIdentifier>{880b599b-258d-4ff4-a1d2-45729648fa2f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene">
-      <UniqueIdentifier>{94cb7cf9-f938-4fb4-8c1d-186116dafe07}</UniqueIdentifier>
+      <UniqueIdentifier>{6fd93b60-d072-4969-b91e-109cd5d12e00}</UniqueIdentifier>
     </Filter>
     <Filter Include="GameObject">
-      <UniqueIdentifier>{eeb5001f-cb2c-48c9-98ea-784e53f5ad6c}</UniqueIdentifier>
+      <UniqueIdentifier>{4ffb1815-9892-428e-8daf-5559b927acfd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resources">
-      <UniqueIdentifier>{21e0d9ef-08c0-45a8-8a05-050e14f010f8}</UniqueIdentifier>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{1c40a3f6-fb23-42eb-8de2-934f59bc3c8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{d601ed82-0e34-43b1-9a04-668972b799ee}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

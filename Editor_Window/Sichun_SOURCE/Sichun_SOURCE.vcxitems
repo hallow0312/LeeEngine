@@ -14,41 +14,41 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)GameObject.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)InputManager.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)SComponent.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)SDefine.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)SEntity.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)SLayer.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)SMath.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)SObject.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)SResource.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)SResources.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)SScene.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)SSceneManager.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)SSpriteRenderer.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)STexture.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)STime.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)STransform.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Common\CommonInclude.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Common\SDefine.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Common\SEntity.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Common\SMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Common\STime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\SComponent.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\SSpriteRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\STexture.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\STransform.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\GameObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\InputManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\SObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Resource\SResource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Resource\SResources.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SLayer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SScene.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)S_Application.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)GameObject.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)InputManager.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)SComponent.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)SEntity.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)SLayer.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)SMath.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)SObject.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)SResource.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)SResources.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)SScene.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)SSceneManager.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)SSpriteRenderer.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)STexture.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)STime.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)STransform.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Common\SEntity.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Common\SMath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Common\STime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\SComponent.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\SSpriteRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\STexture.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\STransform.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\GameObject.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\InputManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\SObject.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Resource\SResource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Resource\SResources.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SLayer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SScene.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)S_Application.cpp" />
   </ItemGroup>
 </Project>

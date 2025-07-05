@@ -1,5 +1,5 @@
 #pragma once
-#include"../Sichun_SOURCE/GameObject.h"
+#include"../Sichun_SOURCE/GameObject/GameObject.h"
 namespace Sichun
 {
 	class Player:public GameObject

@@ -1,5 +1,5 @@
 #pragma once
-#include "../Sichun_SOURCE/SSceneManager.h"
+#include "../Sichun_SOURCE/Scene/SSceneManager.h"
 
 #include "SPlayScene.h"
 #include"STitleScene.h"

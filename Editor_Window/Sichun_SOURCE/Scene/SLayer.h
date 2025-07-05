@@ -1,6 +1,6 @@
 #pragma once
-#include"SEntity.h"
-#include"GameObject.h"
+#include"../Common/SEntity.h"
+#include"../GameObject/GameObject.h"
 namespace Sichun
 {
 	

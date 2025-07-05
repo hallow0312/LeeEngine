@@ -1,10 +1,10 @@
 #pragma once
-#include"SLayer.h"
-#include"GameObject.h"
-#include"SComponent.h"
-#include"SScene.h"
-#include"SSceneManager.h"
-#include"STransform.h"
+#include"Scene/SLayer.h"
+#include"Scene/SScene.h"
+#include"Scene/SSceneManager.h"
+#include"GameObject/GameObject.h"
+#include"Component/SComponent.h"
+#include"Component/STransform.h"
 
 namespace Sichun::Object
 {

@@ -1,12 +1,12 @@
 #include "SPlayScene.h"
-#include"GameObject.h"
 #include"SPlayer.h"
-#include"STransform.h"
-#include"SSpriteRenderer.h"
-#include"InputManager.h"
-#include"SSceneManager.h"
-#include"SObject.h"
-#include"STexture.h"
+#include"GameObject/GameObject.h"
+#include"GameObject/SObject.h"
+#include"GameObject/InputManager.h"
+#include"Component/STransform.h"
+#include"Component/SSpriteRenderer.h"
+#include"Component/STexture.h"
+#include"Scene/SSceneManager.h"
 namespace Sichun
 {
 

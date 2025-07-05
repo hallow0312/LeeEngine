@@ -1,5 +1,5 @@
 #pragma once
-#include"SEntity.h"
+#include"Common/SEntity.h"
 
 namespace Sichun
 {

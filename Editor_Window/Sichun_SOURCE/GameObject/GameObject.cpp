@@ -1,7 +1,7 @@
 #include "GameObject.h"
 #include "InputManager.h"
-#include"STime.h"
-#include"STransform.h"
+#include"Common/STime.h"
+#include"Component/STransform.h"
 
 namespace Sichun {
 	GameObject::GameObject()

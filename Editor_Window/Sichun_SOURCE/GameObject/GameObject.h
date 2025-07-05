@@ -1,6 +1,6 @@
 #pragma once
-#include "CommonInclude.h"
-#include "SComponent.h"
+#include "Common/CommonInclude.h"
+#include "Component/SComponent.h"
 
 namespace Sichun
 {

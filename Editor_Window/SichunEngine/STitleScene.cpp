@@ -1,6 +1,6 @@
 #include "STitleScene.h"
-#include"InputManager.h"
-#include"SSceneManager.h"
+#include"GameObject/InputManager.h"
+#include"Scene/SSceneManager.h"
 namespace Sichun
 {
 	TitleScene::TitleScene()

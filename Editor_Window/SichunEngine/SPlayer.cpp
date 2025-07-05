@@ -1,7 +1,7 @@
 #include "SPlayer.h"
-#include"STime.h"
-#include"InputManager.h"
-#include"STransform.h"
+#include"Common/STime.h"
+#include"GameObject/InputManager.h"
+#include"Component/STransform.h"
 namespace Sichun
 {
 	void Player::Initialize()

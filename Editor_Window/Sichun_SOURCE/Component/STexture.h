@@ -1,5 +1,5 @@
 #pragma once
-#include"SResource.h"
+#include"Resource/SResource.h"
 
 namespace Sichun::Graphics
 {
