@@ -53,6 +53,9 @@
       <Filter>Component</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)S_Application.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\SMonobehaviour.h">
+      <Filter>Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Common\SEntity.cpp">
@@ -101,6 +104,9 @@
       <Filter>Component</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)S_Application.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\SMonobehaviour.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">

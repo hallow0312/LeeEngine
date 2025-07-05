@@ -1,9 +1,9 @@
 #include "SComponent.h"
 namespace Sichun
 {
-	Component::Component()
+	Component::Component(Enum::ComponentType type)
 	{
-
+		_type = type;
 	}
 	Component::~Component()
 	{

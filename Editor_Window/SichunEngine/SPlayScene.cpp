@@ -8,6 +8,7 @@
 #include"Component/STexture.h"
 #include"Scene/SSceneManager.h"
 #include"Resource/SResources.h"
+#include"PlayerMovement.h"
 namespace Sichun
 {
 
@@ -29,6 +30,7 @@ namespace Sichun
 		sprite->SetTexture(texture);
 		sprite->SetSize(math::Vector2(0.5f,0.5f));
 		
+		_player->AddComponent<PlayerMovement>();
 	
 	}
 		

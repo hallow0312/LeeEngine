@@ -3,7 +3,7 @@
 #include"STransform.h"
 #include"STexture.h"
 namespace Sichun {
-	SpriteRenderer::SpriteRenderer():Base(),_texture(nullptr), _size(Vector2::One)
+	SpriteRenderer::SpriteRenderer():Base(Enum::ComponentType::SpriteRenderer),_texture(nullptr), _size(Vector2::One)
 	{
 	}
 

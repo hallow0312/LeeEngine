@@ -1,5 +1,5 @@
 #pragma once
-#include"Common/SEntity.h"
+#include"../Common/SEntity.h"
 
 namespace Sichun
 {
@@ -7,7 +7,7 @@ namespace Sichun
 	class Component:public Entity
 	{
 	public:
-		Component();
+		Component(Enum::ComponentType type);
 		~Component();
 
 		virtual void Initialize();
@@ -17,9 +17,10 @@ namespace Sichun
 
 		void SetOwner(std::shared_ptr<GameObject>owner) { _owner = owner; }
 		std::shared_ptr<GameObject>GetOwner() { return _owner; }
-
+		 Enum::ComponentType GetType() { return _type; }
 	private:
 		std::shared_ptr<GameObject>_owner;
+		 Enum::ComponentType _type;
 	};
 
 }

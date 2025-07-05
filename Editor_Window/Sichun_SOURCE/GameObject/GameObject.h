@@ -1,6 +1,6 @@
 #pragma once
-#include "Common/CommonInclude.h"
-#include "Component/SComponent.h"
+#include "../Common/CommonInclude.h"
+#include "../Component/SComponent.h"
 
 namespace Sichun
 {
@@ -29,7 +29,9 @@ namespace Sichun
 		{
 			std::shared_ptr<T> component = std::make_shared<T>();
 			component->SetOwner(shared_from_this());
-			_components.push_back(component);
+			UINT type = static_cast<UINT>(component->GetType());
+			if (_components[type] != nullptr)assert(false);
+			_components[type] = component;
 			return component;
 		}
 

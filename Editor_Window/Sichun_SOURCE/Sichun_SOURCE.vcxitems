@@ -20,6 +20,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\SMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\STime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\SComponent.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\SMonobehaviour.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\SSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\STexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\STransform.h" />
@@ -38,6 +39,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Common\SMath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Common\STime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\SComponent.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\SMonobehaviour.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\SSpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\STexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\STransform.cpp" />

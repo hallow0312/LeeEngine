@@ -17,13 +17,7 @@ namespace Sichun
 	void Player::LateUpdate()
 	{
 		GameObject::LateUpdate();
-		if (InputManager::GetKey(KeyCode::RIGHT))
-		{
-			std::shared_ptr<Transform> transform = GetComponent<Transform>();
-			Vector2 pos = transform->GetPos();
-			pos.x += 100.0f * Time::DeltaTime();
-			transform->SetPos(pos);
-		}
+		
 	}
 
 	void Player::Render(HDC hdc)

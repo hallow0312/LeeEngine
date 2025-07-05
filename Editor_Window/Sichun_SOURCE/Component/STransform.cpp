@@ -2,7 +2,7 @@
 
 namespace Sichun
 {
-	Transform::Transform()
+	Transform::Transform():Base(Enum::ComponentType::Transform)
 	{
 		SetName(L"Transform");
 		SetPos(Vector2(0,0));

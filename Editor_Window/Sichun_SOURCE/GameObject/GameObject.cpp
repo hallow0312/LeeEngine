@@ -6,8 +6,9 @@
 namespace Sichun {
 	GameObject::GameObject()
 	{
-		
+		_components.resize(static_cast<UINT>(Enum::ComponentType::End));
 	}
+
 	
 	GameObject::~GameObject()
 	{
@@ -17,6 +18,7 @@ namespace Sichun {
 		
 		for (std::shared_ptr<Component>comp : _components)
 		{
+			if (comp == nullptr)continue;
 			comp->Initialize();
 		}
 	}
@@ -24,6 +26,7 @@ namespace Sichun {
 	{
 		for (std::shared_ptr<Component>comp : _components)
 		{
+			if (comp == nullptr)continue;
 			comp->Update();
 		}
 		
@@ -31,6 +34,7 @@ namespace Sichun {
 	void  GameObject::InitializeTransform()
 	{
 		if (!GetComponent<Transform>()) {
+
 			std::shared_ptr<Transform>transform = AddComponent<Transform>();
 			transform->SetPos(Vector2(0, 0));
 		}
@@ -40,6 +44,7 @@ namespace Sichun {
 	{
 		for (std::shared_ptr<Component>comp : _components)
 		{
+			if (comp == nullptr)continue;
 			comp->LateUpdate();
 		}
 	}
@@ -47,6 +52,7 @@ namespace Sichun {
 	{
 		for (std::shared_ptr<Component>comp : _components)
 		{
+			if (comp == nullptr)continue;
 			comp->Render(hdc);
 		}
 	}

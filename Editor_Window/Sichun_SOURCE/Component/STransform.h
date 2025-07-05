@@ -7,6 +7,7 @@ namespace Sichun
 	
 	class Transform : public Component
 	{
+		using Base = Component;
 	public:
 		Transform();
 		~Transform();
