@@ -11,11 +11,17 @@
     </ClInclude>
     <ClInclude Include="SLoadScenes.h" />
     <ClInclude Include="SPlayer.h" />
+    <ClInclude Include="STitleScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SPlayScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
     <ClCompile Include="SPlayer.cpp" />
+    <ClCompile Include="STitleScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

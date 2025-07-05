@@ -20,9 +20,16 @@ namespace Sichun
 		}
 		static std::shared_ptr<Scene>LoadScene(const std::wstring& name)
 		{
+			if (_activeScene)
+				_activeScene->OnExit();
+
 			std::map<std::wstring, std::shared_ptr<Scene>>::iterator iter = _scenes.find(name);
 			 if (iter == _scenes.end()) return nullptr;
+
 			 _activeScene = iter->second;
+			 if (_activeScene)
+			 _activeScene->OnEnter();
+
 			 return iter->second;
 		}
 		static void Initialize();

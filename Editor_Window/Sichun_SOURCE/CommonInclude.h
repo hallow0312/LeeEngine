@@ -5,12 +5,12 @@
 #include<vector>
 #include<string>
 #include<memory>
-
 #include<map>
+#include <algorithm>
 
 
 #include "SMath.h"
-
+#include"SDefine.h"
 #include <mmsystem.h>
 #include <dinput.h>
 #pragma comment(lib, "Msimg32.lib")

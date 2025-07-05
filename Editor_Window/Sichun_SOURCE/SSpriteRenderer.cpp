@@ -32,7 +32,6 @@ namespace Sichun {
 
 	void SpriteRenderer::ImageLoad(const std::wstring& path)
 	{
-		
 
 		 _image = std::shared_ptr<Gdiplus::Image>(Gdiplus::Image::FromFile(path.c_str()));
 

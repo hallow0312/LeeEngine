@@ -28,10 +28,10 @@ namespace Sichun
 		static float time = 0.0f;
 		float fps = 1.0f / DeltaTimeValue;
 		time += DeltaTimeValue;
-		wchar_t str[50] = L"";
+		/*wchar_t str[50] = L"";
 		swprintf_s(str, 50, L"Time: %f", fps);
 		int len = wcsnlen_s(str, 50);
-		TextOut(hdc, 0, 0, str, len);
+		TextOut(hdc, 0, 0, str, len);*/
 	}
 
 

@@ -1,6 +1,7 @@
 #pragma once
 #include"SEntity.h"
 #include"GameObject.h"
+#include"SLayer.h"
 namespace Sichun 
 {
 	class Scene: public Entity
@@ -13,10 +14,13 @@ namespace Sichun
 		void virtual LateUpdate();
 		void virtual Render(HDC hdc);
 
-		void AddGameObject(std::shared_ptr<GameObject>obj);
+		virtual void  OnEnter();
+		virtual void OnExit();
+		void  AddGameObject(std::shared_ptr<GameObject> obj,  LayerType type);
 	private:
 		
-		std::vector<std::shared_ptr<GameObject>>_objs;
+		//std::vector<std::shared_ptr<GameObject>>_objs;
+		std::vector<std::shared_ptr<Layer>>_layers;
 	};
 
 }
