@@ -4,7 +4,7 @@ namespace Sichun
 {
 	Scene::Scene()
 	{
-		_layers.resize(static_cast<UINT>(LayerType::Max));
+		_layers.resize(static_cast<UINT>(Enum::LayerType::Max));
 		std::generate(_layers.begin(), _layers.end(), []()
 			{
 				return std::make_shared<Layer>();
@@ -45,7 +45,7 @@ namespace Sichun
 			element->Render(hdc);
 		}
 	}
-	void  Scene::AddGameObject( std::shared_ptr<GameObject> obj, const LayerType type)
+	void  Scene::AddGameObject( std::shared_ptr<GameObject> obj, const Enum::LayerType type)
 	{
 		_layers[static_cast<UINT>(type)]->AddGameObject(obj);
 	}

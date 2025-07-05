@@ -2,7 +2,7 @@
 #include"GameObject.h"
 #include"STransform.h"
 namespace Sichun {
-	SpriteRenderer::SpriteRenderer():_image(nullptr),_width(0),_height(0)
+	SpriteRenderer::SpriteRenderer()
 	{
 	}
 
@@ -24,28 +24,15 @@ namespace Sichun {
 		Vector2 pos = tr->GetPos();
 
 		Gdiplus::Graphics graphics(hdc);
-		if (_image)
+		/*if (_image)
 		{
 			graphics.DrawImage(_image.get(), Gdiplus::Rect(pos.x, pos.y, _width, _height));
-		}
+		}*/
 	}
 
 	void SpriteRenderer::ImageLoad(const std::wstring& path)
 	{
 
-		 _image = std::shared_ptr<Gdiplus::Image>(Gdiplus::Image::FromFile(path.c_str()));
-
-		 if (_image && _image->GetLastStatus() == Gdiplus::Ok)
-		 {
-			 _width = _image->GetWidth();
-			 _height = _image->GetHeight();
-			 OutputDebugString(L"[ImageLoad] 로딩 성공\n");
-		 }
-		 else
-		 {
-			 OutputDebugString(L"[ImageLoad] 로딩 실패!\n");
-			 _image = nullptr;
-		 }
 	}
 
 	

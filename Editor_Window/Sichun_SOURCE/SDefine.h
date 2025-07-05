@@ -1,6 +1,6 @@
 #pragma once
 
-namespace  Sichun
+namespace  Sichun::Enum
 {
 	enum class LayerType
 	{
@@ -12,5 +12,12 @@ namespace  Sichun
 		UI,
 		Max=16,
 	};
-
+	enum class ResourceType
+	{
+		Texture,
+		//Mesh
+		//Shader
+		AudioClip,
+		Prefab,
+	};
 }

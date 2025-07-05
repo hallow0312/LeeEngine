@@ -5,6 +5,8 @@
 #include"SSpriteRenderer.h"
 #include"InputManager.h"
 #include"SSceneManager.h"
+#include"SObject.h"
+#include"STexture.h"
 namespace Sichun
 {
 
@@ -18,18 +20,19 @@ namespace Sichun
 
 	void PlayScene::Initialize()
 	{
-		_player = std::make_shared<Player>();
-		std::shared_ptr<Transform>transform = _player->AddComponent<Transform>();
-		std::shared_ptr<SpriteRenderer>sprite = _player->AddComponent<SpriteRenderer>();
-		
-		transform->SetPos(Vector2(0, 0));
-		transform->SetName(L"Transform");
+		_player = Object::Instantiate<Player>(Sichun::Enum::LayerType::Player, Vector2(100, 0));
 
+		std::shared_ptr<SpriteRenderer> sprite = _player->AddComponent<SpriteRenderer>();
 		sprite->SetName(L"Sprite");
-		sprite->ImageLoad(L"C:\\Users\\user\\Desktop\\2DGame\\LeeEngine\\Editor_Window\\Resources\\Sichun.png");
-		AddGameObject(_player,LayerType::Player);
-		 
+		std::shared_ptr<Graphics::Texture>texture = std::make_shared<Graphics::Texture>();
+		texture->Load(L"C:\\Users\\user\\Desktop\\2DGame\\LeeEngine\\Editor_Window\\Resources\\Sichun.png");
+	
 	}
+		
+		
+	
+
+		 
 
 	void PlayScene::Update()
 	{
@@ -56,11 +59,13 @@ namespace Sichun
 
 	void PlayScene::OnEnter()
 	{
+		
+
 	}
 
 	void PlayScene::OnExit()
 	{
-		_player->GetComponent<Transform>()->SetPos(Vector2(0, 0));
+		
 	}
 
 }

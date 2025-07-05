@@ -13,6 +13,9 @@ namespace Sichun
 
 			std::shared_ptr<T> scene = std::make_shared<T>();
 			scene->SetName(sceneName);
+
+			_activeScene = scene;
+
 			scene->Initialize();
 
 			_scenes.insert({ sceneName, scene });
@@ -32,6 +35,7 @@ namespace Sichun
 
 			 return iter->second;
 		}
+		static std::shared_ptr<Scene>GetActiveScene(){return _activeScene;}
 		static void Initialize();
 		static void Update();
 		static void LateUpdate();

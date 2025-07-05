@@ -4,6 +4,8 @@ namespace Sichun
 {
 	Transform::Transform()
 	{
+		SetName(L"Transform");
+		SetPos(Vector2(0,0));
 	}
 	Transform::~Transform()
 	{

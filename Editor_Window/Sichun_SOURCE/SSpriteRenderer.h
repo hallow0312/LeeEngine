@@ -16,9 +16,7 @@ namespace Sichun
 		void Render(HDC hdc)override;
 		void ImageLoad(const std::wstring& path);
 	private:
-		std::shared_ptr<Gdiplus::Image> _image;
-		UINT _width;
-		UINT _height;
+		
 	};
 
 }

@@ -22,6 +22,7 @@ namespace Sichun
 		}
 		float GetPositionX() { return _x; }
 		float GetPositionY() { return _y; }
+		void InitializeTransform();
 
 		template<typename T>
 		std::shared_ptr<T> AddComponent()
@@ -43,7 +44,6 @@ namespace Sichun
 			}
 			return component;
 		}
-
 	private:
 		float _x;
 		float _y;

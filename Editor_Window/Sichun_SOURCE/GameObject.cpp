@@ -1,17 +1,20 @@
 #include "GameObject.h"
 #include "InputManager.h"
 #include"STime.h"
+#include"STransform.h"
+
 namespace Sichun {
 	GameObject::GameObject()
 	{
-		SetPosition(0, 0);
+		
 	}
-
+	
 	GameObject::~GameObject()
 	{
 	}
 	void GameObject::Initialize()
 	{
+		
 		for (std::shared_ptr<Component>comp : _components)
 		{
 			comp->Initialize();
@@ -22,6 +25,14 @@ namespace Sichun {
 		for (std::shared_ptr<Component>comp : _components)
 		{
 			comp->Update();
+		}
+		
+	}
+	void  GameObject::InitializeTransform()
+	{
+		if (!GetComponent<Transform>()) {
+			std::shared_ptr<Transform>transform = AddComponent<Transform>();
+			transform->SetPos(Vector2(0, 0));
 		}
 		
 	}
