@@ -1,4 +1,5 @@
 #include "SScene.h"
+#include"Component/SCamera.h"
 
 namespace Sichun
 {
@@ -13,6 +14,7 @@ namespace Sichun
 	Scene::~Scene()
 	{
 	}
+	
 	void Scene::Initialize()
 	{
 		for (std::shared_ptr<Layer> element : _layers)
@@ -20,6 +22,7 @@ namespace Sichun
 			if (element == nullptr)continue;
 			element->Initialize();
 		}
+	
 	}
 	void Scene::Update()
 	{
@@ -49,7 +52,7 @@ namespace Sichun
 	{
 		_layers[static_cast<UINT>(type)]->AddGameObject(obj);
 	}
-
+	
 	void Scene::OnEnter()
 	{
 

@@ -12,7 +12,7 @@ namespace Sichun::Object
 	static std::shared_ptr<T>Instantiate(Sichun::Enum::LayerType type)
 	{
 		std::shared_ptr<T> obj = std::make_shared<T>();
-		obj->AddComponent<Transform>();
+		obj->InitializeTransform();
 		std::shared_ptr<Scene>activeScene = SceneManager::GetActiveScene();
 		std::shared_ptr<Layer>layer = activeScene->GetLayer(type);
 		layer->AddGameObject(obj);
@@ -22,7 +22,7 @@ namespace Sichun::Object
 	static std::shared_ptr<T>Instantiate(Sichun::Enum::LayerType type, math::Vector2 pos)
 	{
 		std::shared_ptr<T> obj = std::make_shared<T>();
-		obj->AddComponent<Transform>(); 
+		obj->InitializeTransform();
 		std::shared_ptr<Scene> activeScene = SceneManager::GetActiveScene();
 		std::shared_ptr<Layer> layer = activeScene->GetLayer(type);
 		layer->AddGameObject(obj);

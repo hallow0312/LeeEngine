@@ -19,6 +19,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\SEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\SMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\STime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\SCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\SComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\SMonobehaviour.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\SSpriteRenderer.h" />
@@ -27,6 +28,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\GameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\InputManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\SObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Renderer\SRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Resource\SResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Resource\SResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SLayer.h" />
@@ -38,6 +40,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Common\SEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Common\SMath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Common\STime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\SCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\SComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\SMonobehaviour.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\SSpriteRenderer.cpp" />
@@ -46,6 +49,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\GameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\InputManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\SObject.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Renderer\SRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource\SResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource\SResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SLayer.cpp" />

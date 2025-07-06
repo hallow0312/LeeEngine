@@ -10,12 +10,13 @@ namespace Sichun {
 		~Application();
 
 		void Initialize(HWND hwnd, UINT width, UINT height);
+		UINT GetWidth() { return _width; }
+		UINT GetHeight() { return _height; }
 
 		void Run();
 		void Update();
 		void LateUpdate(); 
 		void Render();
-
 		HDC GetHDC() { return _hdc; }
 	private :
 		HWND _hwnd;

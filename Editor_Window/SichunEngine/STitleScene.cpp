@@ -15,7 +15,7 @@ namespace Sichun
 	}
 	void TitleScene::Update()
 	{
-		Base::Update();
+		Base::Update();   
 	}
 	void TitleScene::LateUpdate()
 	{

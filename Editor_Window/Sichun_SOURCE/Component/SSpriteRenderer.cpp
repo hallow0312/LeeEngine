@@ -2,6 +2,8 @@
 #include"GameObject/GameObject.h"
 #include"STransform.h"
 #include"STexture.h"
+#include"Renderer/SRenderer.h"
+
 namespace Sichun {
 	SpriteRenderer::SpriteRenderer():Base(Enum::ComponentType::SpriteRenderer),_texture(nullptr), _size(Vector2::One)
 	{
@@ -25,7 +27,7 @@ namespace Sichun {
 
 		std::shared_ptr<Transform> transform = GetOwner()->GetComponent<Transform>();
 		math::Vector2 pos = transform->GetPos();
-
+		pos = Renderer::_mainCamera->CalculatePosition(pos);
 		if (_texture->GetTextureType() == Graphics::Texture::TextureType::BMP)
 		{
 			DrawBMP(pos, hdc);
@@ -44,6 +46,7 @@ namespace Sichun {
 
 	void SpriteRenderer::DrawBMP(math::Vector2 pos, HDC hdc)
 	{
+		
 		TransparentBlt(
 			hdc, pos.x, pos.y,
 			_texture->GetWidth()*_size.x, _texture->GetHeight()*_size.y,

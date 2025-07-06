@@ -23,7 +23,18 @@ namespace Sichun::math
 		{
 
 		}
-
+		Vector2 operator+(Vector2 other)
+		{
+			return Vector2(x + other.x, y + other.y);
+		}
+		Vector2 operator-(Vector2 other)
+		{
+			return Vector2(x - other.x, y - other.y);
+		}
+		Vector2 operator/(int other)
+		{
+			return Vector2(x /other, y /other);
+		}
 	};
 	
 

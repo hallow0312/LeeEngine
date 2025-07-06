@@ -7,7 +7,7 @@ namespace  Sichun::Enum
 		Transform,
 		SpriteRenderer,
 		Script,
-
+		Camera,
 
 		End
 	};
