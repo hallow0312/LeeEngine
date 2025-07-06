@@ -2,6 +2,7 @@
 #include"CommonInclude.h"
 
 namespace Sichun {
+	using  namespace math;
 	class Entity
 	{
 	public:

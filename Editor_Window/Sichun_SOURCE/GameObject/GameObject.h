@@ -15,13 +15,7 @@ namespace Sichun
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
 
-		void SetPosition(float x, float y)
-		{
-			_x = x;
-			_y = y;
-		}
-		float GetPositionX() { return _x; }
-		float GetPositionY() { return _y; }
+		
 		void InitializeTransform();
 
 		template<typename T>
@@ -47,8 +41,7 @@ namespace Sichun
 			return component;
 		}
 	private:
-		float _x;
-		float _y;
+		
 		std::vector<std::shared_ptr<Component>> _components;
 	};
 }

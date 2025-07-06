@@ -16,10 +16,10 @@ namespace Sichun
 		virtual void Render(HDC hdc);
 
 		void SetOwner(std::shared_ptr<GameObject>owner) { _owner = owner; }
-		std::shared_ptr<GameObject>GetOwner() { return _owner; }
+		std::shared_ptr<GameObject>GetOwner() { return _owner.lock(); }
 		 Enum::ComponentType GetType() { return _type; }
 	private:
-		std::shared_ptr<GameObject>_owner;
+		  std::weak_ptr<GameObject> _owner;
 		 Enum::ComponentType _type;
 	};
 

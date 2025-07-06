@@ -6,11 +6,12 @@ namespace  Sichun::Enum
 	{
 		Transform,
 		SpriteRenderer,
+		Animator,
 		Script,
 		Camera,
-
 		End
 	};
+
 	enum class LayerType
 	{
 		None,
@@ -25,6 +26,7 @@ namespace  Sichun::Enum
 	enum class ResourceType
 	{
 		Texture,
+		Animation,
 		//Mesh
 		//Shader
 		AudioClip,

@@ -17,7 +17,6 @@ namespace Sichun
 	void Player::LateUpdate()
 	{
 		GameObject::LateUpdate();
-		
 	}
 
 	void Player::Render(HDC hdc)
