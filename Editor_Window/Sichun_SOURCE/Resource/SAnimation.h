@@ -5,6 +5,7 @@
 namespace Sichun
 {
 	class Animator;
+	class Transform;
 	class Animation : public Resource
 	{
 		using Base = Resource;
@@ -27,8 +28,8 @@ namespace Sichun
 		void Update();
 		void Render(HDC hdc);
 
-		void SettingPNG(HDC hdc, Vector2 pos);
-		void SettingBMP(HDC hdc, Vector2 pos);
+		void SettingPNG(HDC hdc, std::shared_ptr<Transform> transform);
+		void SettingBMP(HDC hdc, std::shared_ptr<Transform> transform);
 
 		void CreateAnimation(const std::wstring& name,
 			std::shared_ptr<Sichun::Graphics::Texture>spriteSheet,

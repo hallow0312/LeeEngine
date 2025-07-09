@@ -26,15 +26,14 @@ namespace Sichun {
 		if (_texture == nullptr)assert(false); //need to texture setting
 
 		std::shared_ptr<Transform> transform = GetOwner()->GetComponent<Transform>();
-		math::Vector2 pos = transform->GetPos();
-		pos = Renderer::_mainCamera->CalculatePosition(pos);
+		
 		if (_texture->GetTextureType() == Graphics::Texture::TextureType::BMP)
 		{
-			DrawBMP(pos, hdc);
+			DrawBMP(transform, hdc);
 		}
 		else if (_texture->GetTextureType() == Graphics::Texture::TextureType::PNG)
 		{
-			DrawPNG(pos, hdc);
+			DrawPNG(transform, hdc);
 		}
 
 	}
@@ -44,28 +43,39 @@ namespace Sichun {
 
 	}
 
-	void SpriteRenderer::DrawBMP(math::Vector2 pos, HDC hdc)
+	void SpriteRenderer::DrawBMP(std::shared_ptr<Transform>transform, HDC hdc)
 	{
-		
+		math::Vector2 pos = transform->GetPos();
+		Vector2 scale = transform->GetScale();
+		pos = Renderer::_mainCamera->CalculatePosition(pos);
 		TransparentBlt(
 			hdc, pos.x, pos.y,
-			_texture->GetWidth()*_size.x, _texture->GetHeight()*_size.y,
+			_texture->GetWidth()*_size.x*scale.x, _texture->GetHeight()*_size.y*scale.y,
 			_texture->GetHdc(),0,0,
 			_texture->GetWidth(),_texture->GetHeight(),
 			RGB(255,0,255));
 	}
 
-	void SpriteRenderer::DrawPNG(math::Vector2 pos, HDC hdc)
+	void SpriteRenderer::DrawPNG(std::shared_ptr<Transform>transform, HDC hdc)
 	{
+		Vector2 pos = transform->GetPos();
+		Vector2 scale = transform->GetScale();
+
+		if (Renderer::_mainCamera)
+			Renderer::_mainCamera->CalculatePosition(pos);
+
 		Gdiplus::Graphics graphics(hdc);
 
+
+		graphics.RotateTransform(transform->GetRotation());
+	
 		graphics.DrawImage(
 			_texture->GetImage().get(), // std::shared_ptr<Gdiplus::Image>
 			Gdiplus::Rect(
-				static_cast<int>(pos.x),
-				static_cast<int>(pos.y),
-				static_cast<int>(_texture->GetWidth() * _size.x),
-				static_cast<int>(_texture->GetHeight() * _size.y)
+				(pos.x),
+				(pos.y),
+				(_texture->GetWidth() * _size.x*scale.x),
+				(_texture->GetHeight() * _size.y*scale.y)
 			),
 			0, 0,
 			_texture->GetWidth(), _texture->GetHeight(),

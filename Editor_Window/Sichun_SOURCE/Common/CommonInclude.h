@@ -8,7 +8,7 @@
 #include<map>
 #include <algorithm>
 #include<assert.h>
-
+#include"cmath"
 
 #include "SMath.h"
 #include"SDefine.h"

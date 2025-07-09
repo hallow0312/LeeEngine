@@ -4,6 +4,7 @@
 #include"SComponent.h"
 namespace Sichun 
 {
+	class Transform;
 	
 	class SpriteRenderer:public Component
 	{
@@ -20,8 +21,8 @@ namespace Sichun
 		void SetSize(math::Vector2 size) { _size = size; }
 
 		void ImageLoad(const std::wstring& path);
-		void DrawBMP(math::Vector2 pos, HDC hdc);
-		void DrawPNG(math::Vector2 pos ,HDC hdc);
+		void DrawBMP(std::shared_ptr<Transform>transform, HDC hdc);
+		void DrawPNG(std::shared_ptr<Transform>transform,HDC hdc);
 
 	private:
 		

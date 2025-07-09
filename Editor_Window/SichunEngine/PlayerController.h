@@ -3,19 +3,32 @@
 
 namespace  Sichun 
 {
-	class PlayerMovement : public Monobehaviour
+	class PlayerController : public Monobehaviour
 	{ //PlayerCharacter
 	public:
-		PlayerMovement();
-		~PlayerMovement();
+		enum class CharacterState
+		{
+			Idle,
+			Left,
+			Right,
+			Up,
+			Down,
+		
+		};
+
+		PlayerController();
+		~PlayerController();
 
 		void Initialize()override;
 		void Update()override;
 		void LateUpdate()override;
 		void Render(HDC hdc)override;
 		void Move();
-	private:
 		
+		void CheckState();
+
+	private:
+		CharacterState _state;
 	};
 }
 

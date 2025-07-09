@@ -1,5 +1,5 @@
 #pragma once
-
+#include"cmath"
 namespace Sichun::math
 {
 	struct Vector2
@@ -23,6 +23,20 @@ namespace Sichun::math
 		{
 
 		}
+		float Magnitude() const
+		{
+			return std::sqrt(x * x + y * y);
+		}
+
+		void Normalize()
+		{
+			float mag = Magnitude();
+			if (mag > 0.00001f)
+			{
+				x /= mag;
+				y /= mag;
+			}
+		}
 		Vector2 operator+(Vector2 other)
 		{
 			return Vector2(x + other.x, y + other.y);
@@ -33,9 +47,18 @@ namespace Sichun::math
 		}
 		Vector2 operator/(int other)
 		{
-			return Vector2(x /other, y /other);
+			return Vector2(x / other, y / other);
 		}
+		Vector2 operator*(Vector2 other)
+		{
+			return Vector2(x * other.x, y * other.y);
+		}
+		Vector2 operator*(float scalar)
+		{
+			return Vector2(x * scalar, y * scalar);
+		}
+		Vector2& operator+=(const Vector2& rhs) { x += rhs.x; y += rhs.y; return *this; }
 	};
-	
 
 }
+

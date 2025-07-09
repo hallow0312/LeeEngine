@@ -16,11 +16,18 @@ namespace Sichun
 		void Update()  override;
 		void LateUpdate()  override;
 		void Render(HDC hdc)  override;
-
 		void SetPos(Vector2 pos) { _pos = pos; }
-		Vector2 GetPos() { return _pos; }
+		void SetScale(Vector2 scale) { _scale = scale; }
+		void SetRotation(float rotation) { _rotation = rotation; }
 
+		float GetRotation() { return _rotation; }
+
+		Vector2 GetPos() { return _pos; }
+		Vector2 GetScale() { return _scale; }
+	
 	private:
 		Vector2 _pos;
+		Vector2 _scale;
+		float _rotation;
 	};
 }

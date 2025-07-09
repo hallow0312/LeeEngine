@@ -48,48 +48,63 @@ namespace Sichun {
 		if (!obj) return;
 		std::shared_ptr<Transform> transform = obj->GetComponent<Transform>();
 		if (!transform) return;
-		Vector2 pos = transform->GetPos();
 		
-		if (Renderer::_mainCamera)
-			Renderer::_mainCamera->CalculatePosition(pos);
 
 		Graphics::Texture::TextureType type = _texture->GetTextureType();
 		if (type == Graphics::Texture::TextureType::BMP)
 		{
-			SettingBMP(hdc, pos);
+			SettingBMP(hdc, transform);
 		}
 		else if (type == Graphics::Texture::TextureType::PNG)
 		{
-			SettingPNG(hdc, pos);
+			SettingPNG(hdc,transform);
 		}
 		
 
 	}
 
-	void Animation::SettingPNG(HDC hdc, Vector2 pos)
+	void Animation::SettingPNG(HDC hdc, std::shared_ptr<Transform> transform)
 	{
-		//if i want  pixel Transparent 
-		Gdiplus::ImageAttributes imgAtt = {};
-		//range of transparent color  
-		imgAtt.SetColorKey(Gdiplus::Color(100, 100, 100), Gdiplus::Color(255, 255, 255));
+		Vector2 pos = transform->GetPos();
+		Vector2 scale = transform->GetScale();
+		float rotation = transform->GetRotation();
 
-		Gdiplus::Graphics graphics(hdc);
+		if (Renderer::_mainCamera)
+			Renderer::_mainCamera->CalculatePosition(pos);
 
 		Sprite sprite = _sprites[_index];
 
-		graphics.DrawImage
-		(
+		Gdiplus::Graphics graphics(hdc);
+	
+		graphics.TranslateTransform(pos.x, pos.y);
+		if (rotation != 0.0f)
+			graphics.RotateTransform(rotation);
+		Gdiplus::Rect destRect(
+			(-sprite.Size.x / 2.0f),
+			(-sprite.Size.y / 2.0f),
+			(sprite.Size.x),
+			(sprite.Size.y)
+		);
+
+		
+		Gdiplus::ImageAttributes imgAtt;
+		imgAtt.SetColorKey(Gdiplus::Color(100, 100, 100), Gdiplus::Color(255, 255, 255));
+
+		graphics.DrawImage(
 			_texture->GetImage().get(),
-			Gdiplus::Rect(pos.x, pos.y, sprite.Size.x, sprite.Size.y),
-			sprite.LeftTop.x,
-			sprite.LeftTop.y,    
-			sprite.Size.x, 
-			sprite.Size.y,          
+			destRect,
+			(sprite.LeftTop.x),
+			(sprite.LeftTop.y),
+			(sprite.Size.x),
+			(sprite.Size.y),
 			Gdiplus::UnitPixel
+			
 		);
 	}
-	void Animation::SettingBMP(HDC hdc, Vector2 pos)
+	void Animation::SettingBMP(HDC hdc, std::shared_ptr<Transform> transform)
 	{
+		Vector2 pos = transform->GetPos();
+		Vector2 scale = transform->GetScale();
 		BLENDFUNCTION func = {};
 		func.BlendOp = AC_SRC_OVER;
 		func.BlendFlags = 0;
@@ -100,9 +115,9 @@ namespace Sichun {
 		HDC imgHdc = _texture->GetHdc();
 
 		AlphaBlend(hdc
-			, pos.x, pos.y
-			, sprite.Size.x * 5
-			, sprite.Size.y * 5
+			, pos.x - (sprite.Size.x / 2.0f), pos.y - (sprite.Size.y / 2.0f)
+			, sprite.Size.x * scale.x
+			, sprite.Size.y * scale.y
 			, imgHdc
 			, sprite.LeftTop.x
 			, sprite.LeftTop.y
@@ -113,6 +128,7 @@ namespace Sichun {
 	void Animation::CreateAnimation(const std::wstring& name, std::shared_ptr<Sichun::Graphics::Texture> spriteSheet, Vector2 leftTop, Vector2 size, Vector2 offset ,UINT spriteLength, float duration)
 	{
 		_texture = spriteSheet;
+	
 		for (size_t i = 0; i < spriteLength; i++)
 		{
 			Sprite sprite = {};

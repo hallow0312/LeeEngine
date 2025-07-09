@@ -19,9 +19,11 @@ namespace Sichun
 		void OnEnter() override;
 		void OnExit() override;
 		
+		
 		void CreatePlayer();
 		void CreateBackGround();
 		void CreateMainCamera();
+	
 	
 	private:
 		std::shared_ptr<Player> _player;

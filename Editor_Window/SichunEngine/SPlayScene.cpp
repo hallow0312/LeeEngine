@@ -8,7 +8,7 @@
 #include"Component/STexture.h"
 #include"Scene/SSceneManager.h"
 #include"Resource/SResources.h"
-#include"PlayerMovement.h"
+#include"PlayerController.h"
 #include"Component/SCamera.h"
 #include"Renderer/SRenderer.h"
 #include"GameObject/SObject.h"
@@ -28,8 +28,8 @@ namespace Sichun
 	{
 		Base::Initialize();
 		CreateMainCamera();
-		CreateBackGround();
 		
+		CreateBackGround();
 		CreatePlayer();
 	}
 		
@@ -79,10 +79,11 @@ namespace Sichun
 
 
 
+	
 	void PlayScene::CreatePlayer()
 	{
-		_player = Object::Instantiate<Player>(Sichun::Enum::LayerType::Player, Vector2(150,380 ));
-		_player->AddComponent<PlayerMovement>();
+		_player = Object::Instantiate<Player>(Sichun::Enum::LayerType::Player, Vector2(150.0f,380.0f));
+		_player->AddComponent<PlayerController>();
 		//std::shared_ptr<SpriteRenderer> sprite = _player->AddComponent<SpriteRenderer>();
 		//sprite->SetTexture(texture);
 
@@ -91,7 +92,8 @@ namespace Sichun
 	
 		animator->CreateAnimation(L"ReimuIdle", texture, 
 			Vector2(0, 0), Vector2(32.0, 64.0f), Vector2::Zero, 4, 0.15f);
-		
+		animator->CreateAnimation(L"ReimuMove", texture,
+			Vector2(0, 0), Vector2(32.0, 64.0f), Vector2::Zero, 4, 0.15f);
 		animator->PlayAnimation(L"ReimuIdle",true);
 	}
 
