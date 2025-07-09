@@ -6,8 +6,10 @@ namespace Sichun
 {
 	void LoadResources()
 	{
-		Resources::Load<Graphics::Texture>(L"Reimu", L"..\\Resources\\Reimu\\Idle\\Reimu_Idle.png");
+		Resources::Load<Graphics::Texture>(L"Reimu", L"..\\Resources\\Reimu\\Idle\\ReimuIdleSheet.png");
 		Resources::Load<Graphics::Texture>(L"BackGround", L"..\\Resources\\BackGround\\BackGround.png");
+		Resources::Load<Graphics::Texture>(L"Effect", L"..\\Resources\\MagicClaw.png");
+	
 	}
 }
 

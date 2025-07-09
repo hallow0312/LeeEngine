@@ -4,9 +4,9 @@
 
 namespace Sichun
 {
+	class Animator;
 	class Animation : public Resource
 	{
-		class Animator;
 		using Base = Resource;
 	public:
 		struct Sprite
@@ -27,10 +27,14 @@ namespace Sichun
 		void Update();
 		void Render(HDC hdc);
 
+		void SettingPNG(HDC hdc, Vector2 pos);
+		void SettingBMP(HDC hdc, Vector2 pos);
+
 		void CreateAnimation(const std::wstring& name,
 			std::shared_ptr<Sichun::Graphics::Texture>spriteSheet,
 			Vector2 leftTop,
 			Vector2 size,
+			Vector2 offset,
 			UINT spriteLength,
 			float duration);
 
@@ -39,6 +43,7 @@ namespace Sichun
 		void Reset();
 		bool IsComplete() { return _isComplete; }
 		void SetAnimator(std::shared_ptr<Animator>animator) { _animator = animator; }
+		std::shared_ptr<Animator>GetAnimator() { return _animator.lock(); }
 
 	private:
 

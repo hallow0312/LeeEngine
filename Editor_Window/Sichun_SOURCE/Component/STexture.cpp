@@ -8,6 +8,23 @@ namespace Sichun::Graphics
 	}
 	Texture::~Texture()
 	{
+		if (_hdc)
+		{
+			DeleteDC(_hdc);
+			_hdc = nullptr;
+		}
+
+		if (_bitMap)
+		{
+			DeleteObject(_bitMap);
+			_bitMap = nullptr;
+		}
+	
+		if (_image)
+		{
+			_image.reset();
+		}
+		
 	}
 	HRESULT Sichun::Graphics::Texture::Load(const std::wstring& path)
 	{

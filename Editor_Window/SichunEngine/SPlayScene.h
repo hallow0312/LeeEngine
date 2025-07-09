@@ -18,7 +18,7 @@ namespace Sichun
 		void Render(HDC hdc)override;
 		void OnEnter() override;
 		void OnExit() override;
-
+		
 		void CreatePlayer();
 		void CreateBackGround();
 		void CreateMainCamera();

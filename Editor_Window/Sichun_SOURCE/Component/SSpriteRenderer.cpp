@@ -58,11 +58,18 @@ namespace Sichun {
 	void SpriteRenderer::DrawPNG(math::Vector2 pos, HDC hdc)
 	{
 		Gdiplus::Graphics graphics(hdc);
-		graphics.DrawImage
-		(
-			_texture->GetImage().get(),
-			Gdiplus::Rect(pos.x, pos.y, _texture->GetWidth()*_size.x, _texture->GetHeight()*_size.y
-			)
+
+		graphics.DrawImage(
+			_texture->GetImage().get(), // std::shared_ptr<Gdiplus::Image>
+			Gdiplus::Rect(
+				static_cast<int>(pos.x),
+				static_cast<int>(pos.y),
+				static_cast<int>(_texture->GetWidth() * _size.x),
+				static_cast<int>(_texture->GetHeight() * _size.y)
+			),
+			0, 0,
+			_texture->GetWidth(), _texture->GetHeight(),
+			Gdiplus::UnitPixel
 		);
 	}
 

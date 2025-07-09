@@ -18,7 +18,9 @@ namespace  Sichun::Enum
 		BackGround,
 		Object,
 		AI,
+		Bullet,
 		Player,
+		Particle,
 		UI,
 		Max=16,
 	};

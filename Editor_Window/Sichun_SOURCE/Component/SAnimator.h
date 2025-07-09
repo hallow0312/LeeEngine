@@ -4,7 +4,7 @@
 #include"STexture.h"
 namespace Sichun
 {
-	class Animator : public Component
+	class Animator : public Component, public std::enable_shared_from_this<Animator>
 	{
 		using Base = Component;
 	public:
@@ -16,11 +16,13 @@ namespace Sichun
 		virtual void Render(HDC hdc)override;
 
 		void PlayActiveAnimation();
-		void CreateAnimation(const std::wstring& name,
-			std::shared_ptr<Sichun::Graphics::Texture>spriteSheet,
+		void CreateAnimation(
+			const std::wstring& name,
+			std::shared_ptr<Sichun::Graphics::Texture> spriteSheet,
 			Vector2 leftTop,
 			Vector2 size,
-			UINT spriteLength, 
+			Vector2 offset,
+			UINT spriteLength,
 			float duration);
 
 		std::shared_ptr<Animation>FindAnimation(const std::wstring& name);

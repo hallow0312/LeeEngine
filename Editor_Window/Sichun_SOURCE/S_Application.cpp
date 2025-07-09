@@ -2,7 +2,7 @@
 #include"Common/STime.h"
 #include"GameObject/InputManager.h"
 #include"Scene/SSceneManager.h"
-
+extern ULONG_PTR gpToken;;
 namespace Sichun {
 
 	Application::Application() :
@@ -13,6 +13,7 @@ namespace Sichun {
 	}
 	Application::~Application()
 	{
+		Gdiplus::GdiplusShutdown(gpToken);
 	}
 	void Application::Initialize(HWND hwnd, UINT width, UINT height)
 	{

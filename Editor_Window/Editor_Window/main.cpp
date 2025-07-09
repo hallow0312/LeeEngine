@@ -74,7 +74,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             _application.Run();
         }
     }
-    Gdiplus::GdiplusShutdown(gpToken);
+  
 
     return (int) msg.wParam;
 }
@@ -184,6 +184,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         }
         break;
     case WM_DESTROY: //윈도우 종료시 호출 x버튼 누를때 겠지 ㅇㅇ
+        
         PostQuitMessage(0);
         break;
    //WM_MOVE : 윈도우 창을 움직이는 경우 

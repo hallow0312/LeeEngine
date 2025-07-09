@@ -12,6 +12,7 @@
 #include"Component/SCamera.h"
 #include"Renderer/SRenderer.h"
 #include"GameObject/SObject.h"
+#include"Component/SAnimator.h"
 namespace Sichun
 {
 
@@ -28,6 +29,7 @@ namespace Sichun
 		Base::Initialize();
 		CreateMainCamera();
 		CreateBackGround();
+		
 		CreatePlayer();
 	}
 		
@@ -75,14 +77,22 @@ namespace Sichun
 		
 	}
 
+
+
 	void PlayScene::CreatePlayer()
 	{
 		_player = Object::Instantiate<Player>(Sichun::Enum::LayerType::Player, Vector2(150,380 ));
 		_player->AddComponent<PlayerMovement>();
-		std::shared_ptr<SpriteRenderer> sprite = _player->AddComponent<SpriteRenderer>();
-		sprite->SetName(L"Sprite");
+		//std::shared_ptr<SpriteRenderer> sprite = _player->AddComponent<SpriteRenderer>();
+		//sprite->SetTexture(texture);
+
 		std::shared_ptr<Graphics::Texture>texture = Resources::Find<Graphics::Texture>(L"Reimu");
-		sprite->SetTexture(texture);
+		std::shared_ptr<Animator>  animator = _player->AddComponent<Animator>();
+	
+		animator->CreateAnimation(L"ReimuIdle", texture, 
+			Vector2(0, 0), Vector2(32.0, 64.0f), Vector2::Zero, 4, 0.15f);
+		
+		animator->PlayAnimation(L"ReimuIdle",true);
 	}
 
 	void PlayScene::CreateBackGround()
@@ -91,6 +101,8 @@ namespace Sichun
 		std::shared_ptr<SpriteRenderer>sprite = bg->AddComponent<SpriteRenderer>();
 		sprite->SetName(L"Sprite");
 		std::shared_ptr<Graphics::Texture>texture = Resources::Find<Graphics::Texture>(L"BackGround");
+	
+
 		sprite->SetTexture(texture);
 		sprite->SetSize(Vector2(1.5f, 2.0f));
 	}
