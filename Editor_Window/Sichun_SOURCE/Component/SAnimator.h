@@ -28,7 +28,7 @@ namespace Sichun
 		std::shared_ptr<Animation>FindAnimation(const std::wstring& name);
 
 		void  PlayAnimation(const std::wstring& name, bool loop= true );
-
+		bool IsPlayingAnimation(const std::wstring& name);
 
 	private:
 		std::map<std::wstring, std::shared_ptr<Animation>>_animations;

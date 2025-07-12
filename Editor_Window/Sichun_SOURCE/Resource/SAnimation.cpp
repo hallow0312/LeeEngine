@@ -77,8 +77,15 @@ namespace Sichun {
 		Gdiplus::Graphics graphics(hdc);
 	
 		graphics.TranslateTransform(pos.x, pos.y);
+		if (scale.x < 0.0f)
+		{
+			graphics.ScaleTransform(-1.0f, 1.0f); 
+		}
+
 		if (rotation != 0.0f)
+		{
 			graphics.RotateTransform(rotation);
+		}
 		Gdiplus::Rect destRect(
 			(-sprite.Size.x / 2.0f),
 			(-sprite.Size.y / 2.0f),

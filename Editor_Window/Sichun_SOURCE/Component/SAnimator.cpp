@@ -74,6 +74,12 @@
 		 _activeAnimation->Reset();
 		 _isLoop = loop;
 	 }
+	 bool Animator::IsPlayingAnimation(const std::wstring& name)
+	 {
+		 std::shared_ptr<Animation>animation = FindAnimation(name);
+		 
+		 return animation == _activeAnimation;
+	 }
 }
 
 

@@ -58,6 +58,10 @@ namespace Sichun::math
 			return Vector2(x * scalar, y * scalar);
 		}
 		Vector2& operator+=(const Vector2& rhs) { x += rhs.x; y += rhs.y; return *this; }
+		bool operator==(const Vector2& other) const
+		{
+			return x == other.x && y == other.y;
+		}
 	};
 
 }

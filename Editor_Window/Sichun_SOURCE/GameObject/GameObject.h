@@ -24,7 +24,7 @@ namespace Sichun
 			std::shared_ptr<T> component = std::make_shared<T>();
 			component->SetOwner(shared_from_this());
 			UINT type = static_cast<UINT>(component->GetType());
-			if (_components[type] != nullptr)assert(false);
+			if (_components[type] != nullptr);
 			_components[type] = component;
 			return component;
 		}

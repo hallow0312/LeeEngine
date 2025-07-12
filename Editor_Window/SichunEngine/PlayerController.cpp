@@ -4,6 +4,7 @@
 #include"Common/STime.h"
 #include"GameObject/GameObject.h"
 #include"Component/SComponent.h"
+#include"Component/SAnimator.h"
 namespace Sichun
 {
 	PlayerController::PlayerController()
@@ -17,6 +18,7 @@ namespace Sichun
 
 	void PlayerController ::Initialize()
 	{
+	
 	}
 
 	void PlayerController::Update()
@@ -38,6 +40,57 @@ namespace Sichun
 			
 	}
 
+	void PlayerController::MoveHorizotnal(int horizontal, Vector2& dir)
+	{
+		if (horizontal < 0)
+		{
+			dir.x = -1;
+			
+		}
+		else if (horizontal > 0)
+		{
+			dir.x = 1;
+		}
+		PlayAnimation(L"ReimuMoveHorizontal");
+	}
+
+	void PlayerController::MoveVertical(int vertical,Vector2& dir)
+	{
+
+		if (vertical < 0)
+		{
+			dir.y = -1;
+			
+		}
+		else if (vertical > 0)
+		{
+			dir.y = 1;
+		}
+		PlayAnimation(L"ReimuIdle");
+	}
+
+	void PlayerController::MoveDiagonal(int horizontal,int vertical,Vector2& dir)
+	{
+		if (horizontal < 0)
+		{
+			dir.x = -1;
+
+		}
+		else if (horizontal > 0)
+		{
+			dir.x = 1;
+		}
+		if (vertical < 0)
+		{
+			dir.y = -1;
+		}
+		else if (vertical > 0)
+		{
+			dir.y = 1;
+		}
+		PlayAnimation(L"ReimuMoveHorizontal");
+	}
+
 	void PlayerController::Move()
 	{
 		std::shared_ptr<Transform> transform = GetOwner()->GetComponent<Transform>();
@@ -46,39 +99,53 @@ namespace Sichun
 		Vector2 pos = transform->GetPos();
 		Vector2 scale = transform->GetScale();
 
-		float speed = 100.0f;
+		float speed = 180.0f;
 		float dt = Time::DeltaTime();
 
-		// 입력값을 벡터로 저장
 		Vector2 inputDir = Vector2::Zero;
 
 		int horizontal = InputManager::GetAxis("Horizontal");
 		int vertical = InputManager::GetAxis("Vertical");
 
-		if (horizontal < 0)
-			inputDir.x = -1;
-		else if (horizontal > 0)
-			inputDir.x = 1;
+		if(horizontal!=0&&vertical!=0)
+		{
+			 MoveDiagonal(horizontal, vertical, inputDir);
+		}
+		else if (horizontal != 0 || vertical != 0)
+		{
+			if (horizontal != 0)
+				MoveHorizotnal(horizontal,inputDir);
+			else
+				MoveVertical(vertical,inputDir);
+		}
 
-		if (vertical < 0)
-			inputDir.y = -1;
-		else if (vertical > 0)
-			inputDir.y = 1;
-
-		// 방향 벡터 정규화 (대각선 이동 보정)
-		if (inputDir.x != 0 || inputDir.y != 0)
+	
+		if (inputDir.x == 0 && inputDir.y == 0)
+		{
+			PlayAnimation(L"ReimuIdle");
+		}
+		else
+		{
 			inputDir.Normalize();
+			pos += inputDir * speed * dt;
+		}
 
-		pos += inputDir * speed * dt;
-
-		// 좌우 반전 처리
-		if (inputDir.x < 0 && scale.x > 0)
+		// 좌우 반전
+		if (inputDir.x > 0 && scale.x > 0)
 			scale.x *= -1;
-		else if (inputDir.x > 0 && scale.x < 0)
+		else if (inputDir.x < 0 && scale.x < 0)
 			scale.x *= -1;
 
 		transform->SetPos(pos);
 		transform->SetScale(scale);
+	}
+
+
+	void PlayerController::PlayAnimation(const std::wstring& name, bool loop)
+	{
+		if (_animator == nullptr)_animator = GetOwner()->GetComponent<Animator>();
+		if (_animator->IsPlayingAnimation(name))return;
+		_animator->PlayAnimation(name,loop);
 	}
 	
 

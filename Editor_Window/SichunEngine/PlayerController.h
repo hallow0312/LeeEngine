@@ -3,6 +3,7 @@
 
 namespace  Sichun 
 {
+	class Animator;
 	class PlayerController : public Monobehaviour
 	{ //PlayerCharacter
 	public:
@@ -24,11 +25,15 @@ namespace  Sichun
 		void LateUpdate()override;
 		void Render(HDC hdc)override;
 		void Move();
-		
+		void PlayAnimation(const std::wstring&name, bool loop=true);
 		void CheckState();
 
+		void MoveHorizotnal(int horizotnal , Vector2& dir);
+		void MoveVertical(int vertical,Vector2& dir);
+		void MoveDiagonal(int horizontal , int vertical ,Vector2 &dir );
 	private:
 		CharacterState _state;
+		std::shared_ptr<Animator>_animator;
 	};
 }
 

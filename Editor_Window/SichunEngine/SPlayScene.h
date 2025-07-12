@@ -19,7 +19,7 @@ namespace Sichun
 		void OnEnter() override;
 		void OnExit() override;
 		
-		
+		void CreateAnimation();
 		void CreatePlayer();
 		void CreateBackGround();
 		void CreateMainCamera();
