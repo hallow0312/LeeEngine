@@ -7,9 +7,9 @@
 #include"Component/SAnimator.h"
 namespace Sichun
 {
-	PlayerController::PlayerController()
+	PlayerController::PlayerController():_isMove(false),_state(CharacterState::Idle)
 	{
-		_state = CharacterState::Idle;
+		
 	}
 
 	PlayerController::~PlayerController() 
@@ -24,7 +24,6 @@ namespace Sichun
 	void PlayerController::Update()
 	{
 		Move();
-	
 	}
 
 	void PlayerController::LateUpdate()
@@ -51,7 +50,7 @@ namespace Sichun
 		{
 			dir.x = 1;
 		}
-		PlayAnimation(L"ReimuMoveHorizontal");
+		PlayMoveAnimation();
 	}
 
 	void PlayerController::MoveVertical(int vertical,Vector2& dir)
@@ -66,7 +65,7 @@ namespace Sichun
 		{
 			dir.y = 1;
 		}
-		PlayAnimation(L"ReimuIdle");
+		PlayIdleAnimation();
 	}
 
 	void PlayerController::MoveDiagonal(int horizontal,int vertical,Vector2& dir)
@@ -88,7 +87,7 @@ namespace Sichun
 		{
 			dir.y = 1;
 		}
-		PlayAnimation(L"ReimuMoveHorizontal");
+		PlayMoveAnimation();
 	}
 
 	void PlayerController::Move()
@@ -122,7 +121,7 @@ namespace Sichun
 	
 		if (inputDir.x == 0 && inputDir.y == 0)
 		{
-			PlayAnimation(L"ReimuIdle");
+			PlayIdleAnimation();
 		}
 		else
 		{
@@ -146,6 +145,39 @@ namespace Sichun
 		if (_animator == nullptr)_animator = GetOwner()->GetComponent<Animator>();
 		if (_animator->IsPlayingAnimation(name))return;
 		_animator->PlayAnimation(name,loop);
+	}
+
+	void PlayerController::PlayIdleAnimation()
+	{
+		if (_isMove)_isMove = false;
+		if (_isIdle)
+			PlayAnimation(L"ReimuIdle");
+		else
+		{
+			if (_animator->IsCompleteAnimation())
+			{
+				_isIdle = true;
+				return;
+			}
+			PlayAnimation(L"ReimuIdleStart", false);
+		}
+		
+	}
+
+	void PlayerController::PlayMoveAnimation()
+	{
+		_isIdle = false;
+		if(_isMove)
+		PlayAnimation(L"ReimuMoveHorizontal");
+		else
+		{
+			if (_animator->IsCompleteAnimation())
+			{
+				_isMove = true;
+				return;
+			}
+			PlayAnimation(L"ReimuMoveStart",false);
+		}
 	}
 	
 

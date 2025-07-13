@@ -24,9 +24,6 @@
       <Filter>Player</Filter>
     </ClInclude>
     <ClInclude Include="resource.h" />
-    <ClInclude Include="PlayerAnimation.h">
-      <Filter>Player</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SPlayScene.cpp">
@@ -39,9 +36,6 @@
       <Filter>Player</Filter>
     </ClCompile>
     <ClCompile Include="PlayerController.cpp">
-      <Filter>Player</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerAnimation.cpp">
       <Filter>Player</Filter>
     </ClCompile>
   </ItemGroup>

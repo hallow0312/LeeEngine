@@ -8,6 +8,18 @@ namespace Sichun
 	{
 		using Base = Component;
 	public:
+		struct Event
+		{
+			void operator=(std::function<void()> action)
+			{
+				_action = std::move(action);
+			}
+			void operator()()
+			{
+				if (_action)_action;
+			}
+			std::function<void()> _action;
+		};
 		Animator();
 		~Animator();
 		virtual void Initialize()override;
@@ -30,6 +42,7 @@ namespace Sichun
 		void  PlayAnimation(const std::wstring& name, bool loop= true );
 		bool IsPlayingAnimation(const std::wstring& name);
 
+		bool IsCompleteAnimation() { return _activeAnimation->IsComplete(); }
 	private:
 		std::map<std::wstring, std::shared_ptr<Animation>>_animations;
 		std::shared_ptr<Animation>_activeAnimation;

@@ -24,7 +24,7 @@ namespace Sichun
 		N, M,
 
 		LEFT, UP, RIGHT, DOWN,SPACE,
-
+		LBUTTON,RBUTTON,MBUTTON,
 		End
 	};
 
@@ -50,12 +50,17 @@ namespace Sichun
 		static bool GetKeyDown(KeyCode code);
 		static bool GetKeyUp(KeyCode code);
 		static bool GetKey(KeyCode code);
-
+		static math::Vector2 GetMousePosition() { return MousePosition; }
 		static int GetAxis(AxisName axis);
 		static int GetAxis(const string& axisName);
 
+	
+		static void SettingKeyState();
+		static void SetMousePositionByWindow();
+		static void ClearKeys();
 	private:
 		static std::vector<Key> Keys;
+		static math::Vector2 MousePosition;
 		static void CreateKeys();
 		static void CheckKeyInput();
 	};

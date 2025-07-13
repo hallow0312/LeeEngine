@@ -1,10 +1,12 @@
 #include "InputManager.h"
+#include"../S_Application.h"
 #include <Windows.h>
 
+extern Sichun::Application _application;
 namespace Sichun
 {
 	std::vector<InputManager::Key> InputManager::Keys = {};
-
+	math::Vector2 InputManager::MousePosition = math::Vector2::One;
 	static const int VKMap[] =
 	{
 		'Q','W','E','R','T','Y',
@@ -12,7 +14,8 @@ namespace Sichun
 		'D','F','G','H','J','K',
 		'L','Z','X','C','V','B',
 		'N','M',
-		VK_LEFT, VK_UP, VK_RIGHT, VK_DOWN,VK_SPACE
+		VK_LEFT, VK_UP, VK_RIGHT, VK_DOWN,VK_SPACE,
+		VK_LBUTTON,VK_RBUTTON,VK_MBUTTON
 	};
 
 	void InputManager::Initialize()
@@ -38,6 +41,36 @@ namespace Sichun
 	}
 
 	void InputManager::CheckKeyInput()
+	{
+		if (!GetFocus())
+		{
+			ClearKeys();
+		}
+		else 
+		{
+			
+			SettingKeyState();
+			SetMousePositionByWindow();
+		}
+	}
+
+#pragma region InputKey
+	bool InputManager::GetKeyDown(KeyCode code)
+	{
+		return Keys[static_cast<size_t>(code)]._state == KeyState::DOWN;
+	}
+
+	bool InputManager::GetKeyUp(KeyCode code)
+	{
+		return Keys[static_cast<size_t>(code)]._state == KeyState::UP;
+	}
+
+	bool InputManager::GetKey(KeyCode code)
+	{
+		return Keys[static_cast<size_t>(code)]._state == KeyState::PRESSED;
+	}
+
+	void InputManager::SettingKeyState()
 	{
 		for (size_t i = 0; i < static_cast<size_t>(KeyCode::End); i++)
 		{
@@ -68,22 +101,6 @@ namespace Sichun
 				}
 			}
 		}
-	}
-
-#pragma region InputKey
-	bool InputManager::GetKeyDown(KeyCode code)
-	{
-		return Keys[static_cast<size_t>(code)]._state == KeyState::DOWN;
-	}
-
-	bool InputManager::GetKeyUp(KeyCode code)
-	{
-		return Keys[static_cast<size_t>(code)]._state == KeyState::UP;
-	}
-
-	bool InputManager::GetKey(KeyCode code)
-	{
-		return Keys[static_cast<size_t>(code)]._state == KeyState::PRESSED;
 	}
 
 	int InputManager::GetAxis(AxisName axis)
@@ -119,6 +136,27 @@ namespace Sichun
 			return GetAxis(AxisName::VERTICAL);
 		else
 			return 0;
+	}
+	void InputManager::SetMousePositionByWindow()
+	{
+		POINT mousePos = {};
+		GetCursorPos(&mousePos);
+		ScreenToClient(_application.GetHwnd(),&mousePos);
+
+		MousePosition.x = mousePos.x;
+		MousePosition.y = mousePos.y;
+	}
+	void InputManager::ClearKeys()
+	{
+		for (Key& key : Keys)
+		{
+			if (key._state == KeyState::DOWN || key._state == KeyState::PRESSED)
+				key._state = KeyState::UP;
+			else if (key._state == KeyState::UP)
+				key._state = KeyState::NONE;
+
+			key._isPressed = false;
+		}
 	}
 #pragma endregion
 

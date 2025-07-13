@@ -8,6 +8,7 @@
 #include<map>
 #include <algorithm>
 #include<assert.h>
+#include<functional>
 #include"cmath"
 
 #include "SMath.h"

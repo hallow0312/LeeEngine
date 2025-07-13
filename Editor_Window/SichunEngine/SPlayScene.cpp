@@ -85,14 +85,15 @@ namespace Sichun
 		std::shared_ptr<Graphics::Texture>texture = Resources::Find<Graphics::Texture>(L"Reimu");
 		std::shared_ptr<Animator>  animator = _player->AddComponent<Animator>();
 
+		animator->CreateAnimation(L"ReimuIdleStart", texture,
+			Vector2(0.f, 0.f), Vector2(32.0, 64.0f), Vector2::Zero, 2, 0.15f);
 		animator->CreateAnimation(L"ReimuIdle", texture,
-			Vector2(0, 0), Vector2(32.0, 64.0f), Vector2::Zero, 4, 0.15f);
+			Vector2(0, 64.0f), Vector2(32.0, 64.0f), Vector2::Zero, 4, 0.15f);
 		animator->CreateAnimation(L"ReimuMoveStart", texture,
-			Vector2(0.0f, 64.0f), Vector2(32.0, 64.0f), Vector2::Zero, 5, 0.15f);
+			Vector2(0.0f, 128.0f), Vector2(32.0, 64.0f), Vector2::Zero, 5, 0.15f);
 		animator->CreateAnimation(L"ReimuMoveHorizontal", texture,
-			Vector2(32.0f, 64.0f), Vector2(32.0, 64.0f), Vector2::Zero, 4, 0.15f);
-		animator->CreateAnimation(L"ReimuMoveVertical", texture,
-			Vector2(0.0f, 64.0f), Vector2(32.0, 64.0f), Vector2::Zero, 2, 0.15f);
+			Vector2(32.0f, 128.0f), Vector2(32.0, 64.0f), Vector2::Zero, 4, 0.15f);
+	
 		animator->PlayAnimation(L"ReimuIdle", true);
 	}
 
@@ -100,8 +101,7 @@ namespace Sichun
 	{
 		_player = Object::Instantiate<Player>(Sichun::Enum::LayerType::Player, Vector2(150.0f,380.0f));
 		_player->AddComponent<PlayerController>();
-		//std::shared_ptr<SpriteRenderer> sprite = _player->AddComponent<SpriteRenderer>();
-		//sprite->SetTexture(texture);
+		
 
 		CreateAnimation();
 	}

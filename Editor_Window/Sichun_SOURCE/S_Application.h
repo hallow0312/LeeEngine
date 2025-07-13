@@ -18,6 +18,8 @@ namespace Sichun {
 		void LateUpdate(); 
 		void Render();
 		HDC GetHDC() { return _hdc; }
+
+		HWND GetHwnd() { return  _hwnd; }
 	private :
 		HWND _hwnd;
 

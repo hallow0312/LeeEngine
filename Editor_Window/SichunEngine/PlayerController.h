@@ -26,6 +26,8 @@ namespace  Sichun
 		void Render(HDC hdc)override;
 		void Move();
 		void PlayAnimation(const std::wstring&name, bool loop=true);
+		void PlayIdleAnimation();
+		void PlayMoveAnimation();
 		void CheckState();
 
 		void MoveHorizotnal(int horizotnal , Vector2& dir);
@@ -34,6 +36,10 @@ namespace  Sichun
 	private:
 		CharacterState _state;
 		std::shared_ptr<Animator>_animator;
+
+	
+		bool _isMove;
+		bool _isIdle;
 	};
 }
 
