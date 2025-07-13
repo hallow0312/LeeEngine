@@ -139,6 +139,11 @@ namespace Sichun
 		transform->SetScale(scale);
 	}
 
+	void PlayerController::Temp()
+	{
+		int a = 10;
+	}
+
 
 	void PlayerController::PlayAnimation(const std::wstring& name, bool loop)
 	{

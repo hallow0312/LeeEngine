@@ -95,6 +95,7 @@ namespace Sichun
 			Vector2(32.0f, 128.0f), Vector2(32.0, 64.0f), Vector2::Zero, 4, 0.15f);
 	
 		animator->PlayAnimation(L"ReimuIdle", true);
+		
 	}
 
 	void PlayScene::CreatePlayer()

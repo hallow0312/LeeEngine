@@ -15,19 +15,16 @@ namespace Sichun {
 	}
 	void GameObject::Initialize()
 	{
-		
-		for (std::shared_ptr<Component>comp : _components)
+		for (const auto& comp : _components)  
 		{
-			if (comp == nullptr)continue;
-			comp->Initialize();
+			if (comp) comp->Initialize();
 		}
 	}
 	void GameObject::Update()
 	{
-		for (std::shared_ptr<Component>comp : _components)
+		for (const auto& comp : _components) 
 		{
-			if (comp == nullptr)continue;
-			comp->Update();
+			if (comp) comp->Update();
 		}
 		
 	}
@@ -42,18 +39,16 @@ namespace Sichun {
 	}
 	void GameObject::LateUpdate()
 	{
-		for (std::shared_ptr<Component>comp : _components)
+		for (const auto& comp : _components)  
 		{
-			if (comp == nullptr)continue;
-			comp->LateUpdate();
+			if (comp) comp->LateUpdate();
 		}
 	}
 	void GameObject::Render(HDC hdc)
 	{
-		for (std::shared_ptr<Component>comp : _components)
+		for (const auto& comp : _components)  
 		{
-			if (comp == nullptr)continue;
-			comp->Render(hdc);
+			if (comp) comp->Render(hdc);
 		}
 	}
 }
