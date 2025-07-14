@@ -6,7 +6,8 @@ namespace Sichun
 	std::map<std::wstring, std::shared_ptr<Scene>> SceneManager::_scenes;
 	void SceneManager::Initialize()
 	{
-		
+		if (_activeScene)
+			_activeScene->Initialize();
 	}
 
 	void SceneManager::Update()

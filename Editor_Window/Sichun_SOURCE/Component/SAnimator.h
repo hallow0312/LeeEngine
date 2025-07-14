@@ -54,7 +54,9 @@ namespace Sichun
 		std::function<void()>& GetEndEvent(const std::wstring& name);
 
 		bool IsPlayingAnimation(const std::wstring& name);
-		bool IsCompleteAnimation() { return _activeAnimation->IsComplete(); }
+		bool IsCompleteAnimation() { 
+			return _activeAnimation->IsComplete();
+		}
 
 	private:
 		std::map<std::wstring, std::shared_ptr<Animation>> _animations;

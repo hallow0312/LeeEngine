@@ -136,6 +136,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="PlayerAnimation.h" />
     <ClInclude Include="PlayerController.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SLoadResources.h" />
@@ -145,6 +146,7 @@
     <ClInclude Include="STitleScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="PlayerAnimation.cpp" />
     <ClCompile Include="PlayerController.cpp" />
     <ClCompile Include="SPlayer.cpp" />
     <ClCompile Include="SPlayScene.cpp" />

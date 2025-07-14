@@ -12,6 +12,7 @@
 #include"cmath"
 
 #include "SMath.h"
+#include"STypes.h"
 #include"SDefine.h"
 #include <mmsystem.h>
 #include <dinput.h>

@@ -1,6 +1,6 @@
 #pragma once
 #include"..//Sichun_SOURCE//Component/SMonobehaviour.h"
-
+#include"PlayerAnimation.h"
 namespace  Sichun 
 {
 	class Animator;
@@ -28,16 +28,13 @@ namespace  Sichun
 		void Temp();
 	private:
 		CharacterState _state;
-		std::shared_ptr<Animator>_animator;
-
+		
+		std::shared_ptr<PlayerAnimation>_animation;
 	
-		bool _isMove;
-		bool _isIdle;
-
+		
 	private:
-		void PlayAnimation(const std::wstring& name, bool loop = true);
-		void PlayIdleAnimation();
-		void PlayMoveAnimation();
+	
+
 		void CheckState();
 
 		void MoveHorizotnal(int horizotnal, Vector2& dir);

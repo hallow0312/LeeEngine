@@ -7,9 +7,13 @@ namespace  Sichun::Enum
 		Transform,
 		SpriteRenderer,
 		Animator,
-		Script,
 		Camera,
+		Script,
 		End
+	};
+	enum
+	{
+		FIXED_COMPONENT_COUNT = static_cast<uint8>(ComponentType::End) - 1
 	};
 
 	enum class LayerType

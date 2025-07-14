@@ -3,10 +3,12 @@
 
 namespace Sichun
 {
+	
 	class GameObject;
 	class Component:public Entity
 	{
 	public:
+
 		Component(Enum::ComponentType type);
 		~Component();
 

@@ -13,6 +13,7 @@
 #include"Renderer/SRenderer.h"
 #include"GameObject/SObject.h"
 #include"Component/SAnimator.h"
+#include"PlayerAnimation.h"
 namespace Sichun
 {
 
@@ -26,11 +27,11 @@ namespace Sichun
 
 	void PlayScene::Initialize()
 	{
-		Base::Initialize();
 		CreateMainCamera();
 		
 		CreateBackGround();
 		CreatePlayer();
+		Base::Initialize();
 	}
 		
 	
@@ -102,7 +103,7 @@ namespace Sichun
 	{
 		_player = Object::Instantiate<Player>(Sichun::Enum::LayerType::Player, Vector2(150.0f,380.0f));
 		_player->AddComponent<PlayerController>();
-		
+		_player->AddComponent<PlayerAnimation>();
 
 		CreateAnimation();
 	}

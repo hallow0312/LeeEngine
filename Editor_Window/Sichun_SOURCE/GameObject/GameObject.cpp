@@ -19,6 +19,10 @@ namespace Sichun {
 		{
 			if (comp) comp->Initialize();
 		}
+		for (const auto& script : _scripts)
+		{
+			if (script)script->Initialize();
+		}
 	}
 	void GameObject::Update()
 	{
@@ -26,7 +30,10 @@ namespace Sichun {
 		{
 			if (comp) comp->Update();
 		}
-		
+		for (const auto& script : _scripts)
+		{
+			if (script)script->Update();
+		}
 	}
 	void  GameObject::InitializeTransform()
 	{
@@ -37,11 +44,16 @@ namespace Sichun {
 		}
 		
 	}
+
 	void GameObject::LateUpdate()
 	{
 		for (const auto& comp : _components)  
 		{
 			if (comp) comp->LateUpdate();
+		}
+		for (const auto& script : _scripts)
+		{
+			if (script)script->LateUpdate();
 		}
 	}
 	void GameObject::Render(HDC hdc)
@@ -49,6 +61,10 @@ namespace Sichun {
 		for (const auto& comp : _components)  
 		{
 			if (comp) comp->Render(hdc);
+		}
+		for (const auto& script : _scripts)
+		{
+			if (script)script->Render(hdc);
 		}
 	}
 }

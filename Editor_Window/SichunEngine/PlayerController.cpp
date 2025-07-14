@@ -7,18 +7,18 @@
 #include"Component/SAnimator.h"
 namespace Sichun
 {
-	PlayerController::PlayerController():_isMove(false),_state(CharacterState::Idle)
+	PlayerController::PlayerController() :_state(CharacterState::Idle), _animation(nullptr)
 	{
-		
+
 	}
 
-	PlayerController::~PlayerController() 
+	PlayerController::~PlayerController()
 	{
 	}
 
-	void PlayerController ::Initialize()
+	void PlayerController::Initialize()
 	{
-	
+		if (_animation == nullptr)_animation = GetOwner()->GetComponent<PlayerAnimation>();
 	}
 
 	void PlayerController::Update()
@@ -35,8 +35,8 @@ namespace Sichun
 	}
 	void PlayerController::CheckState()
 	{
-		
-			
+
+
 	}
 
 	void PlayerController::MoveHorizotnal(int horizontal, Vector2& dir)
@@ -44,31 +44,33 @@ namespace Sichun
 		if (horizontal < 0)
 		{
 			dir.x = -1;
-			
+
 		}
 		else if (horizontal > 0)
 		{
 			dir.x = 1;
 		}
-		PlayMoveAnimation();
+		if (_animation == nullptr)_animation = GetOwner()->GetComponent<PlayerAnimation>();
+		_animation->PlayMoveAnimation();
 	}
 
-	void PlayerController::MoveVertical(int vertical,Vector2& dir)
+	void PlayerController::MoveVertical(int vertical, Vector2& dir)
 	{
 
 		if (vertical < 0)
 		{
 			dir.y = -1;
-			
+
 		}
 		else if (vertical > 0)
 		{
 			dir.y = 1;
 		}
-		PlayIdleAnimation();
+		if (_animation == nullptr)_animation = GetOwner()->GetComponent<PlayerAnimation>();
+		_animation->PlayIdleAnimation();
 	}
 
-	void PlayerController::MoveDiagonal(int horizontal,int vertical,Vector2& dir)
+	void PlayerController::MoveDiagonal(int horizontal, int vertical, Vector2& dir)
 	{
 		if (horizontal < 0)
 		{
@@ -87,7 +89,8 @@ namespace Sichun
 		{
 			dir.y = 1;
 		}
-		PlayMoveAnimation();
+		if (_animation == nullptr)_animation = GetOwner()->GetComponent<PlayerAnimation>();
+		_animation->PlayMoveAnimation();
 	}
 
 	void PlayerController::Move()
@@ -106,22 +109,23 @@ namespace Sichun
 		int horizontal = InputManager::GetAxis("Horizontal");
 		int vertical = InputManager::GetAxis("Vertical");
 
-		if(horizontal!=0&&vertical!=0)
+		if (horizontal != 0 && vertical != 0)
 		{
-			 MoveDiagonal(horizontal, vertical, inputDir);
+			MoveDiagonal(horizontal, vertical, inputDir);
 		}
 		else if (horizontal != 0 || vertical != 0)
 		{
 			if (horizontal != 0)
-				MoveHorizotnal(horizontal,inputDir);
+				MoveHorizotnal(horizontal, inputDir);
 			else
-				MoveVertical(vertical,inputDir);
+				MoveVertical(vertical, inputDir);
 		}
 
-	
+
 		if (inputDir.x == 0 && inputDir.y == 0)
 		{
-			PlayIdleAnimation();
+			if (_animation == nullptr)_animation = GetOwner()->GetComponent<PlayerAnimation>();
+			_animation->PlayIdleAnimation();
 		}
 		else
 		{
@@ -145,46 +149,7 @@ namespace Sichun
 	}
 
 
-	void PlayerController::PlayAnimation(const std::wstring& name, bool loop)
-	{
-		if (_animator == nullptr)_animator = GetOwner()->GetComponent<Animator>();
-		if (_animator->IsPlayingAnimation(name))return;
-		_animator->PlayAnimation(name,loop);
-	}
-
-	void PlayerController::PlayIdleAnimation()
-	{
-		if (_isMove)_isMove = false;
-		if (_isIdle)
-			PlayAnimation(L"ReimuIdle");
-		else
-		{
-			if (_animator->IsCompleteAnimation())
-			{
-				_isIdle = true;
-				return;
-			}
-			PlayAnimation(L"ReimuIdleStart", false);
-		}
-		
-	}
-
-	void PlayerController::PlayMoveAnimation()
-	{
-		_isIdle = false;
-		if(_isMove)
-		PlayAnimation(L"ReimuMoveHorizontal");
-		else
-		{
-			if (_animator->IsCompleteAnimation())
-			{
-				_isMove = true;
-				return;
-			}
-			PlayAnimation(L"ReimuMoveStart",false);
-		}
-	}
-	
-
-	
 }
+
+	
+

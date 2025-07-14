@@ -13,7 +13,7 @@ namespace  Sichun
 	}
 	void Layer::Initialize()
 	{
-		for (std::shared_ptr<GameObject> element : _objs)
+		for (const auto&element : _objs)
 		{
 			if (element == nullptr)continue;
 			element->Initialize();
@@ -21,7 +21,7 @@ namespace  Sichun
 	}
 	void Layer::Update()
 	{
-		for (std::shared_ptr<GameObject> element : _objs)
+		for (const auto& element  : _objs)
 		{
 			if (element == nullptr)continue;
 			element->Update();
@@ -29,7 +29,7 @@ namespace  Sichun
 	}
 	void Layer::LateUpdate()
 	{
-		for (std::shared_ptr<GameObject> element : _objs)
+		for (const auto& element  : _objs)
 		{
 			if (element == nullptr)continue;
 			element->LateUpdate();
@@ -37,7 +37,7 @@ namespace  Sichun
 	}
 	void Layer::Render(HDC hdc)
 	{
-		for (std::shared_ptr<GameObject> element : _objs)
+		for (const auto& element : _objs)
 		{
 			if (element == nullptr)continue;
 			element->Render(hdc);

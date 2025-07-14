@@ -4,9 +4,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\CommonInclude.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Common\SDefine.h">
-      <Filter>Common</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\SEntity.h">
       <Filter>Common</Filter>
     </ClInclude>
@@ -67,6 +64,9 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\SAnimator.h">
       <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Common\STypes.h">
+      <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

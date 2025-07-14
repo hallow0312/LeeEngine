@@ -129,8 +129,7 @@ namespace Sichun
 	}
 
 	int InputManager::GetAxis(const string& axisName)
-	{
-		if (axisName == "Horizontal")
+	{		if (axisName == "Horizontal")
 			return GetAxis(AxisName::HORIZONTAL);
 		else if (axisName == "Vertical")
 			return GetAxis(AxisName::VERTICAL);

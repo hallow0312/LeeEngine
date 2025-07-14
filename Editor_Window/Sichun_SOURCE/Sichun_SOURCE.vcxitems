@@ -15,10 +15,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\CommonInclude.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Common\SDefine.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\SEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\SMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\STime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Common\STypes.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\SAnimator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\SCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\SComponent.h" />

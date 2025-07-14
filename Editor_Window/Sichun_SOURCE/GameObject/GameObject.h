@@ -1,7 +1,7 @@
 #pragma once
 #include "../Common/CommonInclude.h"
 #include "../Component/SComponent.h"
-
+#include"../Component/SMonobehaviour.h"
 namespace Sichun
 {
 	class GameObject : public std::enable_shared_from_this<GameObject>
@@ -17,31 +17,54 @@ namespace Sichun
 
 		
 		void InitializeTransform();
-
 		template<typename T>
 		std::shared_ptr<T> AddComponent()
 		{
 			std::shared_ptr<T> component = std::make_shared<T>();
 			component->SetOwner(shared_from_this());
-			UINT type = static_cast<UINT>(component->GetType());
-			if (_components[type] != nullptr);
-			_components[type] = component;
+
+			auto type = component->GetType();
+			if (type == Enum::ComponentType::Script)
+			{
+				_scripts.push_back(component);
+			}
+			else
+			{
+				size_t index = static_cast<size_t>(type);
+				if (index >= _components.size())
+					_components.resize(index + 1);
+
+				_components[index] = component;
+			}
+
 			return component;
 		}
-
+	
+		
 		template<typename T>
 		std::shared_ptr<T> GetComponent()
 		{
-			std::shared_ptr<T> component = nullptr;
-			for (std::shared_ptr<Component> comp : _components)
+			static_assert(std::is_base_of_v<Component, T>, "T must inherit from Component");
+
+			// 고정 컴포넌트 먼저 검색
+			for (const auto& comp : _components)
 			{
-				component = std::dynamic_pointer_cast<T>(comp);
-				if (component) break;
+				if (auto casted = std::dynamic_pointer_cast<T>(comp))
+					return casted;
 			}
-			return component;
+
+			// 스크립트도 검색
+			for (const auto& script : _scripts)
+			{
+				if (auto casted = std::dynamic_pointer_cast<T>(script))
+					return casted;
+			}
+
+			return nullptr;
 		}
 	private:
 		
-		std::vector<std::shared_ptr<Component>> _components;
+		std::vector<std::shared_ptr<Component>>_components;
+		std::vector<std::shared_ptr<Component>> _scripts;
 	};
 }
