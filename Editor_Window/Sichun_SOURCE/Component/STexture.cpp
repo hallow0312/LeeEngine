@@ -1,9 +1,10 @@
 #include "STexture.h"
 #include "S_Application.h"
+#include"Resource/SResources.h"
 extern Sichun::Application _application;
 namespace Sichun::Graphics
 {
-	Texture::Texture():Base(Enum::ResourceType::Texture)
+	Texture::Texture():Base(Enum::ResourceType::Texture),_alpha(false)
 	{
 	}
 	Texture::~Texture()
@@ -25,6 +26,28 @@ namespace Sichun::Graphics
 			_image.reset();
 		}
 		
+	}
+	std::shared_ptr<Texture> Texture::Create(const std::wstring&name, UINT width, UINT height)
+	{
+		std::shared_ptr<Texture>image = Resources::Find<Texture>(name);
+		if (image)return image;
+
+		image = std::make_shared<Texture>();
+
+		image->SetName(name);
+		image->SetWidth(width);
+		image->SetHeight(height);
+
+		HDC  hdc = _application.GetHDC();
+		HWND hwnd = _application.GetHwnd();
+
+		image->_bitMap = CreateCompatibleBitmap(hdc, width, height);
+		image->_hdc = CreateCompatibleDC(hdc);
+
+		HBITMAP oldBitMap = (HBITMAP)SelectObject(image->_hdc, image->_bitMap);
+		DeleteObject(oldBitMap);
+		Resources::Insert(name, image);
+
 	}
 	HRESULT Sichun::Graphics::Texture::Load(const std::wstring& path)
 	{

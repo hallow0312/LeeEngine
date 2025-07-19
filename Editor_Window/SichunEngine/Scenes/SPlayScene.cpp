@@ -94,7 +94,7 @@ namespace Sichun
 			Vector2(0.0f, 128.0f), Vector2(32.0, 64.0f), Vector2::Zero, 5, 0.15f);
 		animator->CreateAnimation(L"ReimuMoveHorizontal", texture,
 			Vector2(32.0f, 128.0f), Vector2(32.0, 64.0f), Vector2::Zero, 4, 0.15f);
-	
+		animator->CreateAnimationByFolder(L"ReimuIdle?", L"..\\Resources\\Reimu\\Idle\\Images", Vector2::Zero, 0.1f);
 		animator->PlayAnimation(L"ReimuIdle", true);
 		
 	}
@@ -104,7 +104,7 @@ namespace Sichun
 		_player = Object::Instantiate<Player>(Sichun::Enum::LayerType::Player, Vector2(150.0f,380.0f));
 		_player->AddComponent<PlayerController>();
 		_player->AddComponent<PlayerAnimation>();
-		_player->SetActive(false);
+		
 		CreateAnimation();
 	}
 

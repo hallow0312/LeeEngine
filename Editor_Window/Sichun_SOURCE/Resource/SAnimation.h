@@ -47,7 +47,7 @@ namespace Sichun
 		std::shared_ptr<Animator>GetAnimator() { return _animator.lock(); }
 
 	private:
-
+		
 		std::weak_ptr<Animator> _animator;
 		std::shared_ptr<Graphics::Texture>_texture;
 		std::vector<Sprite>_sprites;

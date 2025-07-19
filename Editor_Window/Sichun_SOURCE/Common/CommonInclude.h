@@ -9,15 +9,17 @@
 #include <algorithm>
 #include<assert.h>
 #include<functional>
-#include"cmath"
-
-#include "SMath.h"
-#include"STypes.h"
-#include"SDefine.h"
+#include<filesystem>
 #include <mmsystem.h>
 #include <dinput.h>
-#pragma comment(lib, "Msimg32.lib")
-#pragma comment(lib, "winmm.lib")
-
 #include <gdiplus.h>
+
+
+#include "SMath.h"
+#include"cmath"
+#include"STypes.h"
+#include"SDefine.h"
+#pragma comment(lib, "Msimg32.lib")
+
+#pragma comment(lib, "winmm.lib")
 #pragma comment(lib, "gdiplus.lib")

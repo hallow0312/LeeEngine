@@ -16,8 +16,11 @@ namespace Sichun::Graphics
 		};
 		Texture();
 		~Texture();
-
+		static std::shared_ptr<Texture>Create(const std::wstring& name, UINT width, UINT height);
 		HRESULT Load(const std::wstring& path)override;
+
+		void SetWidth(UINT width) { _width = width; }
+		void SetHeight(UINT height) { _height = height; }
 
 		UINT GetWidth() { return _width; }
 		UINT GetHeight() { return _height; }
@@ -35,6 +38,7 @@ namespace Sichun::Graphics
 		UINT _width;
 		UINT _height;
 	private:
+		bool  _alpha;
 		bool LoadBMP(const std::wstring& path);
 		bool LoadPNG(const std::wstring& path);
 	};

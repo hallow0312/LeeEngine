@@ -1,6 +1,6 @@
 #include "SAnimator.h"
-
-
+#include"Component/STexture.h"
+#include"Resource/SResources.h"
  namespace Sichun
 {
 	 Animator::Animator():Base(Enum::ComponentType::Animator)
@@ -63,6 +63,39 @@
 		
 		 _events.insert(std::make_pair(name, Events{}));
 		 _animations.insert(std::make_pair(name, animation));
+	 }
+
+	 void Animator::CreateAnimationByFolder(const std::wstring& name, const std::wstring& path, Vector2 offset, float duration)
+	 {
+		 std::shared_ptr<Animation>  animation = nullptr;
+		 animation = FindAnimation(name);
+		 if (animation != nullptr)return;
+
+		 std::filesystem::path fs(path);
+		 std::vector<std::shared_ptr<Graphics::Texture>>images = {};
+		 int fileCount = 0;
+		 for (auto& p : std::filesystem::recursive_directory_iterator(fs))
+		 {
+			 std::wstring fileName = p.path().filename();
+			 std::wstring fullName = p.path();
+			 std::shared_ptr<Graphics::Texture>texture = Resources::Load<Graphics::Texture>(fileName, fullName);
+			 images.push_back(texture);
+			 fileCount++;
+		 }
+		 UINT sheetWidth = images[0]->GetWidth() * FileDispositionInfo;
+		 UINT sheetHeight = images[0]->GetHeight();
+
+		 std::shared_ptr<Graphics::Texture> spriteSheet = Graphics::Texture::Create(name, sheetWidth, sheetHeight);
+		 UINT imageWidth = images[0]->GetWidth();
+		 UINT imageHeight = images[0]->GetHeight();
+
+		 for (size_t i = 0; i < images.size(); i++)
+		 {
+			 BitBlt(spriteSheet->GetHdc(), i * imageWidth, 0, 
+				 imageWidth, imageHeight,
+				 images[i]->GetHdc(), 0, 0, SRCCOPY);
+		 }
+		 CreateAnimation(name, spriteSheet, Vector2::One, Vector2(imageWidth, imageHeight), offset, fileCount, duration);
 	 }
 
 	 std::shared_ptr<Animation> Animator::FindAnimation(const std::wstring& name)
