@@ -17,6 +17,7 @@ namespace Sichun {
 		void Update();
 		void LateUpdate(); 
 		void Render();
+		void Destroy();
 		HDC GetHDC() { return _hdc; }
 
 		HWND GetHwnd() { return  _hwnd; }

@@ -27,4 +27,9 @@ namespace Sichun
 		if (_activeScene)
 			_activeScene->Render(hdc);
 	}
+	void SceneManager::Destroy()
+	{
+		if (_activeScene)
+			_activeScene->Destroy();
+	}
 }

@@ -9,14 +9,18 @@ namespace Sichun
 	public:
 		Layer();
 		~Layer();
-		 void Initialize();
-		 void Update();
-		 void LateUpdate();
-		 void Render(HDC hdc);
-		 void AddGameObject(std::shared_ptr<GameObject>obj);
+		virtual void Initialize();
+		virtual void Update();
+		virtual void LateUpdate();
+		virtual void Render(HDC hdc);
+		virtual void Destroy();
+
+		void AddGameObject(std::shared_ptr<GameObject>obj);
+		bool IsElementDisabled(std::shared_ptr<GameObject>obj);
 	private:
 		
 		std::vector<std::shared_ptr<GameObject>>_objs;
 	};
+	typedef std::vector<std::shared_ptr<GameObject>>::iterator  GameObjectIter;
 }
 

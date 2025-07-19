@@ -2,11 +2,21 @@
 #include "../Common/CommonInclude.h"
 #include "../Component/SComponent.h"
 #include"../Component/SMonobehaviour.h"
+
 namespace Sichun
 {
 	class GameObject : public std::enable_shared_from_this<GameObject>
 	{
 	public:
+		//friend void  Object::Destroy(std::shared_ptr<GameObject>obj);
+	
+		enum class ObjectState
+		{
+			Active,
+			Paused,
+			Destroy,
+			End
+		};
 		GameObject();
 		~GameObject();
 
@@ -14,9 +24,11 @@ namespace Sichun
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
-
+		void SetActive(bool value);
 		
 		void InitializeTransform();
+
+		ObjectState GetActive() { return _state; }
 		template<typename T>
 		std::shared_ptr<T> AddComponent()
 		{
@@ -62,9 +74,15 @@ namespace Sichun
 
 			return nullptr;
 		}
+		void OnDestroy() { _state = ObjectState::Destroy; }
+		
 	private:
 		
 		std::vector<std::shared_ptr<Component>>_components;
 		std::vector<std::shared_ptr<Component>> _scripts;
+		ObjectState _state;
+
+	private:
+	
 	};
 }

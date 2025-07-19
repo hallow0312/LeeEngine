@@ -136,24 +136,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="PlayerAnimation.h" />
-    <ClInclude Include="PlayerController.h" />
+    <ClInclude Include="Player\Bullet\SBullet.h" />
+    <ClInclude Include="Player\PlayerAnimation.h" />
+    <ClInclude Include="Player\PlayerController.h" />
+    <ClInclude Include="Player\SPlayer.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="SLoadResources.h" />
-    <ClInclude Include="SPlayer.h" />
-    <ClInclude Include="SLoadScenes.h" />
-    <ClInclude Include="SPlayScene.h" />
-    <ClInclude Include="STitleScene.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="PlayerAnimation.cpp" />
-    <ClCompile Include="PlayerController.cpp" />
-    <ClCompile Include="SPlayer.cpp" />
-    <ClCompile Include="SPlayScene.cpp" />
-    <ClCompile Include="STitleScene.cpp" />
+    <ClInclude Include="Scenes\SLoadResources.h" />
+    <ClInclude Include="Scenes\SLoadScenes.h" />
+    <ClInclude Include="Scenes\SPlayScene.h" />
+    <ClInclude Include="Scenes\STitleScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="SichunEngine.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Player\Bullet\SBullet.cpp" />
+    <ClCompile Include="Player\PlayerAnimation.cpp" />
+    <ClCompile Include="Player\PlayerController.cpp" />
+    <ClCompile Include="Player\SPlayer.cpp" />
+    <ClCompile Include="Scenes\SLoadScenes.cpp" />
+    <ClCompile Include="Scenes\SPlayScene.cpp" />
+    <ClCompile Include="Scenes\STitleScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

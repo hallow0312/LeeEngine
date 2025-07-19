@@ -1,5 +1,5 @@
 #pragma once
-#include"Scene/SLayer.h"
+#include"Scene/Slayer.h"
 #include"Scene/SScene.h"
 #include"Scene/SSceneManager.h"
 #include"GameObject/GameObject.h"
@@ -33,6 +33,10 @@ namespace Sichun::Object
 			transform->SetPos(pos);
 
 		return obj;
+	}
+	static void OnDestroy(std::shared_ptr<GameObject>obj)
+	{
+		obj->OnDestroy();
 	}
 }
 

@@ -33,7 +33,8 @@ namespace  Sichun
 	
 		
 	private:
-	
+		float _deathTime=10.0f;
+		 
 
 		void CheckState();
 

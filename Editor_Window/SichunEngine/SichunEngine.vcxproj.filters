@@ -9,43 +9,56 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SPlayScene.h">
-      <Filter>Scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="SLoadScenes.h" />
-    <ClInclude Include="STitleScene.h">
-      <Filter>Scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="SLoadResources.h" />
-    <ClInclude Include="SPlayer.h">
-      <Filter>Player</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerController.h">
-      <Filter>Player</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h" />
-    <ClInclude Include="PlayerAnimation.h">
+    <ClInclude Include="Player\PlayerController.h">
       <Filter>Player</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="SPlayScene.cpp">
+    <ClInclude Include="Player\SPlayer.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\PlayerAnimation.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\Bullet\SBullet.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Scenes\SPlayScene.h">
       <Filter>Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="STitleScene.cpp">
+    </ClInclude>
+    <ClInclude Include="Scenes\STitleScene.h">
       <Filter>Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="SPlayer.cpp">
-      <Filter>Player</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerController.cpp">
-      <Filter>Player</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerAnimation.cpp">
-      <Filter>Player</Filter>
-    </ClCompile>
+    </ClInclude>
+    <ClInclude Include="Scenes\SLoadResources.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Scenes\SLoadScenes.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="SichunEngine.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Player\SPlayer.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\PlayerAnimation.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\PlayerController.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\Bullet\SBullet.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Scenes\SPlayScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Scenes\STitleScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Scenes\SLoadScenes.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

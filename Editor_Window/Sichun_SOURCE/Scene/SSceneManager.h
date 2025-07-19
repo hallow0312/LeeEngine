@@ -40,7 +40,7 @@ namespace Sichun
 		static void Update();
 		static void LateUpdate();
 		static void Render(HDC hdc);
-		
+		static void Destroy();
 	private:
 		
 		static std::shared_ptr<Scene> _activeScene;

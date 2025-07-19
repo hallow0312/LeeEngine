@@ -4,8 +4,8 @@
 #include "framework.h"
 #include "Editor_Window.h"
 #include"../Sichun_SOURCE/S_Application.h"
-#include"../SichunEngine/SLoadScenes.h"
-#include"../SichunEngine/SLoadResources.h"
+#include"../SichunEngine/Scenes/SLoadScenes.h"
+#include"../SichunEngine/Scenes/SLoadResources.h"
 
 //#pragma comment (lib,"..//x64//Debug//SichunEngine.lib")
 Sichun::Application _application;

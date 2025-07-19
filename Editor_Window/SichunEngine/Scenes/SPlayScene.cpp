@@ -1,5 +1,5 @@
 #include "SPlayScene.h"
-#include"SPlayer.h"
+#include"../Player/SPlayer.h"
 #include"GameObject/GameObject.h"
 #include"GameObject/SObject.h"
 #include"GameObject/InputManager.h"
@@ -8,12 +8,12 @@
 #include"Component/STexture.h"
 #include"Scene/SSceneManager.h"
 #include"Resource/SResources.h"
-#include"PlayerController.h"
+#include"../Player/PlayerController.h"
 #include"Component/SCamera.h"
 #include"Renderer/SRenderer.h"
 #include"GameObject/SObject.h"
 #include"Component/SAnimator.h"
-#include"PlayerAnimation.h"
+#include"../Player/PlayerAnimation.h"
 namespace Sichun
 {
 
@@ -104,7 +104,7 @@ namespace Sichun
 		_player = Object::Instantiate<Player>(Sichun::Enum::LayerType::Player, Vector2(150.0f,380.0f));
 		_player->AddComponent<PlayerController>();
 		_player->AddComponent<PlayerAnimation>();
-
+		_player->SetActive(false);
 		CreateAnimation();
 	}
 

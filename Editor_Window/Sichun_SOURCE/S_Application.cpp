@@ -34,6 +34,7 @@ namespace Sichun {
 		Update();
 		LateUpdate();
 		Render();
+		Destroy();
 	}
 	void Application::LateUpdate()
 	{
@@ -45,6 +46,10 @@ namespace Sichun {
 		Time::Render(_backhdc);
 		SceneManager::Render(_backhdc);
 		CopyRenderTarget(_backhdc, _hdc);
+	}
+	void Application::Destroy()
+	{
+		SceneManager::Destroy();
 	}
 	void Application::CopyRenderTarget(HDC sourceHdc, HDC destHdc)
 	{

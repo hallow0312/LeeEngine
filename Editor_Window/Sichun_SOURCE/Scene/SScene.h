@@ -12,13 +12,13 @@ namespace Sichun
 		Scene();
 		~Scene();
 		
-		void virtual Initialize();
-		void virtual Update();
-		void virtual LateUpdate();
-		void virtual Render(HDC hdc);
+		virtual	void  Initialize();
+		virtual	void  Update();
+		virtual	void  LateUpdate();
+		virtual	void  Render(HDC hdc);
+		virtual void  Destroy();
 		virtual void  OnEnter();
 		virtual void OnExit();
-
 		void  AddGameObject(std::shared_ptr<GameObject> obj, Enum::LayerType type);
 
 		

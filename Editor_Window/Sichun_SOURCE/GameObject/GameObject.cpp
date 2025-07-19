@@ -4,7 +4,7 @@
 #include"Component/STransform.h"
 
 namespace Sichun {
-	GameObject::GameObject()
+	GameObject::GameObject():_state(ObjectState::Active)
 	{
 		_components.resize(static_cast<UINT>(Enum::ComponentType::End));
 	}
@@ -66,5 +66,10 @@ namespace Sichun {
 		{
 			if (script)script->Render(hdc);
 		}
+	}
+	void GameObject::SetActive(bool value)
+	{
+		if (value == true)_state = ObjectState::Active;
+		else _state = ObjectState::Paused;
 	}
 }

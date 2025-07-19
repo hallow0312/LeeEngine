@@ -5,6 +5,7 @@
 #include"GameObject/GameObject.h"
 #include"Component/SComponent.h"
 #include"Component/SAnimator.h"
+#include"GameObject/SObject.h"
 namespace Sichun
 {
 	PlayerController::PlayerController() :_state(CharacterState::Idle), _animation(nullptr)
@@ -23,6 +24,7 @@ namespace Sichun
 
 	void PlayerController::Update()
 	{
+		
 		Move();
 	}
 
@@ -33,10 +35,9 @@ namespace Sichun
 	void PlayerController::Render(HDC hdc)
 	{
 	}
+	
 	void PlayerController::CheckState()
 	{
-
-
 	}
 
 	void PlayerController::MoveHorizotnal(int horizontal, Vector2& dir)
