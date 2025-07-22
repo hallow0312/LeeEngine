@@ -43,45 +43,50 @@ namespace Sichun {
 
 	}
 
-	void SpriteRenderer::DrawBMP(std::shared_ptr<Transform>transform, HDC hdc)
+	void SpriteRenderer::DrawBMP(std::shared_ptr<Transform> transform, HDC hdc)
 	{
-		math::Vector2 pos = transform->GetLocalPos();
-		Vector2 scale = transform->GetLocalScale();
+		Vector2 pos = transform->GetWorldPosition();
+		Vector2 scale = transform->GetWorldScale();
+
 		pos = Renderer::_mainCamera->CalculatePosition(pos);
+
 		TransparentBlt(
 			hdc, pos.x, pos.y,
-			_texture->GetWidth()*_size.x*scale.x, _texture->GetHeight()*_size.y*scale.y,
-			_texture->GetHdc(),0,0,
-			_texture->GetWidth(),_texture->GetHeight(),
-			RGB(255,0,255));
+			_texture->GetWidth() * _size.x * scale.x,
+			_texture->GetHeight() * _size.y * scale.y,
+			_texture->GetHdc(), 0, 0,
+			_texture->GetWidth(), _texture->GetHeight(),
+			RGB(255, 0, 255)
+		);
 	}
 
-	void SpriteRenderer::DrawPNG(std::shared_ptr<Transform>transform, HDC hdc)
+	void SpriteRenderer::DrawPNG(std::shared_ptr<Transform> transform, HDC hdc)
 	{
-		Vector2 pos = transform->GetLocalPos();
-		Vector2 scale = transform->GetLocalScale();
+		Vector2 pos = transform->GetWorldPosition();
+		Vector2 scale = transform->GetWorldScale();
+		float rotation = transform->GetWorldRotation();
 
-		if (Renderer::_mainCamera)
-			Renderer::_mainCamera->CalculatePosition(pos);
+		pos = Renderer::_mainCamera->CalculatePosition(pos);
 
 		Gdiplus::Graphics graphics(hdc);
+		graphics.TranslateTransform(pos.x, pos.y);   
+		graphics.RotateTransform(rotation);          
+		graphics.TranslateTransform(-pos.x, -pos.y); 
 
-
-		graphics.RotateTransform(transform->GetLocalRotation());
-	
 		graphics.DrawImage(
-			_texture->GetImage().get(), // std::shared_ptr<Gdiplus::Image>
+			_texture->GetImage().get(),
 			Gdiplus::Rect(
-				(pos.x),
-				(pos.y),
-				(_texture->GetWidth() * _size.x*scale.x),
-				(_texture->GetHeight() * _size.y*scale.y)
+				pos.x,
+				pos.y,
+				_texture->GetWidth() * _size.x * scale.x,
+				_texture->GetHeight() * _size.y * scale.y
 			),
 			0, 0,
 			_texture->GetWidth(), _texture->GetHeight(),
 			Gdiplus::UnitPixel
 		);
 	}
+
 
 	
 }

@@ -25,12 +25,12 @@ namespace Sichun
 		if (_target)
 		{
 			std::shared_ptr<Transform>transform = _target->GetComponent<Transform>();
-			_lookPosition = transform->GetLocalPos();
+			_lookPosition = transform->GetWorldPosition();
 		}
 		else 
 		{
 			std::shared_ptr<Transform> cameraTransform = GetOwner()->GetComponent<Transform>();
-			_lookPosition = cameraTransform->GetLocalPos();
+			_lookPosition = cameraTransform->GetWorldPosition();
 		}
 		_distance = _lookPosition - (_resolution / 2.0f);
 	}

@@ -140,6 +140,7 @@
     <ClInclude Include="Player\PlayerAnimation.h" />
     <ClInclude Include="Player\PlayerController.h" />
     <ClInclude Include="Player\SPlayer.h" />
+    <ClInclude Include="Player\YinYang.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Scenes\SLoadResources.h" />
     <ClInclude Include="Scenes\SLoadScenes.h" />
@@ -154,6 +155,7 @@
     <ClCompile Include="Player\PlayerAnimation.cpp" />
     <ClCompile Include="Player\PlayerController.cpp" />
     <ClCompile Include="Player\SPlayer.cpp" />
+    <ClCompile Include="Player\YinYang.cpp" />
     <ClCompile Include="Scenes\SLoadScenes.cpp" />
     <ClCompile Include="Scenes\SPlayScene.cpp" />
     <ClCompile Include="Scenes\STitleScene.cpp" />

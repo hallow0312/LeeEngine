@@ -69,7 +69,18 @@ namespace Sichun {
 	}
 	void GameObject::SetActive(bool value)
 	{
-		if (value == true)_state = ObjectState::Active;
-		else _state = ObjectState::Paused;
+		_state = value ? ObjectState::Active : ObjectState::Paused;
+
+		auto transform = GetComponent<Transform>();
+		if (!transform)
+			return;
+
+		for (const auto& child : transform->GetChildren())
+		{
+			if (auto owner = child->GetOwner())
+			{
+				owner->SetActive(value); 
+			}
+		}
 	}
 }

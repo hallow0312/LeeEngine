@@ -2,10 +2,11 @@
 
 namespace Sichun
 {
-	Transform::Transform():Base(Enum::ComponentType::Transform)
+	Transform::Transform():Base(Enum::ComponentType::Transform),_parent(nullptr)
 	{
 		SetName(L"Transform");
 		SetPosition(Vector2(0,0));
+	
 	}
 	Transform::~Transform()
 	{
@@ -41,7 +42,7 @@ namespace Sichun
 			if (child)
 				child->UpdateTransform();
 		}
-	}
+ 	}
 	Vector2 Transform::GetWorldPosition()
 	{
 		if (HasParent())
@@ -65,6 +66,7 @@ namespace Sichun
 		else
 			return GetLocalScale(); 
 	}
+
 	void Transform::SetParent(std::shared_ptr<Transform> parent)
 	{
 		_parent = parent;
@@ -73,6 +75,7 @@ namespace Sichun
 			_parent->AddChildren(shared_from_this());
 		}
 	}
+	
 	void Transform::AddChildren(std::shared_ptr<Transform> child)
 	{
 		if(child!=nullptr)

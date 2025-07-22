@@ -9,7 +9,7 @@ namespace Sichun
 	{
 		struct TransformData
 		{
-			Vector2 Pos = Vector2::One;
+			Vector2 Pos = Vector2::Zero;
 			Vector2 Scale = Vector2::One;
 			float Rotation = 0;
 		};
@@ -17,6 +17,11 @@ namespace Sichun
 		{
 			TransformData Local;
 			TransformData World;
+			PositionData()
+			{
+				Local = TransformData();  
+				World = TransformData();
+			}
 		
 		};
 		using Base = Component;
@@ -58,11 +63,15 @@ namespace Sichun
 		Vector2 GetWorldPosition();
 		float GetWorldRotation();
 		Vector2 GetWorldScale();
+		
+		
 
 #pragma region °èÃþ±¸Á¶
 		void SetParent(std::shared_ptr<Transform>parent);
+		
 		std::shared_ptr<Transform>GetParent() { return _parent; }
 		bool HasParent() { return _parent != nullptr; }
+
 		void AddChildren(std::shared_ptr<Transform>child);
 		const std::vector < std::shared_ptr<Transform >>& GetChildren() { return _children; }
 #pragma endregion
@@ -74,5 +83,6 @@ namespace Sichun
 		std::vector <std::shared_ptr<Transform>>_children;
 	private:
 
+	
 	};
 }
