@@ -30,7 +30,7 @@ namespace Sichun::Object
 	
 		std::shared_ptr<Transform> transform = obj->GetComponent<Transform>();
 		if (transform != nullptr)
-			transform->SetPos(pos);
+			transform->SetPosition(pos);
 
 		return obj;
 	}

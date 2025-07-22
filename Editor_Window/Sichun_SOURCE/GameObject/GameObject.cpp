@@ -40,7 +40,7 @@ namespace Sichun {
 		if (!GetComponent<Transform>()) {
 
 			std::shared_ptr<Transform>transform = AddComponent<Transform>();
-			transform->SetPos(Vector2(0, 0));
+			transform->SetPosition(Vector2(0, 0));
 		}
 		
 	}

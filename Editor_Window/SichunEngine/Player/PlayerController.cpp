@@ -90,6 +90,7 @@ namespace Sichun
 		{
 			dir.y = 1;
 		}
+		
 		if (_animation == nullptr)_animation = GetOwner()->GetComponent<PlayerAnimation>();
 		_animation->PlayMoveAnimation();
 	}
@@ -99,10 +100,10 @@ namespace Sichun
 		std::shared_ptr<Transform> transform = GetOwner()->GetComponent<Transform>();
 		if (!transform) return;
 
-		Vector2 pos = transform->GetPos();
-		Vector2 scale = transform->GetScale();
+		Vector2 pos = transform->GetLocalPos();
+		Vector2 scale = transform->GetLocalScale();
 
-		float speed = 180.0f;
+		
 		float dt = Time::DeltaTime();
 
 		Vector2 inputDir = Vector2::Zero;
@@ -130,24 +131,21 @@ namespace Sichun
 		}
 		else
 		{
-			inputDir.Normalize();
-			pos += inputDir * speed * dt;
+			inputDir=inputDir.Normalize();
+			pos += inputDir * _speed * dt;
 		}
 
-		// ÁÂ¿ì ¹ÝÀü
+		
 		if (inputDir.x > 0 && scale.x > 0)
 			scale.x *= -1;
 		else if (inputDir.x < 0 && scale.x < 0)
 			scale.x *= -1;
 
-		transform->SetPos(pos);
+		transform->SetPosition(pos);
 		transform->SetScale(scale);
 	}
 
-	void PlayerController::Temp()
-	{
-		int a = 10;
-	}
+	
 
 
 }

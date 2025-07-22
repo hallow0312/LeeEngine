@@ -61,9 +61,7 @@ namespace Sichun
 	void PlayScene::Render(HDC hdc)
 	{
 		Base::Render(hdc);
-		wchar_t str[50] = L"Play Scene";
-		int len = wcsnlen_s(str, 50);
-		TextOut(hdc, 0, 0, str, len);
+		
 		
 	}
 

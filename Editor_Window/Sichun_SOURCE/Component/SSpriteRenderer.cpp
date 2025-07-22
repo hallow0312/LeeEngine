@@ -45,8 +45,8 @@ namespace Sichun {
 
 	void SpriteRenderer::DrawBMP(std::shared_ptr<Transform>transform, HDC hdc)
 	{
-		math::Vector2 pos = transform->GetPos();
-		Vector2 scale = transform->GetScale();
+		math::Vector2 pos = transform->GetLocalPos();
+		Vector2 scale = transform->GetLocalScale();
 		pos = Renderer::_mainCamera->CalculatePosition(pos);
 		TransparentBlt(
 			hdc, pos.x, pos.y,
@@ -58,8 +58,8 @@ namespace Sichun {
 
 	void SpriteRenderer::DrawPNG(std::shared_ptr<Transform>transform, HDC hdc)
 	{
-		Vector2 pos = transform->GetPos();
-		Vector2 scale = transform->GetScale();
+		Vector2 pos = transform->GetLocalPos();
+		Vector2 scale = transform->GetLocalScale();
 
 		if (Renderer::_mainCamera)
 			Renderer::_mainCamera->CalculatePosition(pos);
@@ -67,7 +67,7 @@ namespace Sichun {
 		Gdiplus::Graphics graphics(hdc);
 
 
-		graphics.RotateTransform(transform->GetRotation());
+		graphics.RotateTransform(transform->GetLocalRotation());
 	
 		graphics.DrawImage(
 			_texture->GetImage().get(), // std::shared_ptr<Gdiplus::Image>

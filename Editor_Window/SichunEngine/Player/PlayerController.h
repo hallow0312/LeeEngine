@@ -25,7 +25,7 @@ namespace  Sichun
 		void LateUpdate()override;
 		void Render(HDC hdc)override;
 		void Move();
-		void Temp();
+
 	private:
 		CharacterState _state;
 		
@@ -35,7 +35,7 @@ namespace  Sichun
 	private:
 		float _deathTime=10.0f;
 		 
-
+		float _speed = 180.0f;
 		void CheckState();
 
 		void MoveHorizotnal(int horizotnal, Vector2& dir);

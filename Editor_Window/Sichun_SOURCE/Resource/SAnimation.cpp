@@ -65,9 +65,9 @@ namespace Sichun {
 
 	void Animation::SettingPNG(HDC hdc, std::shared_ptr<Transform> transform)
 	{
-		Vector2 pos = transform->GetPos();
-		Vector2 scale = transform->GetScale();
-		float rotation = transform->GetRotation();
+		Vector2 pos = transform->GetLocalPos();
+		Vector2 scale = transform->GetLocalScale();
+		float rotation = transform->GetLocalRotation();
 
 		if (Renderer::_mainCamera)
 			Renderer::_mainCamera->CalculatePosition(pos);
@@ -110,8 +110,8 @@ namespace Sichun {
 	}
 	void Animation::SettingBMP(HDC hdc, std::shared_ptr<Transform> transform)
 	{
-		Vector2 pos = transform->GetPos();
-		Vector2 scale = transform->GetScale();
+		Vector2 pos = transform->GetLocalPos();
+		Vector2 scale = transform->GetLocalScale();
 		BLENDFUNCTION func = {};
 		func.BlendOp = AC_SRC_OVER;
 		func.BlendFlags = 0;
