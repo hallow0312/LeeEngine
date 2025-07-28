@@ -19,6 +19,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\SMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\STime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\STypes.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\Collider\SBoxCollider2D.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\Collider\SCircleCollider2D.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\Collider\SCollider.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\SAnimator.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\SCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\SComponent.h" />
@@ -42,6 +45,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Common\SEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Common\SMath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Common\STime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\Collider\SBoxCollider2D.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\Collider\SCircleCollider2D.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\Collider\SCollider.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\SAnimator.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\SCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\SComponent.cpp" />

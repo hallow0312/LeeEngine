@@ -5,6 +5,7 @@ namespace  Sichun::Enum
 	enum class ComponentType
 	{
 		Transform,
+		Collider,
 		SpriteRenderer,
 		Animator,
 		Camera,

@@ -5,9 +5,9 @@
 namespace Sichun
 {
 
-	YinYang::YinYang()
+	YinYang::YinYang():_offset(Vector2::Zero)
 	{
-		_value = 0.0f;
+		
 	}
 	YinYang::~YinYang()
 	{
@@ -17,14 +17,8 @@ namespace Sichun
 	}
 	void YinYang::Update()
 	{
-		_value += Time::DeltaTime();
-		if (_value >= 3.0f)
-		{
-			_value = 0.0f;
-			Vector2  pos = GetOwner()->GetComponent<Transform>()->GetWorldPosition();
-			int a = 10;
-		}
-		Rotate();
+		if (!_playerTransform)return;
+		Move();
 	}
 	void YinYang::LateUpdate()
 	{
@@ -34,9 +28,17 @@ namespace Sichun
 	}
 	void YinYang::Move()
 	{
+		Vector2  movePos = _playerTransform->GetWorldPosition() + _offset;
+		_transform->SetPosition(movePos);
 	}
 	void YinYang::Rotate()
 	{
 
+	}
+	void YinYang::Setting(std::shared_ptr<Transform> transform,Vector2 offset)
+	{
+		_playerTransform = transform;
+		_offset = offset;
+		_transform = GetOwner()->GetComponent<Transform>();
 	}
 }

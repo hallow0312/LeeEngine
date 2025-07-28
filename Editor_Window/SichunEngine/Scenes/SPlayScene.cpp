@@ -15,6 +15,7 @@
 #include"Component/SAnimator.h"
 #include"../Player/PlayerAnimation.h"
 #include"../Player/YinYang.h"
+#include"../Sichun_SOURCE/Component/Collider/SBoxCollider2D.h"
 namespace Sichun
 {
 
@@ -103,17 +104,28 @@ namespace Sichun
 		_player = Object::Instantiate<Player>(Sichun::Enum::LayerType::Player, Vector2(150.0f,380.0f));
 		_player->AddComponent<PlayerController>();
 		_player->AddComponent<PlayerAnimation>();
+		_player->AddComponent < BoxCollider2D>();
+		_player->GetComponent<BoxCollider2D>()->SetOffset(Vector2(-50, -50));
+		{
+			std::shared_ptr<GameObject>yinYang = Object::Instantiate<GameObject>(Sichun::Enum::LayerType::Player);
 
-		std::shared_ptr<GameObject>yinYang = Object::Instantiate<GameObject>(Sichun::Enum::LayerType::Player, Vector2(-10.0f, 0.5f));
-		yinYang->GetComponent<Transform>()->SetParent(_player->GetComponent<Transform>());
-	
-		std::shared_ptr<Graphics::Texture>texture = Resources::Find<Graphics::Texture>(L"YinYang");
-		std::shared_ptr<SpriteRenderer> sprite = yinYang->AddComponent<SpriteRenderer>();
-		sprite->SetTexture(texture);
-	
-		yinYang->AddComponent<YinYang>();
+			std::shared_ptr<Graphics::Texture>texture = Resources::Find<Graphics::Texture>(L"YinYang");
+			std::shared_ptr<SpriteRenderer> sprite = yinYang->AddComponent<SpriteRenderer>();
+			sprite->SetTexture(texture);
 
+			yinYang->AddComponent<YinYang>();
+			yinYang->GetComponent<YinYang>()->Setting(_player->GetComponent<Transform>(), Vector2(-30.0f, -5.0f));
+		}
+		{
+			std::shared_ptr<GameObject>yinYang = Object::Instantiate<GameObject>(Sichun::Enum::LayerType::Player);
 
+			std::shared_ptr<Graphics::Texture>texture = Resources::Find<Graphics::Texture>(L"YinYang");
+			std::shared_ptr<SpriteRenderer> sprite = yinYang->AddComponent<SpriteRenderer>();
+			sprite->SetTexture(texture);
+
+			yinYang->AddComponent<YinYang>();
+			yinYang->GetComponent<YinYang>()->Setting(_player->GetComponent<Transform>(), Vector2(15.0f, -5.0f));
+		}
 
 		CreateAnimation();
 	}

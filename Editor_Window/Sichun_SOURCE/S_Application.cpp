@@ -57,7 +57,15 @@ namespace Sichun {
 	}
 	void Application::ClearRenderTarget()
 	{
+	
+		HBRUSH grayBrush = CreateSolidBrush(RGB(200, 200, 200));
+		HBRUSH oldBrush = (HBRUSH)SelectObject(_backhdc, grayBrush);
+
 		Rectangle(_backhdc, -1, -1, 1601, 901);
+
+		
+		SelectObject(_backhdc, oldBrush);
+		DeleteObject(grayBrush);
 	}
 	void Application::SettingWindow(HWND hwnd, UINT width, UINT height)
 	{

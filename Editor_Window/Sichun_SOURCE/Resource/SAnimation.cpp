@@ -59,7 +59,7 @@ namespace Sichun {
 		{
 			SettingPNG(hdc,transform);
 		}
-		
+	
 
 	}
 
@@ -107,6 +107,7 @@ namespace Sichun {
 			Gdiplus::UnitPixel
 			
 		);
+		
 	}
 	void Animation::SettingBMP(HDC hdc, std::shared_ptr<Transform> transform)
 	{
@@ -131,6 +132,8 @@ namespace Sichun {
 			, sprite.Size.x
 			, sprite.Size.y
 			, func);
+	
+
 	}
 	void Animation::CreateAnimation(const std::wstring& name, std::shared_ptr<Sichun::Graphics::Texture> spriteSheet, Vector2 leftTop, Vector2 size, Vector2 offset ,UINT spriteLength, float duration)
 	{

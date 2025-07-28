@@ -68,6 +68,15 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\STypes.h">
       <Filter>Common</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\Collider\SCollider.h">
+      <Filter>Component\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\Collider\SCircleCollider2D.h">
+      <Filter>Component\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\Collider\SBoxCollider2D.h">
+      <Filter>Component\Collider</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Common\SEntity.cpp">
@@ -131,6 +140,15 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\SCamera.cpp">
       <Filter>Component</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\Collider\SCollider.cpp">
+      <Filter>Component\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\Collider\SCircleCollider2D.cpp">
+      <Filter>Component\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\Collider\SBoxCollider2D.cpp">
+      <Filter>Component\Collider</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -150,6 +168,9 @@
     </Filter>
     <Filter Include="Renderer">
       <UniqueIdentifier>{c857a6bc-41a6-40cb-b664-b8ba5738ca07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Collider">
+      <UniqueIdentifier>{cd7f6882-255a-45d2-bc09-842715357cb6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
