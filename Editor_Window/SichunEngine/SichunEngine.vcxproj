@@ -141,6 +141,7 @@
     <ClInclude Include="Player\PlayerController.h" />
     <ClInclude Include="Player\SPlayer.h" />
     <ClInclude Include="Player\YinYang.h" />
+    <ClInclude Include="SichunEngineHeader.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Scenes\SLoadResources.h" />
     <ClInclude Include="Scenes\SLoadScenes.h" />

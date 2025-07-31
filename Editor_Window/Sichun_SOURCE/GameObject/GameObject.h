@@ -25,9 +25,9 @@ namespace Sichun
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
 		void SetActive(bool value);
-		
+		bool IsActive() { return _state == ObjectState::Active; }
 		void InitializeTransform();
-
+		
 		ObjectState GetActive() { return _state; }
 		template<typename T>
 		std::shared_ptr<T> AddComponent()

@@ -4,6 +4,7 @@ C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\Sichun_SOURCE\Common\STime.
 C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\Sichun_SOURCE\Component\Collider\SBoxCollider2D.cpp;C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\x64\Debug\SBoxCollider2D.obj
 C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\Sichun_SOURCE\Component\Collider\SCircleCollider2D.cpp;C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\x64\Debug\SCircleCollider2D.obj
 C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\Sichun_SOURCE\Component\Collider\SCollider.cpp;C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\x64\Debug\SCollider.obj
+C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\Sichun_SOURCE\Component\Collider\SCollisionManager.cpp;C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\x64\Debug\SCollisionManager.obj
 C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\Sichun_SOURCE\Component\SAnimator.cpp;C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\x64\Debug\SAnimator.obj
 C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\Sichun_SOURCE\Component\SCamera.cpp;C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\x64\Debug\SCamera.obj
 C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\Sichun_SOURCE\Component\SComponent.cpp;C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\x64\Debug\SComponent.obj

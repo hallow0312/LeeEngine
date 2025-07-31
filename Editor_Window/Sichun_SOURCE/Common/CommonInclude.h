@@ -5,6 +5,7 @@
 #include<vector>
 #include<string>
 #include<memory>
+#include<bitset>
 #include<map>
 #include <algorithm>
 #include<assert.h>

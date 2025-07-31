@@ -15,6 +15,7 @@ namespace Sichun
 		virtual void Render(HDC hdc);
 		virtual void Destroy();
 
+		const  std::vector<std::shared_ptr<GameObject>>GetGameObjects() { return _objs; }
 		void AddGameObject(std::shared_ptr<GameObject>obj);
 		bool IsElementDisabled(std::shared_ptr<GameObject>obj);
 	private:

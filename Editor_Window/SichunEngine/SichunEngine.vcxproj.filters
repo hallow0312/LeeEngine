@@ -37,6 +37,7 @@
     <ClInclude Include="Player\YinYang.h">
       <Filter>Player</Filter>
     </ClInclude>
+    <ClInclude Include="SichunEngineHeader.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="SichunEngine.rc" />

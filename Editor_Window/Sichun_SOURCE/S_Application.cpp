@@ -2,6 +2,7 @@
 #include"Common/STime.h"
 #include"GameObject/InputManager.h"
 #include"Scene/SSceneManager.h"
+#include"Component/Collider/SCollisionManager.h"
 extern ULONG_PTR gpToken;;
 namespace Sichun {
 
@@ -20,6 +21,7 @@ namespace Sichun {
 		SettingWindow(hwnd, width, height);
 		CreateBackBuffer(hwnd, width, height);
 		Time::Initialize();
+		CollisionManager::Initialize();
 		InputManager::Initialize();
 		SceneManager::Initialize();
 	}
@@ -27,6 +29,8 @@ namespace Sichun {
 	{
 		InputManager::Update();
 		Time::Update();
+		CollisionManager::Update();
+
 		SceneManager::Update();
 	}
 	void  Application::Run()
@@ -38,12 +42,14 @@ namespace Sichun {
 	}
 	void Application::LateUpdate()
 	{
+		CollisionManager::LateUpdate();
 		SceneManager::LateUpdate();
 	}
 	void Application::Render()
 	{
 		ClearRenderTarget();
 		Time::Render(_backhdc);
+		CollisionManager::Render(_backhdc);
 		SceneManager::Render(_backhdc);
 		CopyRenderTarget(_backhdc, _hdc);
 	}

@@ -29,7 +29,7 @@ namespace  Sichun::Enum
 		UI,
 		Max=16,
 	};
-
+	
 	enum class ResourceType
 	{
 		Texture,
