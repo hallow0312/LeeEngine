@@ -5,6 +5,9 @@ namespace Sichun
 {
 	class CircleCollider2D:public Collider
 	{
+		using Super = Collider;
+	public:
+
 		CircleCollider2D();
 		~CircleCollider2D();
 
@@ -13,10 +16,9 @@ namespace Sichun
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
 
-		Vector2  GetOffset() { return _offset;}
-		void SetOffset(Vector2 offset) { _offset = offset; }
+		
 	private:
-		Vector2 _offset;
+		float  _radius;
 	};
 }
 

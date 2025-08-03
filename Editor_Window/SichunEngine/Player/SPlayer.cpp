@@ -1,9 +1,18 @@
 #include "SPlayer.h"
+#include"../SichunEngineHeader.h"
 #include"Common/STime.h"
 #include"GameObject/InputManager.h"
 #include"Component/STransform.h"
+#include"PlayerController.h"
+#include"YinYang.h"
 namespace Sichun
 {
+	Player::Player():_leftYinYang(nullptr),_rightYinYang(nullptr)
+	{
+	}
+	Player::~Player()
+	{
+	}
 	void Player::Initialize()
 	{
 		GameObject::Initialize();
@@ -22,5 +31,34 @@ namespace Sichun
 	void Player::Render(HDC hdc)
 	{
 		GameObject::Render(hdc);
+	}
+	void Player::Init()
+	{
+		AddComponent <CircleCollider2D>();
+		AddComponent<PlayerController>();
+		AddComponent<PlayerAnimation>();
+
+		GetComponent<CircleCollider2D>()->SetOffset(Vector2(-25.0f,-25.0f));
+		GetComponent<CircleCollider2D>()->SetSize(Vector2(0.5f, 0.5f));
+		{
+			_leftYinYang = Object::Instantiate<GameObject>(Sichun::Enum::LayerType::Player);
+
+			std::shared_ptr<Graphics::Texture>texture = Resources::Find<Graphics::Texture>(L"YinYang");
+			std::shared_ptr<SpriteRenderer> sprite = _leftYinYang->AddComponent<SpriteRenderer>();
+			sprite->SetTexture(texture);
+
+			_leftYinYang ->AddComponent<YinYang>();
+			_leftYinYang ->GetComponent<YinYang>()->Setting(GetComponent<Transform>(), Vector2(-30.0f, -5.0f));
+		}
+		{
+			_rightYinYang = Object::Instantiate<GameObject>(Sichun::Enum::LayerType::Player);
+
+			std::shared_ptr<Graphics::Texture>texture = Resources::Find<Graphics::Texture>(L"YinYang");
+			std::shared_ptr<SpriteRenderer> sprite = _rightYinYang->AddComponent<SpriteRenderer>();
+			sprite->SetTexture(texture);
+
+			_rightYinYang->AddComponent<YinYang>();
+			_rightYinYang->GetComponent<YinYang>()->Setting(GetComponent<Transform>(), Vector2(15.0f, -5.0f));
+		}
 	}
 }

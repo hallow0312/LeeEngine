@@ -39,4 +39,9 @@ namespace  Sichun::Enum
 		AudioClip,
 		Prefab,
 	};
+	enum class ColliderType
+	{
+		Rect,
+		Circle,
+	};
 }

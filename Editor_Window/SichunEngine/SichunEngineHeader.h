@@ -6,7 +6,9 @@
 #include"Component/STexture.h"
 #include"Component/SAnimator.h"
 #include"Component/SCamera.h"
+#include"Component/Collider/SCollisionManager.h"
 #include"Component/Collider/SBoxCollider2D.h"
+#include"Component/Collider/SCircleCollider2D.h"
 #pragma endregion
 
 #pragma region GameObject

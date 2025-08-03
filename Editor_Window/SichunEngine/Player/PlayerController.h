@@ -26,6 +26,9 @@ namespace  Sichun
 		void Render(HDC hdc)override;
 		void Move();
 
+		void OnTriggerEnter(std::shared_ptr<Collider>other)override;
+		void OnTriggerStay(std::shared_ptr<Collider>other)override;
+		void OnTriggerExit(std::shared_ptr<Collider>other)override;
 	private:
 		CharacterState _state;
 		

@@ -145,6 +145,22 @@ namespace Sichun
 		transform->SetScale(scale);
 	}
 
+	void PlayerController::OnTriggerEnter(std::shared_ptr<Collider> other)
+	{
+		int a = 10;
+	}
+
+	void PlayerController::OnTriggerStay(std::shared_ptr<Collider> other)
+	{
+		int a = 10;
+	}
+
+	void PlayerController::OnTriggerExit(std::shared_ptr<Collider> other)
+	{
+		int a = 10;
+
+	}
+
 	
 
 

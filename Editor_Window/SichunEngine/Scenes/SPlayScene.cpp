@@ -17,6 +17,7 @@ namespace Sichun
 
 	void PlayScene::Initialize()
 	{
+		CollisionManager::CollisionLayerCheck(Enum::LayerType::Player, Enum::LayerType::Player, true);
 		CreateMainCamera();
 		
 		CreateBackGround();
@@ -89,32 +90,15 @@ namespace Sichun
 
 	void PlayScene::CreatePlayer()
 	{
-		_player = Object::Instantiate<Player>(Sichun::Enum::LayerType::Player, Vector2(150.0f,380.0f));
-		_player->AddComponent<PlayerController>();
-		_player->AddComponent<PlayerAnimation>();
-		_player->AddComponent < BoxCollider2D>();
-		_player->GetComponent<BoxCollider2D>()->SetOffset(Vector2(-50, -50));
 		{
-			std::shared_ptr<GameObject>yinYang = Object::Instantiate<GameObject>(Sichun::Enum::LayerType::Player);
-
-			std::shared_ptr<Graphics::Texture>texture = Resources::Find<Graphics::Texture>(L"YinYang");
-			std::shared_ptr<SpriteRenderer> sprite = yinYang->AddComponent<SpriteRenderer>();
-			sprite->SetTexture(texture);
-
-			yinYang->AddComponent<YinYang>();
-			yinYang->GetComponent<YinYang>()->Setting(_player->GetComponent<Transform>(), Vector2(-30.0f, -5.0f));
+			_player = Object::Instantiate<Player>(Sichun::Enum::LayerType::Player, Vector2(150.0f, 380.0f));
+			_player->Init();
 		}
 		{
-			std::shared_ptr<GameObject>yinYang = Object::Instantiate<GameObject>(Sichun::Enum::LayerType::Player);
-
-			std::shared_ptr<Graphics::Texture>texture = Resources::Find<Graphics::Texture>(L"YinYang");
-			std::shared_ptr<SpriteRenderer> sprite = yinYang->AddComponent<SpriteRenderer>();
-			sprite->SetTexture(texture);
-
-			yinYang->AddComponent<YinYang>();
-			yinYang->GetComponent<YinYang>()->Setting(_player->GetComponent<Transform>(), Vector2(15.0f, -5.0f));
+			std::shared_ptr<GameObject>enemy = Object::Instantiate<GameObject>(Sichun::Enum::LayerType::Player, Vector2::Zero);
+			enemy->AddComponent <CircleCollider2D>();
+			enemy->GetComponent<CircleCollider2D>()->SetOffset(Vector2(-50, -50));
 		}
-
 		CreateAnimation();
 	}
 
