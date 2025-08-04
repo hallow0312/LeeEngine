@@ -28,13 +28,14 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\SCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\SComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\SMonobehaviour.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Component\SSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\STexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\STransform.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\GameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\InputManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\SObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\STileObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Renderer\SRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Renderer\STileMapRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Resource\SAnimation.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Resource\SResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Resource\SResources.h" />
@@ -42,6 +43,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SToolScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)S_Application.h" />
   </ItemGroup>
   <ItemGroup>
@@ -62,7 +64,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\GameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\InputManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\SObject.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\STileObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Renderer\SRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Renderer\STileMapRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource\SAnimation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource\SResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource\SResources.cpp" />
@@ -70,6 +74,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SToolScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)S_Application.cpp" />
   </ItemGroup>
 </Project>

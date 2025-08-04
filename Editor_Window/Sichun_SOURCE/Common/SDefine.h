@@ -21,6 +21,7 @@ namespace  Sichun::Enum
 	{
 		None,
 		BackGround,
+		Tile,
 		Object,
 		AI,
 		Bullet,

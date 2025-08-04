@@ -40,9 +40,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\SComponent.h">
       <Filter>Component</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Component\SSpriteRenderer.h">
-      <Filter>Component</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\STexture.h">
       <Filter>Component</Filter>
     </ClInclude>
@@ -85,6 +82,15 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SDontDestroyOnLoad.h">
       <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SToolScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\STileObject.h">
+      <Filter>GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Renderer\STileMapRenderer.h">
+      <Filter>Renderer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +169,15 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SDontDestroyOnLoad.cpp">
       <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SToolScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)GameObject\STileObject.cpp">
+      <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Renderer\STileMapRenderer.cpp">
+      <Filter>Renderer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

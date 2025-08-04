@@ -161,6 +161,14 @@
     <ClCompile Include="Scenes\SPlayScene.cpp" />
     <ClCompile Include="Scenes\STitleScene.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Update="C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\Sichun_SOURCE\GameObject\STileObject.cpp">
+      <FileType>Document</FileType>
+    </ClCompile>
+    <ClCompile Update="C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\Sichun_SOURCE\GameObject\STileObjectcpp">
+      <FileType>Document</FileType>
+    </ClCompile>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
