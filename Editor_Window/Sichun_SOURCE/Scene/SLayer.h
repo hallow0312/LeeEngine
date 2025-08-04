@@ -13,11 +13,14 @@ namespace Sichun
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
-		virtual void Destroy();
+		virtual void DestroyDeadObjects();
 
 		const  std::vector<std::shared_ptr<GameObject>>GetGameObjects() { return _objs; }
 		void AddGameObject(std::shared_ptr<GameObject>obj);
+		void DestroyGameObject(std::shared_ptr<GameObject>obj);
+
 		bool IsElementDisabled(std::shared_ptr<GameObject>obj);
+
 	private:
 		
 		std::vector<std::shared_ptr<GameObject>>_objs;

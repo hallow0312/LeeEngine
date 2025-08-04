@@ -20,7 +20,7 @@ namespace Sichun
 		virtual void  OnEnter();
 		virtual void OnExit();
 		void  AddGameObject(std::shared_ptr<GameObject> obj, Enum::LayerType type);
-		
+		void DestroyGameObject(std::shared_ptr<GameObject>obj);
 		
 		
 

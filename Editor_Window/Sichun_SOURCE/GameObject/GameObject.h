@@ -24,11 +24,15 @@ namespace Sichun
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
+
 		void SetActive(bool value);
 		bool IsActive() { return _state == ObjectState::Active; }
+		bool IsDead() { return _state == ObjectState::Destroy; }
 		void InitializeTransform();
 		
 		ObjectState GetActive() { return _state; }
+		void SetLayerType(Enum::LayerType type) { _layerType = type; }
+		Enum::LayerType GetLayerType() { return _layerType; }
 		template<typename T>
 		std::shared_ptr<T> AddComponent()
 		{
@@ -81,7 +85,7 @@ namespace Sichun
 		std::vector<std::shared_ptr<Component>>_components;
 		std::vector<std::shared_ptr<Component>> _scripts;
 		ObjectState _state;
-
+		Enum::LayerType _layerType;
 	private:
 	
 	};

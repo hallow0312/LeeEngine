@@ -34,12 +34,13 @@ namespace Sichun
 	}
 	void Player::Init()
 	{
-		AddComponent <CircleCollider2D>();
+	
 		AddComponent<PlayerController>();
 		AddComponent<PlayerAnimation>();
-
-		GetComponent<CircleCollider2D>()->SetOffset(Vector2(-25.0f,-25.0f));
-		GetComponent<CircleCollider2D>()->SetSize(Vector2(0.5f, 0.5f));
+		AddComponent <BoxCollider2D>();
+		GetComponent<BoxCollider2D>()->SetOffset(Vector2(-10.f, -20.0f));
+		GetComponent<BoxCollider2D>()->SetSize(Vector2(0.2f, 0.4f));
+		
 		{
 			_leftYinYang = Object::Instantiate<GameObject>(Sichun::Enum::LayerType::Player);
 
@@ -60,5 +61,6 @@ namespace Sichun
 			_rightYinYang->AddComponent<YinYang>();
 			_rightYinYang->GetComponent<YinYang>()->Setting(GetComponent<Transform>(), Vector2(15.0f, -5.0f));
 		}
+		
 	}
 }

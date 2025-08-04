@@ -54,26 +54,27 @@ namespace  Sichun
 			element->Render(hdc);
 		}
 	}
-	void Layer::Destroy()
+	void Layer::DestroyDeadObjects()
 	{
-		
-		for (GameObjectIter iter = _objs.begin();
-			iter != _objs.end();)
-		{
-			GameObject::ObjectState state = (*iter)->GetActive();
-			
-			if (state == GameObject::ObjectState::Destroy)
+		std::erase_if(_objs,
+			[](std::shared_ptr<GameObject> gameObj)
 			{
-				_objs.erase(iter);
-				continue;
-			}
-			iter++;
-		}
+				return gameObj->IsDead();
+			});
 	}
 	void Layer::AddGameObject(std::shared_ptr<GameObject>obj)
 	{
 		if (obj == nullptr)return;
 		_objs.push_back(obj);
+	}
+	void Layer::DestroyGameObject(std::shared_ptr<GameObject> obj)
+	{
+		std::erase_if(_objs,
+			[=](std::shared_ptr<GameObject> gameObj)
+			{
+				return gameObj == obj;
+			});
+		
 	}
 	bool Layer::IsElementDisabled(std::shared_ptr<GameObject> obj)
 	{

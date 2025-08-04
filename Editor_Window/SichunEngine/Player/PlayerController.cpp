@@ -147,7 +147,7 @@ namespace Sichun
 
 	void PlayerController::OnTriggerEnter(std::shared_ptr<Collider> other)
 	{
-		int a = 10;
+ 		int a = 10;
 	}
 
 	void PlayerController::OnTriggerStay(std::shared_ptr<Collider> other)

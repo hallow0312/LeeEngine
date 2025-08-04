@@ -14,28 +14,29 @@ namespace Sichun
 			std::shared_ptr<T> scene = std::make_shared<T>();
 			scene->SetName(sceneName);
 
-			_activeScene = scene;
+			ActiveScene = scene;
 
 			scene->Initialize();
 
-			_scenes.insert({ sceneName, scene });
+			Scenes.insert({ sceneName, scene });
 			return scene;
 		}
 		static std::shared_ptr<Scene>LoadScene(const std::wstring& name)
 		{
-			if (_activeScene)
-				_activeScene->OnExit();
+			if (ActiveScene)
+				ActiveScene->OnExit();
 
-			std::map<std::wstring, std::shared_ptr<Scene>>::iterator iter = _scenes.find(name);
-			 if (iter == _scenes.end()) return nullptr;
+			std::map<std::wstring, std::shared_ptr<Scene>>::iterator iter = Scenes.find(name);
+			 if (iter == Scenes.end()) return nullptr;
 
-			 _activeScene = iter->second;
-			 if (_activeScene)
-			 _activeScene->OnEnter();
+			 ActiveScene = iter->second;
+			 if (ActiveScene)
+			 ActiveScene->OnEnter();
 
 			 return iter->second;
 		}
-		static std::shared_ptr<Scene>GetActiveScene(){return _activeScene;}
+		static std::shared_ptr<Scene>GetActiveScene(){return ActiveScene;}
+		static std::shared_ptr<Scene>GetDontDestroyOnLoad() { return _DontDestroyOnLoad; }
 		static void Initialize();
 		static void Update();
 		static void LateUpdate();
@@ -43,8 +44,9 @@ namespace Sichun
 		static void Destroy();
 	private:
 		
-		static std::shared_ptr<Scene> _activeScene;
-		static std::map<std::wstring, std::shared_ptr<Scene>>_scenes;
+		static std::shared_ptr<Scene> ActiveScene;
+		static std::map<std::wstring, std::shared_ptr<Scene>>Scenes;
+		static std::shared_ptr<Scene>_DontDestroyOnLoad;
 	};
 
 }

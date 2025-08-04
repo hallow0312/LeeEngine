@@ -38,6 +38,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Resource\SAnimation.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Resource\SResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Resource\SResources.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SDontDestroyOnLoad.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SSceneManager.h" />
@@ -65,6 +66,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource\SAnimation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource\SResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Resource\SResources.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SDontDestroyOnLoad.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SSceneManager.cpp" />

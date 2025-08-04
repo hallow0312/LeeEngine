@@ -99,6 +99,7 @@ namespace Sichun
 			enemy->AddComponent <CircleCollider2D>();
 			enemy->GetComponent<CircleCollider2D>()->SetOffset(Vector2(-50, -50));
 		}
+		
 		CreateAnimation();
 	}
 

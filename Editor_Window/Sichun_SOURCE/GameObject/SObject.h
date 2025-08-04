@@ -14,6 +14,7 @@ namespace Sichun::Object
 		std::shared_ptr<T> obj = std::make_shared<T>();
 		obj->InitializeTransform();
 		std::shared_ptr<Scene>activeScene = SceneManager::GetActiveScene();
+		obj->SetLayerType(type);
 		std::shared_ptr<Layer>layer = activeScene->GetLayer(type);
 		layer->AddGameObject(obj);
 		return obj;
@@ -25,6 +26,7 @@ namespace Sichun::Object
 		obj->InitializeTransform();
 		std::shared_ptr<Scene> activeScene = SceneManager::GetActiveScene();
 		std::shared_ptr<Layer> layer = activeScene->GetLayer(type);
+		obj->SetLayerType(type);
 		layer->AddGameObject(obj);
 	  
 	
@@ -37,6 +39,14 @@ namespace Sichun::Object
 	static void OnDestroy(std::shared_ptr<GameObject>obj)
 	{
 		obj->OnDestroy();
+	}
+	static void DontDestroyOnLoad(std::shared_ptr<GameObject>obj)
+	{
+		std::shared_ptr<Scene>activeScene = SceneManager::GetActiveScene();
+		activeScene->DestroyGameObject(obj);
+
+		std::shared_ptr<Scene>dontDestroyOnLoad = SceneManager::GetDontDestroyOnLoad();
+		dontDestroyOnLoad->AddGameObject(obj, obj->GetLayerType());
 	}
 }
 

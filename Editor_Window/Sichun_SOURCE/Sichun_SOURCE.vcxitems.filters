@@ -83,6 +83,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\SDefine.h">
       <Filter>Common</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SDontDestroyOnLoad.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Common\SEntity.cpp">
@@ -157,6 +160,9 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\Collider\SCollisionManager.cpp">
       <Filter>Component\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SDontDestroyOnLoad.cpp">
+      <Filter>Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

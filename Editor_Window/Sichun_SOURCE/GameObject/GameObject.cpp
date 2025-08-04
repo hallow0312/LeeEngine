@@ -4,7 +4,9 @@
 #include"Component/STransform.h"
 
 namespace Sichun {
-	GameObject::GameObject():_state(ObjectState::Active)
+	GameObject::GameObject()
+		:_state(ObjectState::Active)
+		,_layerType(Enum::LayerType::None)
 	{
 		_components.resize(static_cast<UINT>(Enum::ComponentType::End));
 	}

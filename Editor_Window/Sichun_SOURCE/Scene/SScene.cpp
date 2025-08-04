@@ -53,12 +53,18 @@ namespace Sichun
 		for (std::shared_ptr<Layer> element : _layers)
 		{
 			if (element == nullptr)continue;
-			element -> Destroy();
+			element -> DestroyDeadObjects();
 		}
 	}
 	void  Scene::AddGameObject( std::shared_ptr<GameObject> obj, const Enum::LayerType type)
 	{
 		_layers[static_cast<UINT>(type)]->AddGameObject(obj);
+	}
+
+	void Scene::DestroyGameObject(std::shared_ptr<GameObject>obj)
+	{
+		Enum::LayerType layerType = obj->GetLayerType();
+		_layers[(UINT)layerType]->DestroyGameObject(obj);
 	}
 	
 	void Scene::OnEnter()
