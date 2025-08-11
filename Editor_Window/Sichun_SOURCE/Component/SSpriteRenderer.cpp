@@ -4,7 +4,8 @@
 #include"STexture.h"
 #include"Renderer/SRenderer.h"
 
-namespace Sichun {
+namespace Sichun 
+{
 	SpriteRenderer::SpriteRenderer():Base(Enum::ComponentType::SpriteRenderer),_texture(nullptr), _size(Vector2::One)
 	{
 	}

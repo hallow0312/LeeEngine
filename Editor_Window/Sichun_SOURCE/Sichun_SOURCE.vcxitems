@@ -43,7 +43,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SSceneManager.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SToolScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)S_Application.h" />
   </ItemGroup>
   <ItemGroup>
@@ -74,7 +73,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SLayer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SSceneManager.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SToolScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)S_Application.cpp" />
   </ItemGroup>
 </Project>

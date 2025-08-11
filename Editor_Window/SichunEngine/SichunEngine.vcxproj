@@ -141,6 +141,7 @@
     <ClInclude Include="Player\PlayerController.h" />
     <ClInclude Include="Player\SPlayer.h" />
     <ClInclude Include="Player\YinYang.h" />
+    <ClInclude Include="Scenes\SToolScene.h" />
     <ClInclude Include="SichunEngineHeader.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Scenes\SLoadResources.h" />
@@ -160,6 +161,7 @@
     <ClCompile Include="Scenes\SLoadScenes.cpp" />
     <ClCompile Include="Scenes\SPlayScene.cpp" />
     <ClCompile Include="Scenes\STitleScene.cpp" />
+    <ClCompile Include="Scenes\SToolScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Update="C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\Sichun_SOURCE\GameObject\STileObject.cpp">

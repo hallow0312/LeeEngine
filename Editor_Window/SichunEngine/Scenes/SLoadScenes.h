@@ -3,7 +3,8 @@
 
 #include "SPlayScene.h"
 #include"STitleScene.h"
-#include"../Sichun_SOURCE/Scene/SToolScene.h"
+#include"SToolScene.h"
+
 namespace Sichun
 {
 	void LoadScenes()

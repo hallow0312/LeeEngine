@@ -15,7 +15,9 @@ C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\Sichun_SOURCE\Component\STr
 C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\Sichun_SOURCE\GameObject\GameObject.cpp;C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\x64\Debug\GameObject.obj
 C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\Sichun_SOURCE\GameObject\InputManager.cpp;C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\x64\Debug\InputManager.obj
 C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\Sichun_SOURCE\GameObject\SObject.cpp;C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\x64\Debug\SObject.obj
+C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\Sichun_SOURCE\GameObject\STileObject.cpp;C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\x64\Debug\STileObject.obj
 C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\Sichun_SOURCE\Renderer\SRenderer.cpp;C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\x64\Debug\SRenderer.obj
+C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\Sichun_SOURCE\Renderer\STileMapRenderer.cpp;C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\x64\Debug\STileMapRenderer.obj
 C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\Sichun_SOURCE\Resource\SAnimation.cpp;C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\x64\Debug\SAnimation.obj
 C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\Sichun_SOURCE\Resource\SResource.cpp;C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\x64\Debug\SResource.obj
 C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\Sichun_SOURCE\Resource\SResources.cpp;C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\x64\Debug\SResources.obj
@@ -23,7 +25,6 @@ C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\Sichun_SOURCE\Scene\SDontDe
 C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\Sichun_SOURCE\Scene\SLayer.cpp;C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\x64\Debug\SLayer.obj
 C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\Sichun_SOURCE\Scene\SScene.cpp;C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\x64\Debug\SScene.obj
 C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\Sichun_SOURCE\Scene\SSceneManager.cpp;C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\x64\Debug\SSceneManager.obj
-C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\Sichun_SOURCE\Scene\SToolScene.cpp;C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\x64\Debug\SToolScene.obj
 C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\Sichun_SOURCE\S_Application.cpp;C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\x64\Debug\S_Application.obj
 C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\Player\Bullet\SBullet.cpp;C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\x64\Debug\SBullet.obj
 C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\Player\PlayerAnimation.cpp;C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\x64\Debug\PlayerAnimation.obj
@@ -33,3 +34,4 @@ C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\Player\YinYang
 C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\Scenes\SLoadScenes.cpp;C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\x64\Debug\SLoadScenes.obj
 C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\Scenes\SPlayScene.cpp;C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\x64\Debug\SPlayScene.obj
 C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\Scenes\STitleScene.cpp;C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\x64\Debug\STitleScene.obj
+C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\Scenes\SToolScene.cpp;C:\Users\user\Desktop\2DGame\LeeEngine\Editor_Window\SichunEngine\x64\Debug\SToolScene.obj
