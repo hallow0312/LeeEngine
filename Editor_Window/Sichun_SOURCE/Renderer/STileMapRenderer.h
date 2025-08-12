@@ -29,11 +29,18 @@ namespace Sichun
 		void DrawBMP(std::shared_ptr<Transform>transform, HDC hdc);
 		void DrawPNG(std::shared_ptr<Transform>transform, HDC hdc);
 
+
+		static const Vector2& GetTileSize() { return TileSize; }
+
 	private:
+		
 		Vector2 _tileSize;
+		Vector2 _size;
+		Vector2 _index;
 
 		std::shared_ptr<Graphics::Texture>_texture;
-		Vector2 _size;
-		Vector2  _index; 
+
+		static Vector2 TileSize;
+		
 	};
 }

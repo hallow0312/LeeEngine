@@ -16,10 +16,15 @@ namespace Sichun
 		void LateUpdate() override;
 		void Render(HDC hdc)override;
 		void DrawGrid(HDC hdc, int spacing, COLORREF color);
-		void SetGridSpacing(int spacing);
+
+		void CheckInputAndGetCoord();
+		void SettingTileToGrid(Vector2 coord);
+
 		void CreateCamera();
 		void GetTileResource();
+
 	private:
-		int _gridSize;
+	
 	};
 }
+LRESULT CALLBACK WndTileProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);

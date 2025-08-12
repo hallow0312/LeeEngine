@@ -3,9 +3,13 @@
 
 #include "framework.h"
 #include "Editor_Window.h"
+#include"memory"
 #include"../Sichun_SOURCE/S_Application.h"
+#include"../Sichun_SOURCE/Resource/SResources.h"
+#include"../Sichun_SOURCE/Component/STexture.h"
 #include"../SichunEngine/Scenes/SLoadScenes.h"
 #include"../SichunEngine/Scenes/SLoadResources.h"
+#include"../SichunEngine/Scenes/SToolScene.h"
 
 //#pragma comment (lib,"..//x64//Debug//SichunEngine.lib")
 Sichun::Application _application;
@@ -22,7 +26,7 @@ WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름�
 ATOM                MyRegisterClass(HINSTANCE hInstance, const wchar_t* name, WNDPROC proc);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
-LRESULT CALLBACK    WndTileProc(HWND, UINT, WPARAM, LPARAM);
+//LRESULT CALLBACK    WndTileProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
@@ -118,15 +122,18 @@ ATOM MyRegisterClass(HINSTANCE hInstance,const wchar_t*name,WNDPROC proc)  //윈
 //        이 함수를 통해 인스턴스 핸들을 전역 변수에 저장하고
 //        주 프로그램 창을 만든 다음 표시합니다.
 //
+void SettingToolWindow(HWND hwnd,int width,int offset);
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
    const UINT gameWidth = 640;
-   const UINT gameHeight =480;
+   const UINT gameHeight = 480;
+   const UINT offset = 100;
 
-   const UINT editorWidth = 1280;
-   const UINT editorHeight = 720;
+   const UINT editorWidth = 640;//1280;
+   const UINT editorHeight  = 480;//;
+
    HWND hWnd = CreateWindowW(szWindowClass, L"Sichun", WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, gameWidth, gameHeight, nullptr, nullptr, hInstance, nullptr);
 
@@ -140,7 +147,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    {
       return FALSE;
    }
-
+   SetWindowPos(hWnd, nullptr, offset, 0, gameWidth, gameHeight, 0);
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
 
@@ -150,9 +157,30 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    Sichun::LoadResources();
    Sichun::LoadScenes();
 
+   SettingToolWindow(ToolhWnd,gameWidth,offset);
    return TRUE;
 }
+void SettingToolWindow(HWND hwnd, int width, int offset)
+{
+    std::shared_ptr<Sichun::Graphics::Texture>texture = Sichun::Resources::Find<Sichun::Graphics::Texture>(L"Floor");
 
+    RECT rect = { 0, 0,texture->GetWidth(),texture->GetHeight() };
+    int _width = rect.right - rect.left;
+    int _height = rect.bottom - rect.top;
+
+    AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, FALSE);
+    int windowWidth = rect.right - rect.left;
+    int windowHeight = rect.bottom - rect.top;
+
+    int screenWidth = GetSystemMetrics(SM_CXSCREEN);
+    int screenHeight = GetSystemMetrics(SM_CYSCREEN);
+
+    int posX = (screenWidth - windowWidth) / 2;
+    int posY = (screenHeight - windowHeight) / 2;
+
+    SetWindowPos(hwnd, nullptr, width+offset, 0, windowWidth, windowHeight, 0);
+    ShowWindow(hwnd, SW_SHOW);
+}
 //
 //  함수: WndProc(HWND, UINT, WPARAM, LPARAM)
 //
@@ -204,46 +232,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     }
     return 0;
 }
-LRESULT CALLBACK WndTileProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
-{
-    switch (message)//매 프레임마다 호출 
-    {
-    case WM_COMMAND:
-    {
-        int wmId = LOWORD(wParam);
-        // 메뉴 선택을 구문 분석합니다:
-        switch (wmId)
-        {
-        case IDM_ABOUT:
-            DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
-            break;
-        case IDM_EXIT:
-            DestroyWindow(hWnd);
-            break;
-        default:
-            return DefWindowProc(hWnd, message, wParam, lParam);
-        }
-    }
-    break;
-    case WM_PAINT:
-    {
-        PAINTSTRUCT ps;
-        HDC hdc = BeginPaint(hWnd, &ps);
 
-
-        EndPaint(hWnd, &ps);
-    }
-    break;
-    case WM_DESTROY: //윈도우 종료시 호출 x버튼 누를때 겠지 ㅇㅇ
-
-        PostQuitMessage(0);
-        break;
-        //WM_MOVE : 윈도우 창을 움직이는 경우 
-    default:
-        return DefWindowProc(hWnd, message, wParam, lParam);
-    }
-    return 0;
-}
 
 #pragma endregion
 

@@ -5,9 +5,16 @@
 #include"Renderer/SRenderer.h"
 namespace  Sichun
 {
-	TileMapRenderer::TileMapRenderer():Super(Enum::ComponentType::TileMapRenderer)
-	,_texture(nullptr),_size(2.0f,2.0f),_index(Vector2::Zero),_tileSize(16.0f,16.0f)
+	Vector2 TileMapRenderer::TileSize = Vector2::One;
+	
+	TileMapRenderer::TileMapRenderer():
+		Super(Enum::ComponentType::TileMapRenderer),
+		_texture(nullptr),
+		_size(2.0f,2.0f),
+		_index(Vector2::Zero),
+		_tileSize(16.0f,16.0f)
 	{
+		TileSize = _tileSize * _size;
 	}
 	TileMapRenderer::~TileMapRenderer()
 	{

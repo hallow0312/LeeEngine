@@ -1,5 +1,7 @@
 #include "STileObject.h"
-
+#include"GameObject/GameObject.h"
+#include"../Component/STransform.h"
+\
 namespace Sichun
 {
 	TileObject::TileObject()
@@ -23,5 +25,9 @@ namespace Sichun
 	void TileObject::Render(HDC hdc)
 	{
 		Super::Render(hdc);
+	}
+	void TileObject::SetPosition(Vector2 pos)
+	{
+		GetComponent<Transform>()->SetPosition(pos);
 	}
 }
