@@ -15,7 +15,7 @@ namespace Sichun
 		'L','Z','X','C','V','B',
 		'N','M',
 		VK_LEFT, VK_UP, VK_RIGHT, VK_DOWN,VK_SPACE,
-		VK_LBUTTON,VK_RBUTTON,VK_MBUTTON
+		VK_LBUTTON,VK_RBUTTON,VK_MBUTTON,VK_LCONTROL, VK_RCONTROL
 	};
 
 	void InputManager::Initialize()
@@ -68,6 +68,12 @@ namespace Sichun
 	bool InputManager::GetKey(KeyCode code)
 	{
 		return Keys[static_cast<size_t>(code)]._state == KeyState::PRESSED;
+	}
+
+	bool InputManager::SaveKey()
+	{
+		return ((GetKey(KeyCode::LEFTCTRL) || GetKey(KeyCode::RIGHTCTRL))
+			&& GetKeyDown(KeyCode::S));
 	}
 
 	void InputManager::SettingKeyState()
@@ -140,11 +146,27 @@ namespace Sichun
 	{
 		POINT mousePos = {};
 		GetCursorPos(&mousePos);
-		ScreenToClient(_application.GetHwnd(),&mousePos);
+		ScreenToClient(_application.GetHwnd(), &mousePos);
 
-		MousePosition.x = mousePos.x;
-		MousePosition.y = mousePos.y;
+		UINT width = _application.GetWidth();
+		UINT height = _application.GetHeight();
+
+		MousePosition.x = -1.0f;
+		MousePosition.y = -1.0f;
+
+		
+		if (mousePos.x >= 0 && mousePos.x < (int)width &&
+			mousePos.y >= 0 && mousePos.y < (int)height)
+		{
+			MousePosition.x = static_cast<float>(mousePos.x);
+			MousePosition.y = static_cast<float>(mousePos.y);
+		}
 	}
+		
+		
+		
+		
+		
 	void InputManager::ClearKeys()
 	{
 		for (Key& key : Keys)

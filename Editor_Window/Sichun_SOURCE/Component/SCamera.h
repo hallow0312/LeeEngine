@@ -8,10 +8,14 @@ namespace Sichun
 	{
 		using Base = Component;
 	public:
-		math::Vector2 CalculatePosition(math::Vector2 pos) 
+		Vector2 CalculatePosition(Vector2 pos) 
 		{
 			return pos - _distance;
 		};
+		Vector2  CalculateTilePosition(Vector2 pos)
+		{
+			return pos + _distance;
+		}
 		Camera();
 		~Camera();
 

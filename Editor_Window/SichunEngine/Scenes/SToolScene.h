@@ -2,9 +2,10 @@
 
 
 #include"../Sichun_SOURCE/Scene/SScene.h"
-
+#include"../Sichun_SOURCE/GameObject/STileObject.h"
 namespace Sichun
 {
+
 	class ToolScene :public Scene
 	{
 		using Super = Scene;
@@ -22,9 +23,12 @@ namespace Sichun
 
 		void CreateCamera();
 		void GetTileResource();
+		
+		void Save();
+		void Load();
 
 	private:
-	
+		std::vector<std::shared_ptr<TileObject>>_tiles;
 	};
 }
 LRESULT CALLBACK WndTileProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);

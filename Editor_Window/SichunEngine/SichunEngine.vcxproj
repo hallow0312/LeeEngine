@@ -136,6 +136,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Camera\CameraController.h" />
     <ClInclude Include="Player\Bullet\SBullet.h" />
     <ClInclude Include="Player\PlayerAnimation.h" />
     <ClInclude Include="Player\PlayerController.h" />
@@ -153,6 +154,7 @@
     <ResourceCompile Include="SichunEngine.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Camera\CameraController.cpp" />
     <ClCompile Include="Player\Bullet\SBullet.cpp" />
     <ClCompile Include="Player\PlayerAnimation.cpp" />
     <ClCompile Include="Player\PlayerController.cpp" />

@@ -24,7 +24,7 @@ namespace Sichun
 		N, M,
 
 		LEFT, UP, RIGHT, DOWN,SPACE,
-		LBUTTON,RBUTTON,MBUTTON,
+		LBUTTON,RBUTTON,MBUTTON,LEFTCTRL,RIGHTCTRL,
 		End
 	};
 
@@ -54,7 +54,7 @@ namespace Sichun
 		static int GetAxis(AxisName axis);
 		static int GetAxis(const string& axisName);
 
-	
+		static bool SaveKey();
 		static void SettingKeyState();
 		static void SetMousePositionByWindow();
 		static void ClearKeys();

@@ -27,6 +27,7 @@ namespace  Sichun
 	}
 	void TileMapRenderer::LateUpdate()
 	{
+		
 	}
 	void TileMapRenderer::Render(HDC hdc)
 	{
