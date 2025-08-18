@@ -5,6 +5,20 @@ namespace Sichun
 	std::shared_ptr<Scene> SceneManager::ActiveScene = nullptr;
 	std::shared_ptr<Scene> SceneManager::_DontDestroyOnLoad = nullptr;
 	std::map<std::wstring, std::shared_ptr<Scene>> SceneManager::Scenes;
+
+	std::vector<std::shared_ptr<GameObject>> SceneManager::GetGameObjects(Enum::LayerType type)
+	{
+	
+		std::vector<std::shared_ptr<GameObject>>objs =
+			ActiveScene->GetLayer(type)->GetGameObjects();
+		std::vector<std::shared_ptr<GameObject>>dontDestroyObjs =
+			_DontDestroyOnLoad->GetLayer(type)->GetGameObjects();
+
+		objs.insert(objs.end(), dontDestroyObjs.begin(), dontDestroyObjs.end());
+
+		return objs;
+	}
+
 	void SceneManager::Initialize()
 	{
 		if (ActiveScene)

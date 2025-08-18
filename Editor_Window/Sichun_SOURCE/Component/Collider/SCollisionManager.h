@@ -22,6 +22,7 @@ namespace Sichun
 		static void Update();
 		static void LateUpdate();
 		static void Render(HDC hdc);
+		static  void Clear();
 
 		static void LayerCollision(std::shared_ptr<Scene>scene, LayerType left , LayerType right);
 		static void CollisionLayerCheck(LayerType left, LayerType right, bool enable);

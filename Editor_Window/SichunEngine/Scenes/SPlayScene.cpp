@@ -17,7 +17,7 @@ namespace Sichun
 
 	void PlayScene::Initialize()
 	{
-		CollisionManager::CollisionLayerCheck(Enum::LayerType::Player, Enum::LayerType::Player, true);
+		
 		CreateMainCamera();
 		
 		CreateBackGround();
@@ -58,7 +58,7 @@ namespace Sichun
 
 	void PlayScene::OnEnter()
 	{
-		
+		CollisionManager::CollisionLayerCheck(Enum::LayerType::Player, Enum::LayerType::Player, true);
 
 	}
 

@@ -37,6 +37,8 @@ namespace Sichun
 		}
 		static std::shared_ptr<Scene>GetActiveScene(){return ActiveScene;}
 		static std::shared_ptr<Scene>GetDontDestroyOnLoad() { return _DontDestroyOnLoad; }
+		static std::vector<std::shared_ptr<GameObject>>GetGameObjects(Enum::LayerType type);
+
 		static void Initialize();
 		static void Update();
 		static void LateUpdate();

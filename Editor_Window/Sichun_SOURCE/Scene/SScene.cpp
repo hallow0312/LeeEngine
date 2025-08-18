@@ -1,5 +1,6 @@
 #include "SScene.h"
 #include"Component/SCamera.h"
+#include "../Component/Collider/SCollisionManager.h"
 
 namespace Sichun
 {
@@ -73,6 +74,6 @@ namespace Sichun
 	}
 	void Scene::OnExit()
 	{
-
+		CollisionManager::Clear();
 	}
 }

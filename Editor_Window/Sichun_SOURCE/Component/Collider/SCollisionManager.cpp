@@ -32,10 +32,15 @@ namespace Sichun
 	void CollisionManager::Render(HDC hdc)
 	{
 	}
+	void CollisionManager::Clear()
+	{
+		_collisionMap.clear();
+		_collisionLayerMatrix->reset();
+	}
 	void CollisionManager::LayerCollision(std::shared_ptr<Scene> scene, LayerType left, LayerType right)
 	{
-		const std::vector<std::shared_ptr<GameObject>>& lefts = scene->GetLayer(left)->GetGameObjects();
-		const std::vector<std::shared_ptr<GameObject>>& rights = scene->GetLayer(right)->GetGameObjects();
+		const std::vector<std::shared_ptr<GameObject>>& lefts = SceneManager::GetGameObjects(left);
+		const std::vector<std::shared_ptr<GameObject>>& rights = SceneManager::GetGameObjects(right);
 		for (auto& left : lefts)
 		{
 			if (left->IsActive() == false)
