@@ -6,10 +6,13 @@
 #include"memory"
 #include"../Sichun_SOURCE/S_Application.h"
 #include"../Sichun_SOURCE/Resource/SResources.h"
+#include"../Sichun_SOURCE/Scene/SSceneManager.h"
+#include"../Sichun_SOURCE/Scene/SScene.h"
 #include"../Sichun_SOURCE/Component/STexture.h"
 #include"../SichunEngine/Scenes/SLoadScenes.h"
 #include"../SichunEngine/Scenes/SLoadResources.h"
 #include"../SichunEngine/Scenes/SToolScene.h"
+
 
 //#pragma comment (lib,"..//x64//Debug//SichunEngine.lib")
 Sichun::Application _application;
@@ -137,11 +140,11 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    HWND hWnd = CreateWindowW(szWindowClass, L"Sichun", WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, gameWidth, gameHeight, nullptr, nullptr, hInstance, nullptr);
 
-   HWND ToolhWnd = CreateWindowW(L"SichunToolWindow", L"SichunToolWindow", WS_OVERLAPPEDWINDOW,
-       CW_USEDEFAULT, 0, editorWidth, editorHeight, nullptr, nullptr, hInstance, nullptr);
+ 
 
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
-
+    
+ 
    _application.Initialize(hWnd, gameWidth, gameHeight);
    if (!hWnd)
    {
@@ -151,13 +154,20 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
 
-   ShowWindow(ToolhWnd, nCmdShow);
-   UpdateWindow(ToolhWnd);
-
+   std::shared_ptr<Sichun::Scene>activeScene = Sichun::SceneManager::GetActiveScene();
+   std::wstring  name = activeScene->GetName();
+   if (name == L"ToolScene")
+   {
+       HWND ToolhWnd = CreateWindowW(L"SichunToolWindow", L"SichunToolWindow", WS_OVERLAPPEDWINDOW,
+           CW_USEDEFAULT, 0, editorWidth, editorHeight, nullptr, nullptr, hInstance, nullptr);
+       ShowWindow(ToolhWnd, nCmdShow);
+       UpdateWindow(ToolhWnd);
+       SettingToolWindow(ToolhWnd, gameWidth, offset);
+   }
    Sichun::LoadResources();
    Sichun::LoadScenes();
 
-   SettingToolWindow(ToolhWnd,gameWidth,offset);
+ 
    return TRUE;
 }
 void SettingToolWindow(HWND hwnd, int width, int offset)

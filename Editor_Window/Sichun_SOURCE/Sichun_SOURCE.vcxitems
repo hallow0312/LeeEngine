@@ -28,6 +28,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\SCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\SComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\SMonobehaviour.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\SRigidBody.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\STexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\STransform.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject\GameObject.h" />
@@ -57,6 +58,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\SCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\SComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\SMonobehaviour.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\SRigidBody.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\SSpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\STexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\STransform.cpp" />

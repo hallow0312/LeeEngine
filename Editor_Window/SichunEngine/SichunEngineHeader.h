@@ -9,6 +9,7 @@
 #include"Component/Collider/SCollisionManager.h"
 #include"Component/Collider/SBoxCollider2D.h"
 #include"Component/Collider/SCircleCollider2D.h"
+#include"Component/SRigidBody.h"
 #pragma endregion
 
 #pragma region GameObject

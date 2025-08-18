@@ -4,6 +4,7 @@
 namespace  Sichun 
 {
 	class Animator;
+	class RigidBody;
 	class PlayerController : public Monobehaviour
 	{ //PlayerCharacter
 	public:
@@ -38,7 +39,7 @@ namespace  Sichun
 	private:
 		float _deathTime=10.0f;
 		 
-		float _speed = 180.0f;
+		float _speed =180.0f;
 		void CheckState();
 
 		void MoveHorizotnal(int horizotnal, Vector2& dir);

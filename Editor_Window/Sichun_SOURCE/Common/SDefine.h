@@ -6,6 +6,7 @@ namespace  Sichun::Enum
 	{
 		Transform,
 		Collider,
+		RigidBody,
 		TileMapRenderer,
 		SpriteRenderer,
 		Animator,

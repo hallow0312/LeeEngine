@@ -6,9 +6,12 @@
 #include"Component/SComponent.h"
 #include"Component/SAnimator.h"
 #include"GameObject/SObject.h"
+#include"Component/SRigidBody.h"
 namespace Sichun
 {
-	PlayerController::PlayerController() :_state(CharacterState::Idle), _animation(nullptr)
+	PlayerController::PlayerController() :_state(CharacterState::Idle), 
+		_animation(nullptr)
+	
 	{
 
 	}
@@ -19,7 +22,8 @@ namespace Sichun
 
 	void PlayerController::Initialize()
 	{
-		if (_animation == nullptr)_animation = GetOwner()->GetComponent<PlayerAnimation>();
+		_animation = GetOwner()->GetComponent<PlayerAnimation>();
+		
 	}
 
 	void PlayerController::Update()
@@ -51,7 +55,7 @@ namespace Sichun
 		{
 			dir.x = 1;
 		}
-		if (_animation == nullptr)_animation = GetOwner()->GetComponent<PlayerAnimation>();
+		
 		_animation->PlayMoveAnimation();
 	}
 
@@ -67,7 +71,7 @@ namespace Sichun
 		{
 			dir.y = 1;
 		}
-		if (_animation == nullptr)_animation = GetOwner()->GetComponent<PlayerAnimation>();
+		
 		_animation->PlayIdleAnimation();
 	}
 
@@ -91,7 +95,6 @@ namespace Sichun
 			dir.y = 1;
 		}
 		
-		if (_animation == nullptr)_animation = GetOwner()->GetComponent<PlayerAnimation>();
 		_animation->PlayMoveAnimation();
 	}
 
@@ -131,11 +134,11 @@ namespace Sichun
 		}
 		else
 		{
-			inputDir=inputDir.Normalize();
+			inputDir = inputDir.Normalize();
 			pos += inputDir * _speed * dt;
 		}
 
-		
+
 		if (inputDir.x > 0 && scale.x > 0)
 			scale.x *= -1;
 		else if (inputDir.x < 0 && scale.x < 0)

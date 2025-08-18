@@ -89,6 +89,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Renderer\STileMapRenderer.h">
       <Filter>Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Component\SRigidBody.h">
+      <Filter>Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Common\SEntity.cpp">
@@ -172,6 +175,9 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Renderer\STileMapRenderer.cpp">
       <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Component\SRigidBody.cpp">
+      <Filter>Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
