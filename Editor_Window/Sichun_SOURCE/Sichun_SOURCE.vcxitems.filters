@@ -92,6 +92,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Component\SRigidBody.h">
       <Filter>Component</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)UI\SUIManager.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)UI\SUIBase.h">
+      <Filter>UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Common\SEntity.cpp">
@@ -179,6 +185,12 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Component\SRigidBody.cpp">
       <Filter>Component</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)UI\SUIManager.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)UI\SUIBase.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -201,6 +213,9 @@
     </Filter>
     <Filter Include="Component\Collider">
       <UniqueIdentifier>{cd7f6882-255a-45d2-bc09-842715357cb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{33921060-9580-400a-a720-fbea3027c651}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

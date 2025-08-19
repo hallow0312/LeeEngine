@@ -45,6 +45,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Scene\SSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)S_Application.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)UI\SUIBase.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)UI\SUIManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Common\SEntity.cpp" />
@@ -76,5 +78,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Scene\SSceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)S_Application.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)UI\SUIBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)UI\SUIManager.cpp" />
   </ItemGroup>
 </Project>

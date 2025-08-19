@@ -47,4 +47,8 @@ namespace  Sichun::Enum
 		Rect,
 		Circle,
 	};
+	enum  class UIType
+	{
+		End,
+	};
 }

@@ -5,6 +5,8 @@
 #include<vector>
 #include<string>
 #include<memory>
+#include<stack>
+#include<queue>
 #include<bitset>
 #include<map>
 #include <algorithm>

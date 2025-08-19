@@ -23,7 +23,7 @@ namespace Sichun
 	void PlayerController::Initialize()
 	{
 		_animation = GetOwner()->GetComponent<PlayerAnimation>();
-		_rb = GetOwner()->GetComponent<RigidBody>();
+		
 	}
 
 	void PlayerController::Update()
@@ -99,55 +99,55 @@ namespace Sichun
 	}
 
 	void PlayerController::Move()
-{
-    std::shared_ptr<Transform> transform = GetOwner()->GetComponent<Transform>();
-    if (!transform) return;
+	{
+		std::shared_ptr<Transform> transform = GetOwner()->GetComponent<Transform>();
+		if (!transform) return;
 
-    float dt = Time::DeltaTime();
-    Vector2 inputDir = Vector2::Zero;
+		Vector2 pos = transform->GetLocalPos();
+		Vector2 scale = transform->GetLocalScale();
 
-    int horizontal = InputManager::GetAxis("Horizontal");
-    int vertical = InputManager::GetAxis("Vertical");
+		
+		float dt = Time::DeltaTime();
 
-    if (horizontal != 0 && vertical != 0)
-    {
-        MoveDiagonal(horizontal, vertical, inputDir);
-    }
-    else if (horizontal != 0 || vertical != 0)
-    {
-        if (horizontal != 0)
-            MoveHorizotnal(horizontal, inputDir);
-        else
-            MoveVertical(vertical, inputDir);
-    }
+		Vector2 inputDir = Vector2::Zero;
 
-    if (inputDir == Vector2::Zero)
-    {
-        if (_animation == nullptr)
-            _animation = GetOwner()->GetComponent<PlayerAnimation>();
-        _animation->PlayIdleAnimation();
+		int horizontal = InputManager::GetAxis("Horizontal");
+		int vertical = InputManager::GetAxis("Vertical");
 
-     
-       // _rb->SetVelocity(Vector2::Zero);
-    }
-    else
-    {
-        inputDir = inputDir.Normalize();
+		if (horizontal != 0 && vertical != 0)
+		{
+			MoveDiagonal(horizontal, vertical, inputDir);
+		}
+		else if (horizontal != 0 || vertical != 0)
+		{
+			if (horizontal != 0)
+				MoveHorizotnal(horizontal, inputDir);
+			else
+				MoveVertical(vertical, inputDir);
+		}
 
-        // 힘 또는 속도 적용
-        //_rb->AddForce(inputDir * _moveForce);   // 힘 방식
-        _rb->AddForce(inputDir * _speed);     // 속도 직접 세팅 방식
-    }
 
-    // 좌우 반전은 스케일 그대로 유지
-    Vector2 scale = transform->GetLocalScale();
-    if (inputDir.x > 0 && scale.x > 0)
-        scale.x *= -1;
-    else if (inputDir.x < 0 && scale.x < 0)
-        scale.x *= -1;
+		if (inputDir.x == 0 && inputDir.y == 0)
+		{
+			if (_animation == nullptr)_animation = GetOwner()->GetComponent<PlayerAnimation>();
+			_animation->PlayIdleAnimation();
+		}
+		else
+		{
+			inputDir = inputDir.Normalize();
+			pos += inputDir * _speed * dt;
+		}
 
-    transform->SetScale(scale);
-}
+
+		if (inputDir.x > 0 && scale.x > 0)
+			scale.x *= -1;
+		else if (inputDir.x < 0 && scale.x < 0)
+			scale.x *= -1;
+
+		transform->SetPosition(pos);
+		transform->SetScale(scale);
+	}
+
 	void PlayerController::OnTriggerEnter(std::shared_ptr<Collider> other)
 	{
  		int a = 10;
