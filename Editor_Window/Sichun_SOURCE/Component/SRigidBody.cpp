@@ -1,56 +1,126 @@
 #include "SRigidBody.h"
-#include"../Common/STime.h"
-#include"../Component/STransform.h"
-#include"../GameObject/GameObject.h"
+#include "../Common/STime.h"
+#include "../Component/STransform.h"
+#include "../GameObject/GameObject.h"
+
 namespace Sichun
 {
-	RigidBody::RigidBody() :Super(Enum::ComponentType::RigidBody)
-	,_mass(1.0f)
-	,_friction(50.0f)
-	,_force(Vector2::Zero)
-	,_velocity(Vector2::Zero)
-	,_gravity(9.8f)
+	RigidBody::RigidBody()
+		: Super(Enum::ComponentType::RigidBody)
 	{
 	}
+
 	RigidBody::~RigidBody()
 	{
 	}
+
 	void RigidBody::Initialize()
 	{
 	}
+
 	void RigidBody::Update()
 	{
 		CalculateMove();
 	}
+
 	void RigidBody::LateUpdate()
 	{
 	}
+
 	void RigidBody::Render(HDC hdc)
 	{
 	}
-	void RigidBody::CalculateMove()
-	{
-		_accel = _force / _mass;
 
-	
-		if (!(_velocity == Vector2::Zero))
-		{
-			Vector2 frictionDir = -_velocity.Normalize();
-			Vector2 friction = frictionDir * _friction; 
-			_accel += friction / _mass;
-		}
+    void RigidBody::CalculateMove()
+    {
+      
+        _accel = _force / _mass;
 
-		_velocity += _accel * Time::DeltaTime();
+        CalculateGravityVelocity();
 
-		
-		if (_velocity.Length() < 0.001f)
-			_velocity = Vector2::Zero;
+        LimitMaxSpeed();
 
-		auto transform = GetOwner()->GetComponent<Transform>();
-		Vector2 pos = transform->GetWorldPosition();
-		pos += _velocity * Time::DeltaTime();
-		transform->SetPosition(pos);
+        _velocity += _accel * Time::DeltaTime();
 
-		_force.Clear();
-	}
+        if (!(_velocity == Vector2::Zero))
+        {
+            
+            Vector2 friction = -_velocity;
+            friction = friction.Normalize() * _friction * _mass * Time::DeltaTime();
+
+            
+            if (_velocity.Length() <= friction.Length())
+            {
+               
+                _velocity = Vector2::Zero;
+            }
+            else
+            {
+                _velocity += friction;
+            }
+        }
+
+       
+        auto transform = GetOwner()->GetComponent<Transform>();
+        Vector2 pos = transform->GetWorldPosition();
+        pos += _velocity * Time::DeltaTime();
+        transform->SetPosition(pos);
+
+        
+        _force.Clear();
+    }
+
+    void RigidBody::ApplyFriction()
+    {
+        if (_velocity.Length() > 0.0f)
+        {
+            
+          
+            Vector2 frictionForce = -_velocity.Normalize() * _friction * Time::DeltaTime();
+
+          
+            if (frictionForce.Length() > _velocity.Length())
+            {
+                _velocity = Vector2::Zero;
+            }
+            else
+            {
+                _velocity += frictionForce;
+            }
+        }
+    }
+
+    void RigidBody::CalculateGravityVelocity()
+    {
+        Vector2 gravityDir = _gravity.Normalize();
+
+        if (_isGround)
+        {
+            float dot = Vector2::Dot(_velocity, gravityDir);
+            _velocity -= gravityDir * dot;
+        }
+        else
+        {
+            _velocity += _gravity * Time::DeltaTime();
+        }
+    }
+
+    void RigidBody::LimitMaxSpeed()
+    {
+        Vector2 gravityDir = _gravity.Normalize();
+        float dot = Vector2::Dot(_velocity, gravityDir);
+        Vector2 gravityVel = gravityDir * dot;
+
+        Vector2 sideVel = _velocity - gravityVel;
+
+        // 중력 방향 제한
+        if (gravityVel.Length() > _limitedVelocity.y)
+            gravityVel = gravityDir * _limitedVelocity.y;
+
+        // 수평 방향 제한
+        if (sideVel.Length() > _limitedVelocity.x)
+            sideVel = sideVel.Normalize() * _limitedVelocity.x;
+
+        _velocity = gravityVel + sideVel;
+    }
 }

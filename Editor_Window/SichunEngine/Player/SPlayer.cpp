@@ -38,7 +38,7 @@ namespace Sichun
 		AddComponent<PlayerAnimation>();
 		AddComponent <BoxCollider2D>();
 		AddComponent<RigidBody>();
-		GetComponent<RigidBody>()->SetGravity(0.0f);
+		//GetComponent<RigidBody>()->SetGravity(0.0);
 		AddComponent<PlayerController>();
 
 		GetComponent<BoxCollider2D>()->SetOffset(Vector2(-10.f, -20.0f));

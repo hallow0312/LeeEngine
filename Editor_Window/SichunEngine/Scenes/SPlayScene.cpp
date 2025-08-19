@@ -91,16 +91,19 @@ namespace Sichun
 	void PlayScene::CreatePlayer()
 	{
 		{
-			_player = Object::Instantiate<Player>(Sichun::Enum::LayerType::Player, Vector2(150.0f, 380.0f));
+			_player = Object::Instantiate<Player>(Sichun::Enum::LayerType::Player, Vector2(150.0f, 350.0f));
 			_player->Init();
 		}
 		{
-			std::shared_ptr<GameObject>enemy = Object::Instantiate<GameObject>(Sichun::Enum::LayerType::Player, Vector2::Zero);
-			enemy->AddComponent <CircleCollider2D>();
-			enemy->GetComponent<CircleCollider2D>()->SetOffset(Vector2(-50, -50));
+			std::shared_ptr<GameObject>enemy = Object::Instantiate<GameObject>(Sichun::Enum::LayerType::Player, Vector2(150.0f, 380.0f));
+			enemy->AddComponent <BoxCollider2D>();
+			enemy->GetComponent<BoxCollider2D>()->SetSize(Vector2(10.0f, 0.2f));
+			enemy->GetComponent<BoxCollider2D>()->SetOffset(Vector2(-200.0f, 0.0f));
 		}
 		
 		CreateAnimation();
+
+		
 	}
 
 	void PlayScene::CreateBackGround()

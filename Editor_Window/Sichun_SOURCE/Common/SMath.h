@@ -30,6 +30,11 @@ namespace Sichun::math
 			}
 			return Vector2(0, 0);
 		}
+		static float Dot(const Vector2& lhs, const Vector2& rhs)
+		{
+			return lhs.x * rhs.x + lhs.y * rhs.y;
+		}
+
 		float Dot(const Vector2& other) const
 		{
 			return x * other.x + y * other.y;
@@ -90,6 +95,7 @@ namespace Sichun::math
 		}
 		Vector2& operator*=(float scalar) { x *= scalar; y *= scalar; return *this; }
 		Vector2& operator+=(const Vector2& rhs) { x += rhs.x; y += rhs.y; return *this; }
+		Vector2& operator-=(const Vector2& rhs) { x -= rhs.x; y -= rhs.y; return *this; }
 		bool operator==(const Vector2& other) const
 		{
 			return x == other.x && y == other.y;
@@ -99,7 +105,7 @@ namespace Sichun::math
 			return Vector2(-x, -y);
 		}
 	};
-
+	
 
 }
 

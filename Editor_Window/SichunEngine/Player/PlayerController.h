@@ -34,11 +34,11 @@ namespace  Sichun
 		CharacterState _state;
 		
 		std::shared_ptr<PlayerAnimation>_animation;
-	
-		
+		std::shared_ptr<RigidBody>_rb;
+			
 	private:
 		float _deathTime=10.0f;
-		 
+	 
 		float _speed =180.0f;
 		void CheckState();
 
