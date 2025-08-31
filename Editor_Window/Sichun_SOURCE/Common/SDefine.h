@@ -49,6 +49,7 @@ namespace  Sichun::Enum
 	};
 	enum  class UIType
 	{
+		None,
 		End,
 	};
 }
